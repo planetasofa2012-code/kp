@@ -1,0 +1,913 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Угловая кухня с пеналом</title>
+<meta name="description" content="Коммерческое предложение: проект, комплектации и опции">
+<style>html{color-scheme:light}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,500;7..72,600&family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#EEF0EC; --card:#FFFFFF; --soft:#F6F7F4; --ink:#1B201D; --muted:#5F6862;
+  --line:#D8DDD7; --acc:#2E5A4C; --acc-soft:#E3ECE7; --brass:#B68A2E; --brass-ink:#FFFFFF;
+  --shadow:0 1px 2px rgba(20,30,25,.06),0 8px 24px rgba(20,30,25,.06);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#131715; --card:#1B201D; --soft:#202622; --ink:#E6EAE6; --muted:#9BA59F;
+    --line:#2E3632; --acc:#8CC3AE; --acc-soft:#23332C; --brass:#D9AE52; --brass-ink:#1B1A14;
+    --shadow:none;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#131715; --card:#1B201D; --soft:#202622; --ink:#E6EAE6; --muted:#9BA59F;
+  --line:#2E3632; --acc:#8CC3AE; --acc-soft:#23332C; --brass:#D9AE52; --brass-ink:#1B1A14;
+  --shadow:none;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+.tier,.addon,.model{width:100%}
+h1,h2,p,li,dd{overflow-wrap:anywhere}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:"Golos Text",system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-size:16px; line-height:1.55;
+  padding-inline:16px; padding-block:0 120px;
+}
+.wrap{max-width:1040px;margin:0 auto;display:flex;flex-direction:column;gap:56px}
+h1,h2,h3{font-family:Literata,Georgia,serif;font-weight:600;margin:0;text-wrap:balance;letter-spacing:-.01em}
+h2{font-size:clamp(22px,3.4vw,28px);line-height:1.15}
+.label{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:500}
+.num{font-family:"JetBrains Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums}
+.lead{color:var(--muted);max-width:62ch;margin:6px 0 0}
+section{display:flex;flex-direction:column;gap:18px}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--brass);outline-offset:2px}
+
+/* ---------- шапка ---------- */
+header{padding-top:36px;display:flex;flex-direction:column;gap:14px}
+.who{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;align-items:baseline}
+.who .name{font-weight:600}
+.who .meta{color:var(--muted);font-size:14px}
+header h1{font-size:clamp(32px,6vw,52px);line-height:1.02}
+.facts{display:flex;flex-wrap:wrap;gap:10px 36px;border-top:1px solid var(--line);padding-top:14px}
+.facts div{display:flex;flex-direction:column}
+.facts b{font-size:17px;font-weight:600}
+.facts span{font-size:13px;color:var(--muted)}
+
+/* ---------- рендер с точками ---------- */
+.stage{position:relative;background:#fff;border:1px solid var(--line);border-radius:6px;overflow:hidden;box-shadow:var(--shadow)}
+.stage img{display:block;width:100%;height:auto}
+.spot{
+  position:absolute;transform:translate(-50%,-50%);
+  width:30px;height:30px;border-radius:50%;border:2px solid #fff;
+  background:var(--brass);color:var(--brass-ink);font-weight:600;font-size:18px;line-height:1;
+  display:grid;place-items:center;padding:0;
+  box-shadow:0 2px 8px rgba(0,0,0,.25);transition:transform .15s,background .15s;
+}
+.spot::after{content:"";position:absolute;inset:-7px;border-radius:50%;border:2px solid var(--brass);opacity:.55;animation:ping 2.2s ease-out infinite}
+.spot:hover{transform:translate(-50%,-50%) scale(1.12)}
+.spot[aria-pressed="true"]{background:var(--acc);color:#fff}
+.spot[aria-pressed="true"]::after{display:none}
+.spot.inc{background:#8B948F}
+.spot.inc::after{display:none}
+@keyframes ping{from{transform:scale(.8);opacity:.6}to{transform:scale(1.5);opacity:0}}
+.tip{
+  position:absolute;z-index:3;pointer-events:none;
+  background:var(--ink);color:var(--bg);border-radius:4px;padding:7px 10px;font-size:13.5px;line-height:1.35;
+  max-width:230px;box-shadow:0 4px 14px rgba(0,0,0,.2)
+}
+.tip b{display:block;font-weight:600}
+.views{display:flex;flex-wrap:wrap;gap:6px}
+.views button{background:var(--card);color:var(--muted);border:1px solid var(--line);border-radius:20px;padding:7px 14px;font-size:14px;font-weight:500}
+.views button[aria-selected="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.mats{margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.mats div{background:var(--card);padding:12px 16px;display:flex;flex-direction:column;gap:2px}
+.mats dt{font-size:13px;color:var(--muted)}
+.mats dd{margin:0;font-weight:500}
+.caption{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center;font-size:14px;color:var(--muted)}
+.dot{display:inline-block;width:12px;height:12px;border-radius:50%;vertical-align:-1px;margin-right:6px}
+
+/* ---------- виды проекта и материалы ---------- */
+state.view = KP.views[0].id;
+function drawViews(){
+  const v = KP.views.find(x => x.id === state.view);
+  $("render").src = v.img; $("render").alt = v.alt;
+  $("views").innerHTML = KP.views.map(x =>
+    `<button role="tab" aria-selected="${x.id===state.view}" data-v="${x.id}">${esc(x.label)}</button>`).join("");
+  $("views").querySelectorAll("[data-v]").forEach(b => b.addEventListener("click", () => { state.view = b.dataset.v; update(); }));
+}
+const mats = (KP.materials || []).filter(([, v]) => v);
+if (mats.length) $("mats").innerHTML = mats.map(([k,v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join("");
+else $("matSec").hidden = true;
+
+/* ---------- комплектации ---------- */
+.tiers{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;align-items:stretch}
+@media (max-width:1000px){.tiers{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:820px){.tiers{grid-template-columns:1fr}}
+.tier{
+  text-align:left;color:inherit;background:var(--card);border:1px solid var(--line);border-radius:6px;
+  padding:20px;display:flex;flex-direction:column;gap:12px;box-shadow:var(--shadow);transition:border-color .15s
+}
+.tier:hover{border-color:var(--muted)}
+.tier[aria-checked="true"]{border:2px solid var(--acc);padding:19px;background:var(--card)}
+.tier .top{display:flex;justify-content:space-between;align-items:center;gap:10px;min-height:24px}
+.tier .tag{font-size:12px;font-weight:500;background:var(--acc-soft);color:var(--acc);padding:3px 9px;border-radius:20px}
+.tier .radio{width:20px;height:20px;border-radius:50%;border:2px solid var(--line);flex:none;display:grid;place-items:center}
+.tier[aria-checked="true"] .radio{border-color:var(--acc)}
+.tier[aria-checked="true"] .radio::after{content:"";width:10px;height:10px;border-radius:50%;background:var(--acc)}
+.tier h3{font-size:22px}
+.tier .price{font-size:26px;font-weight:500;letter-spacing:-.02em}
+.tier .sub{font-size:14px;color:var(--muted);margin:0}
+.tier ul{margin:0;padding:12px 0 0;border-top:1px solid var(--line);list-style:none;display:flex;flex-direction:column;gap:7px;font-size:14.5px}
+.tier li{padding-left:18px;position:relative}
+.tier li::before{content:"";position:absolute;left:2px;top:.62em;width:7px;height:7px;border-radius:50%;background:var(--acc);opacity:.75}
+
+/* ---------- таблица сравнения ---------- */
+details.cmp{background:var(--card);border:1px solid var(--line);border-radius:6px}
+details.cmp summary{cursor:pointer;padding:14px 18px;font-weight:500;list-style-position:inside}
+.tw{overflow-x:auto;border-top:1px solid var(--line)}
+table{width:100%;border-collapse:collapse;font-size:14.5px;min-width:640px}
+th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:500}
+td:first-child{color:var(--muted);width:20%}
+td.on,th.on{background:var(--acc-soft)}
+tr:last-child td{border-bottom:none}
+details.con{background:transparent}
+details.con summary{color:var(--muted);font-size:14.5px}
+.con-in{border-top:1px solid var(--line);padding:14px;display:flex;flex-direction:column;gap:12px}
+.con-in .lead{font-size:14px}
+
+/* ---------- опции ---------- */
+.addons{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media (max-width:680px){.addons{grid-template-columns:1fr}}
+.addon{
+  text-align:left;color:inherit;background:var(--card);border:1px solid var(--line);border-radius:6px;
+  padding:14px 16px;display:grid;grid-template-columns:auto 1fr auto;gap:4px 14px;align-items:start;transition:border-color .15s
+}
+.addon:hover{border-color:var(--muted)}
+.addon .box{width:22px;height:22px;border-radius:4px;border:2px solid var(--line);display:grid;place-items:center;margin-top:1px;grid-row:span 2}
+.addon[aria-pressed="true"]{border-color:var(--acc);background:var(--acc-soft)}
+.addon[aria-pressed="true"] .box{background:var(--acc);border-color:var(--acc)}
+.addon[aria-pressed="true"] .box::after{content:"";width:6px;height:11px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg) translate(-1px,-1px)}
+.addon .t{font-weight:500}
+.addon .p{white-space:nowrap;font-size:15px}
+.addon .d{grid-column:2 / 4;font-size:13.5px;color:var(--muted)}
+.addon.inc{cursor:default;background:var(--soft)}
+.addon.inc .box{border-style:dashed}
+.addon.inc .p{color:var(--acc);font-family:"Golos Text",sans-serif;font-size:13.5px;font-weight:500}
+.addon.choice{grid-column:1 / -1}
+.tx{display:flex;flex-direction:column;gap:10px;background:var(--acc-soft);border-radius:6px;padding:14px}
+.tx h3{font-family:"Golos Text",sans-serif;font-size:15px;font-weight:600;color:var(--acc)}
+.pickbar{grid-column:1 / -1;display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:10px}
+.pickbar .mini{display:flex;align-items:center;gap:10px;flex:1 1 220px;min-width:0}
+.pickbar .mini img{width:64px;height:48px;object-fit:contain;background:#fff;border:1px solid var(--line);border-radius:4px;flex:none}
+.pickbar .mini small{color:var(--muted)}
+.pbtn{background:var(--ink);color:var(--bg);border:none;border-radius:4px;padding:9px 14px;font-size:14px;font-weight:500}
+.pbtn.ghost{background:transparent;color:var(--muted);border:1px solid var(--line)}
+.mtabs{grid-column:1 / -1;display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.mtabs button{background:var(--card);color:var(--muted);border:1px solid var(--line);border-radius:20px;padding:6px 12px;font-size:13.5px;font-weight:500}
+.mtabs button span{opacity:.6;font-weight:400}
+.mtabs button[aria-selected="true"]{background:var(--acc);color:#fff;border-color:var(--acc)}
+.models{grid-column:1 / -1;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:10px}
+@media (max-width:680px){.models{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.model{text-align:left;color:inherit;background:var(--card);border:1px solid var(--line);border-radius:5px;padding:0 0 10px;display:flex;flex-direction:column;gap:2px;overflow:hidden}
+.model:hover{border-color:var(--muted)}
+.model[aria-pressed="true"]{border:2px solid var(--acc);padding-bottom:9px}
+.model .ph{display:block;background:#fff;aspect-ratio:4 / 3;margin-bottom:6px}
+.model img{width:100%;height:100%;object-fit:contain;display:block}
+.model .mn,.model .mt,.model .mp{padding-inline:10px}
+.model .mn{font-weight:500;font-size:14.5px}
+.model .mt{font-size:13px;color:var(--muted)}
+.model .mp{font-size:14px;margin-top:2px}
+.addon .step{grid-column:2 / 4;display:flex;align-items:center;gap:12px;margin-top:6px}
+.addon .step button{width:34px;height:34px;border-radius:4px;border:1px solid var(--line);background:var(--card);color:var(--ink);font-size:18px;line-height:1;padding:0}
+.addon .step button:hover{border-color:var(--muted)}
+.addon .step b{font-weight:500;font-size:14.5px;min-width:90px}
+.addon .n{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:var(--brass);color:var(--brass-ink);font-size:11.5px;font-weight:600;margin-right:6px;vertical-align:1px}
+
+/* ---------- условия ---------- */
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px}
+.inc-list{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px}
+.inc-list li{display:flex;gap:10px}
+.inc-list li::before{content:none}
+.pay{display:flex;flex-direction:column;gap:12px}
+.pay div{display:grid;grid-template-columns:64px 1fr;gap:12px;align-items:baseline}
+.pay b{font-size:20px;font-weight:500}
+.pay span{color:var(--muted);font-size:14.5px}
+.note{background:var(--soft);border:1px solid var(--line);border-radius:6px;padding:14px 16px;font-size:14.5px;color:var(--muted)}
+.note b{color:var(--ink);font-weight:500}
+.links{display:flex;flex-wrap:wrap;gap:8px}
+.tg{align-self:flex-start;background:var(--acc-soft);color:var(--acc);text-decoration:none;font-weight:500;font-size:14.5px;padding:8px 14px;border-radius:20px}
+.tg:hover{text-decoration:underline}
+footer a{color:var(--acc)}
+footer{border-top:1px solid var(--line);padding-top:18px;color:var(--muted);font-size:14px;display:flex;flex-direction:column;gap:6px}
+
+/* ---------- итог внизу ---------- */
+.total{
+  position:fixed;left:0;right:0;bottom:0;z-index:10;
+  background:var(--card);border-top:1px solid var(--line);box-shadow:0 -6px 24px rgba(20,30,25,.08);
+  padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px));
+}
+.total .in{max-width:1040px;margin:0 auto;display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center;justify-content:space-between}
+.total .what{font-size:14px;color:var(--muted);min-width:0;flex:1 1 280px}
+.total .what b{color:var(--ink);font-weight:500}
+.total .sum{display:flex;align-items:baseline;gap:14px}
+.total .big{font-size:clamp(22px,4vw,28px);font-weight:500;letter-spacing:-.02em}
+.total .copy{background:var(--acc);color:#fff;border:none;border-radius:4px;padding:10px 16px;font-weight:500;font-size:14.5px}
+:root[data-theme="dark"] .total .copy{color:#10201A}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .total .copy{color:#10201A}}
+/* ---------- телефон ---------- */
+@media (max-width:560px){
+  body{font-size:15.5px;padding-block:0 150px}
+  .wrap{gap:40px}
+  header{padding-top:24px}
+  .facts{gap:10px 22px}
+  .stage{border-radius:4px;margin-inline:-6px}
+  .spot{width:26px;height:26px;font-size:13px}
+  .spot::after{inset:-5px}
+  .tip{font-size:13px;max-width:200px}
+  .views{display:flex;flex-wrap:wrap;gap:6px}
+.views button{background:var(--card);color:var(--muted);border:1px solid var(--line);border-radius:20px;padding:7px 14px;font-size:14px;font-weight:500}
+.views button[aria-selected="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.mats{margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.mats div{background:var(--card);padding:12px 16px;display:flex;flex-direction:column;gap:2px}
+.mats dt{font-size:13px;color:var(--muted)}
+.mats dd{margin:0;font-weight:500}
+.caption{font-size:13px;flex-direction:column;align-items:flex-start;gap:4px}
+  .tier{padding:16px}
+  .tier[aria-checked="true"]{padding:15px}
+  .tier .price{font-size:23px}
+  .addon{padding:12px 14px;gap:4px 12px}
+  .addon .p{font-size:14px}
+  .total{padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px))}
+  .total .in{gap:6px 12px}
+  .total .what{font-size:12.5px;line-height:1.4;flex-basis:100%;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .total .sum{width:100%;justify-content:space-between}
+  .total .copy{padding:10px 14px;font-size:14px}
+}
+.bump{animation:bump .35s ease}
+@keyframes bump{50%{transform:scale(1.04)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<div class="wrap">
+
+<header>
+  <div class="who">
+    <span><span class="name" id="master"></span> <span class="meta" id="masterSub"></span></span>
+    <span class="meta" id="date"></span>
+  </div>
+  <h1 id="title"></h1>
+  <p class="lead" id="intro" style="margin:0"></p>
+  <div class="facts" id="facts"></div>
+  <div class="links"><a class="tg" id="tg" target="_blank" rel="noopener"></a><a class="tg" id="ig" target="_blank" rel="noopener"></a><a class="tg" id="vk" target="_blank" rel="noopener"></a></div>
+</header>
+
+<section>
+  <div>
+    <span class="label">Ваш проект</span>
+    <h2>👆 Нажмите на точку — посмотрите, что можно добавить</h2>
+  </div>
+  <div class="views" id="views" role="tablist" aria-label="Вид проекта"></div>
+  <div class="stage" id="stage">
+    <img id="render" src="" alt="">
+    <div class="tip" id="tip" hidden></div>
+  </div>
+  <div class="caption">
+    <span><i class="dot" style="background:var(--brass)"></i>можно добавить</span>
+    <span><i class="dot" style="background:var(--acc)"></i>добавлено</span>
+    <span><i class="dot" style="background:#8B948F"></i>уже входит в выбранную комплектацию</span>
+  </div>
+</section>
+
+<section id="matSec">
+  <div>
+    <span class="label">Материалы</span>
+    <h2>🧱 Из чего сделана кухня</h2>
+  </div>
+  <dl class="mats" id="mats"></dl>
+</section>
+
+<section>
+  <div>
+    <span class="label">Шаг 1</span>
+    <h2>✅ Выберите комплектацию</h2>
+    <p class="lead">Размеры и проект одинаковые во всех вариантах. Отличаются фасады, столешница и то, чем кухня открывается и закрывается каждый день.</p>
+  </div>
+  <div class="tiers" id="tiers" role="radiogroup" aria-label="Комплектация"></div>
+  <details class="cmp">
+    <summary>📋 Сравнить построчно</summary>
+    <div class="tw"><table id="cmp"></table></div>
+  </details>
+</section>
+
+<section>
+  <div>
+    <span class="label">Шаг 2</span>
+    <h2>➕ Добавьте то, что нужно вам</h2>
+    <p class="lead">Цена пересчитывается сразу. Номер у опции совпадает с точкой на проекте.</p>
+  </div>
+  <div id="tierExtrasWrap" class="tx">
+    <h3 id="tierExtrasTitle"></h3>
+    <div class="addons" id="tierExtras"></div>
+  </div>
+  <div class="addons" id="addons"></div>
+  <details class="cmp con">
+    <summary>🔌 Подключение техники</summary>
+    <div class="con-in">
+      <p class="lead" style="margin:0">Обычно подключение делает ваш электрик и сантехник. Если удобнее, чтобы это сделал я, отметьте нужное. К цене работы добавляется стоимость материалов по чеку из магазина.</p>
+      <div class="addons" id="addonsCon"></div>
+    </div>
+  </details>
+  <details class="cmp con" id="rareWrap">
+    <summary>🧩 Редкие опции</summary>
+    <div class="con-in">
+      <div class="addons" id="addonsRare"></div>
+    </div>
+  </details>
+</section>
+
+<section>
+  <div class="cols">
+    <div>
+      <span class="label">В любой комплектации</span>
+      <h2 style="margin:6px 0 14px">🧰 Уже в цене</h2>
+      <ul class="inc-list" id="included"></ul>
+    </div>
+    <div>
+      <span class="label">Срок и оплата</span>
+      <h2 style="margin:6px 0 14px" id="term"></h2>
+      <div class="pay" id="pay"></div>
+    </div>
+  </div>
+  <p class="note" id="notIncl"></p>
+</section>
+
+<footer id="foot"></footer>
+</div>
+
+<div class="total" role="region" aria-label="Итог">
+  <div class="in">
+    <div class="what" id="what"></div>
+    <div class="sum">
+      <span class="big num" id="big" aria-live="polite"></span>
+      <button class="copy" id="copy">Скопировать выбор</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* =====================================================================
+   НАСТРОЙКИ КП — всё, что меняется от клиента к клиенту, здесь.
+   Для шкафа, прихожей и т.д.: поменяй тексты, строки ROWS, комплектации,
+   опции и координаты точек (x, y — проценты от ширины/высоты картинки).
+   ===================================================================== */
+const KP = {
+  client: "",                                   // ← ИМЯ КЛИЕНТА
+  title: "Угловая кухня с пеналом для продуктов",
+  intro: "Проект по вашим размерам: угловая кухня, рядом с холодильником — пенал для продуктов, над холодильником антресоль, встроенные духовка и варочная панель. Посмотрите проект с фасадами и без них, выберите комплектацию и добавьте нужные опции.",
+  date: "27 сентября 2026",
+
+  // виды проекта: переключаются вкладками над картинкой
+  views: [
+    { id:"f",   label:"С фасадами",   img:"k2-fasady.png",      alt:"Проект кухни с фасадами" },
+    { id:"nf",  label:"Без фасадов",  img:"k2-bez-fasadov.png", alt:"Проект кухни без фасадов: наполнение шкафов" },
+    { id:"open", label:"Двери открыты", img:"k2-otkryvanie.png", alt:"Проект кухни с открытыми дверцами и ящиком: видно наполнение и открывание" },
+    { id:"dim", label:"Размеры",      img:"k2-razmery.png",     alt:"Проект кухни с размерами модулей" }
+  ],
+
+  // материалы и декоры этого проекта (одинаковые для всех комплектаций)
+  materials: [
+    ["Фасады",     "Eterno — влагостойкий МДФ 18 мм, покрыт пластиком с двух сторон, кромка ABS в цвет фасада"],
+    ["Корпус",     "ЛДСП Томлесдрев или Югра-Плит, однотонная: белый, серый, «Тэфи». В Оптимальной и Максимальной — Egger или Lamarty, любой цвет"],
+    ["Ящики",      "На скрытых направляющих: механизм спрятан под дном ящика. Держат тяжёлые кастрюли и посуду, ящик не провисает и не разбалтывается со временем, как на роликовых и шариковых направляющих. Исключение — один ящик на шариковых направляющих с доводчиком"],
+    ["Столешница", "«Форма и стиль»: Egger 38 мм, в Максимальной — Слотекс"],
+    ["Декор",      ""]                            // ← названия цветов, когда определитесь
+  ],
+  master: "Александр Самосудов",
+  masterSub: "· кухни и корпусная мебель, Новосибирск",
+  facts: [
+    ["16 лет", "делаю мебель"],
+    ["Сам", "проект, сборка и монтаж"],
+    ["Свой сборочный цех", "детали на станках ЧПУ"]
+  ],
+
+  // строки сравнения комплектаций
+  rows: [
+    ["facade",  "Фасады"],
+    ["corpus",  "Корпус"],
+    ["counter", "Столешница"],
+    ["open",    "Открывание"],
+    ["hinge",   "Петли"],
+    ["drawer",  "Ящики"],
+    ["plinth",  "Цоколь"],
+    ["fill",    "Наполнение"],
+    ["light",   "Подсветка"]
+  ],
+
+  // Цены — по таблице «расчет кухни.xlsx» (рабочий стол, 27.09.2026 16:28): себестоимость × 2 + логистика 6 000.
+  // Стартовая: таблица как есть, 103 300 (сушка Россия, 3 скрытых + 1 шариковый ящик с доводчиком). Базовая: + подсветка 6 000.
+  // Оптимальная: + 3 ящика Hissen «скрытый ящик» (3 000 вместо 1 100), корпус Egger 6 листов.
+  // Максимальная: + Blum Tandembox низкий ×3, Слотекс премиум, петли Blum ×10, сушка Италия 8 000 вместо 3 000, подсветка 8 модулей по 4 000.
+  // Цоколь МДФ и профиль-ручка — «рассчитаю дополнительно», в цену не входят.
+  tiers: [
+    { id:"min", name:"Стартовая", price:212600,
+      sub:"Всё необходимое на надёжной фурнитуре",
+      short:["Фасады Eterno: МДФ в пластике","Столешница «Форма и стиль», Egger 38 мм","Ящики на скрытых направляющих","Петли GTV или Samet с доводчиком"],
+      spec:{
+        facade:"Eterno: МДФ 18 мм в пластике, кромка в цвет", corpus:"ЛДСП Томлесдрев или Югра-Плит, однотонная",
+        counter:"«Форма и стиль», Egger 38 мм", open:"Верх: фасады занижены на 15 мм под хват, без ручек. Низ: ручки-скобы",
+        hinge:"GTV или Samet, с доводчиком", drawer:"Скрытые направляющие с доводчиком. Один ящик — на шариковых направляющих с доводчиком", plinth:"Пластиковый, серый или близкий к цвету фасадов",
+        fill:"Сушка Россия: толстый пруток, не ржавеет. Пластиковый лоток для приборов",
+        light:"Нет, можно добавить"
+      }},
+    { id:"base", name:"Базовая", price:224600,
+      sub:"Всё из Стартовой и подсветка рабочей зоны",
+      short:["Всё из Стартовой","Лента SWG, нейтральный свет","Подсветка рабочей зоны","Включение взмахом руки"],
+      spec:{
+        facade:"Eterno: МДФ 18 мм в пластике, кромка в цвет", corpus:"ЛДСП Томлесдрев или Югра-Плит, однотонная",
+        counter:"«Форма и стиль», Egger 38 мм", open:"Верх: фасады занижены на 15 мм под хват, без ручек. Низ: ручки-скобы",
+        hinge:"GTV или Samet, с доводчиком", drawer:"Скрытые направляющие с доводчиком. Один ящик — на шариковых направляющих с доводчиком", plinth:"Пластиковый, серый или близкий к цвету фасадов",
+        fill:"Сушка Россия: толстый пруток, не ржавеет. Пластиковый лоток для приборов",
+        light:"Рабочая зона: лента SWG, нейтральный свет, накладной профиль, датчик взмаха руки"
+      }},
+    { id:"opt", name:"Оптимальная", tag:"Чаще всего выбирают", price:266000,
+      sub:"Ящики Hissen, цоколь в цвет и наполнение получше",
+      short:["Всё из Базовой","Ящики с металлическими стенками Hissen","Цоколь МДФ в цвет фасадов (расчёт отдельно)","Корпус Egger или Lamarty, любой цвет"],
+      spec:{
+        facade:"Eterno: МДФ 18 мм в пластике, кромка в цвет", corpus:"ЛДСП Egger или Lamarty, любой цвет",
+        counter:"«Форма и стиль», Egger 38 мм", open:"Верх: фасады занижены на 15 мм под хват, без ручек. Низ: ручки-скобы",
+        hinge:"GTV или Samet, с доводчиком", drawer:"Hissen: металлические стенки, скрытые направляющие с доводчиком. Один ящик — на шариковых направляющих с доводчиком", plinth:"МДФ в цвет фасадов — рассчитаю дополнительно",
+        fill:"Сушка Россия: толстый пруток, не ржавеет. Пластиковый лоток для приборов",
+        light:"Рабочая зона: лента SWG, нейтральный свет, накладной профиль, датчик взмаха руки"
+      }},
+    { id:"prem", name:"Максимальная", price:350400,
+      sub:"Слотекс, ящики Blum и подсветка всех шкафов",
+      short:["Всё из Оптимальной","Столешница «Форма и стиль», Слотекс","Ящики Blum Tandembox","Подсветка внутри всех шкафов"],
+      spec:{
+        facade:"Eterno: МДФ 18 мм в пластике, кромка в цвет", corpus:"ЛДСП Egger или Lamarty, любой цвет",
+        counter:"«Форма и стиль», Слотекс. Акриловый камень, кварц или компакт-плита — рассчитываю отдельно", open:"Верх: профиль-ручка, врезанный фрезеровкой в дно шкафа — рассчитаю дополнительно. Низ: ручки-скобы",
+        hinge:"Blum, с доводчиком", drawer:"Blum Tandembox: металлические стенки, скрытые направляющие с доводчиком. Один ящик — на шариковых направляющих с доводчиком", plinth:"МДФ в цвет фасадов — рассчитаю дополнительно",
+        fill:"Сушка Италия, пластиковый лоток для приборов",
+        light:"Рабочая зона: лента SWG, нейтральный свет, профиль врезан фрезеровкой в дно шкафа заподлицо, датчик взмаха руки. Внутри шкафов: 8 модулей, кроме мойки и ящика под духовкой"
+      }}
+  ],
+  defaultTier: "min",
+
+  // опции: spot — точка на картинке: v — вид (id из views), x, y — проценты; spot:null — только в списке
+  // inc — в каких комплектациях опция уже входит
+  // price:null — цена оговаривается отдельно, в сумму не входит
+  // from:true — цена «от»; group:"connect" — в свёрнутом блоке «Подключение техники»
+  // unit — считается поштучно (кнопки − +); bulk — цена за штуку от N штук
+  addons: [
+    { id:"sink", name:"Мойка", spot:{v:"f",x:61,y:56},
+      desc:"Мойки Florentina из литьевого мрамора и Hissen из нержавеющей стали. Подберу под столешницу, привезу и врежу",
+      choice:[
+        { id:"kardinal-450", g:"Кардинал", name:"Кардинал 450", note:"1 чаша, без крыла · 450×500 мм · тумба от 450", price:6132, img:"fl/s-kardinal-450.jpg" },
+        { id:"kardinal-570", g:"Кардинал", name:"Кардинал 570", note:"1 чаша, без крыла · 570×500 мм · тумба от 600", price:6876, img:"fl/s-kardinal-570.jpg" },
+        { id:"kardinal-640", g:"Кардинал", name:"Кардинал 640", note:"1 чаша, с крылом · 640×500 мм · тумба от 500", price:7437, img:"fl/s-kardinal-640.jpg" },
+        { id:"kardinal-760", g:"Кардинал", name:"Кардинал 760", note:"1 чаша, с крылом · 760×500 мм · тумба от 500", price:7990, img:"fl/s-kardinal-760.jpg" },
+        { id:"kardinal-840", g:"Кардинал", name:"Кардинал 840", note:"1 чаша, с крылом · 840×500 мм · тумба от 600", price:8920, img:"fl/s-kardinal-840.jpg" },
+        { id:"konsul-450", g:"Консул", name:"Консул 450", note:"1 чаша, без крыла · 450×500 мм · тумба от 450", price:9293, img:"fl/s-konsul-450.jpg" },
+        { id:"konsul-570", g:"Консул", name:"Консул 570", note:"1 чаша, без крыла · 570×500 мм · тумба от 600", price:10966, img:"fl/s-konsul-570.jpg" },
+        { id:"konsul-640", g:"Консул", name:"Консул 640", note:"1 чаша, с крылом · 640×500 мм · тумба от 500", price:11987, img:"fl/s-konsul-640.jpg" },
+        { id:"konsul-760", g:"Консул", name:"Консул 760", note:"1 чаша, с крылом · 760×500 мм · тумба от 500", price:12452, img:"fl/s-konsul-760.jpg" },
+        { id:"konsul-840", g:"Консул", name:"Консул 840", note:"1 чаша, с крылом · 840×500 мм · тумба от 600", price:13943, img:"fl/s-konsul-840.jpg" },
+        { id:"lipsi-460", g:"Липси", name:"Липси 460", note:"1 чаша, без крыла · 460×510 мм · тумба от 450", price:9293, img:"fl/s-lipsi-460.jpg" },
+        { id:"lipsi-510", g:"Липси", name:"Липси 510", note:"1 чаша, без крыла · 510×510 мм · тумба от 500", price:9850, img:"fl/s-lipsi-510.jpg" },
+        { id:"lipsi-600", g:"Липси", name:"Липси 600", note:"1 чаша, без крыла · 600×510 мм · тумба от 600", price:10966, img:"fl/s-lipsi-600.jpg" },
+        { id:"lipsi-650", g:"Липси", name:"Липси 650", note:"1 чаша, с крылом · 650×510 мм · тумба от 500", price:11987, img:"fl/s-lipsi-650.jpg" },
+        { id:"lipsi-780-xl", g:"Липси", name:"Липси 780 Xl", note:"1 чаша, с крылом · 780×510 мм · тумба от 600", price:12443, img:"fl/s-lipsi-780-xl.jpg" },
+        { id:"lipsi-760", g:"Липси", name:"Липси 760", note:"1 чаша, с крылом · 760×510 мм · тумба от 500", price:12452, img:"fl/s-lipsi-760.jpg" },
+        { id:"lipsi-780", g:"Липси", name:"Липси 780", note:"1 чаша, с крылом · 780×510 мм · тумба от 500", price:12824, img:"fl/s-lipsi-780.jpg" },
+        { id:"lipsi-860", g:"Липси", name:"Липси 860", note:"1 чаша, с крылом · 860×510 мм · тумба от 600", price:13943, img:"fl/s-lipsi-860.jpg" },
+        { id:"lipsi-770", g:"Липси", name:"Липси 770", note:"1 чаша, без крыла · 770×510 мм · тумба от 800", price:14311, img:"fl/s-lipsi-770.jpg" },
+        { id:"lipsi-820", g:"Липси", name:"Липси 820", note:"2 чаши, без крыла · 820×510 мм · тумба от 800", price:15798, img:"fl/s-lipsi-820.jpg" },
+        { id:"berta-620", g:"Другие", name:"Берта 620", note:"1 чаша, с крылом · 620×490 мм · тумба от 450", price:5946, img:"fl/s-berta-620.jpg" },
+        { id:"astra-620k", g:"Другие", name:"Астра 620К", note:"1,5 чаши, без крыла · 620×510 мм · тумба от 600", price:7711, img:"fl/s-astra-620k.jpg" },
+        { id:"adel-780", g:"Другие", name:"Адель 780", note:"1 чаша, с крылом · 780×510 мм · тумба от 500", price:8024, img:"fl/s-adel-780.jpg" },
+        { id:"astra-760k", g:"Другие", name:"Астра 760К", note:"1,5 чаши, с крылом · 760×510 мм · тумба от 600", price:9105, img:"fl/s-astra-760k.jpg" },
+        { id:"astra-780", g:"Другие", name:"Астра 780", note:"2 чаши, без крыла · 780×510 мм · тумба от 800", price:9788, img:"fl/s-astra-780.jpg" },
+        { id:"onega-60", g:"Нержавейка Hissen", name:"Hissen Онега 60", note:"1 чаша, без крыла · 600×450 мм · сталь SUS 304 · тумба от 600", price:8186, img:"fl/h-onega-60.jpg" },
+        { id:"ladoga-53", g:"Нержавейка Hissen", name:"Hissen Ладога 53", note:"1 чаша, без крыла · 530×430 мм · в комплекте корзина и дозатор · тумба от 600", price:8544, img:"fl/h-ladoga-53.jpg" },
+        { id:"onega-50", g:"Нержавейка Hissen", name:"Hissen Онега 50", note:"1 чаша, квадратная · 500×500 мм · сталь SUS 304 · тумба от 500", price:13124, img:"fl/h-onega-50.jpg" },
+        { id:"ilmen-65", g:"Нержавейка Hissen", name:"Hissen Ильмень 65", note:"1 чаша, с крылом · 650×510 мм · в комплекте корзина и дозатор · тумба от 400", price:16680, img:"fl/h-ilmen-65.jpg" }
+      ] },
+    { id:"mixer", name:"Смеситель", spot:{v:"f",x:54,y:50},
+      desc:"Смесители Florentina. «Под фильтр» — с отдельным краном для питьевой воды",
+      choice:[
+        { id:"tara", g:"Обычные", name:"Тара", note:"Классический излив, высота 123 мм · латунь", price:4459, img:"fl/f-tara.jpg" },
+        { id:"nota", g:"Обычные", name:"Нота", note:"Классический излив, высота 123 мм · латунь", price:4552, img:"fl/f-nota.jpg" },
+        { id:"rondo", g:"Обычные", name:"Рондо", note:"Классический излив, высота 198 мм · латунь", price:5362, img:"fl/f-rondo.jpg" },
+        { id:"mira", g:"Обычные", name:"Мира", note:"Классический излив, высота 198 мм · латунь", price:5400, img:"fl/f-mira.jpg" },
+        { id:"solo", g:"Обычные", name:"Соло", note:"J-образный излив, высота 257 мм · нержавейка", price:5769, img:"fl/f-solo.jpg" },
+        { id:"lira", g:"Обычные", name:"Лира", note:"L-образный излив, высота 269 мм · нержавейка", price:6281, img:"fl/f-lira.jpg" },
+        { id:"fabio", g:"Обычные", name:"Фабио", note:"L-образный излив, высота 269 мм · нержавейка", price:6350, img:"fl/f-fabio.jpg" },
+        { id:"juna", g:"Обычные", name:"Юна", note:"J-образный излив, высота 257 мм · нержавейка", price:6516, img:"fl/f-juna.jpg" },
+        { id:"sonata", g:"Обычные", name:"Соната", note:"Классический излив, высота 120 мм · латунь", price:6534, img:"fl/f-sonata.jpg" },
+        { id:"gamma", g:"Обычные", name:"Гамма", note:"Классический излив, высота 147 мм · латунь", price:6640, img:"fl/f-gamma.jpg" },
+        { id:"omega", g:"Обычные", name:"Омега", note:"Классический излив, высота 235 мм · латунь", price:6698, img:"fl/f-omega.jpg" },
+        { id:"sigma", g:"Обычные", name:"Сигма", note:"Классический излив, высота 120 мм · латунь", price:6861, img:"fl/f-sigma.jpg" },
+        { id:"alfa", g:"Обычные", name:"Альфа", note:"J-образный излив, высота 250 мм · латунь", price:6894, img:"fl/f-alfa.jpg" },
+        { id:"oda", g:"Обычные", name:"Ода", note:"L-образный излив, высота 220 мм · латунь", price:8100, img:"fl/f-oda.jpg" },
+        { id:"delta", g:"Обычные", name:"Дельта", note:"L-образный излив, высота 280 мм · нержавейка", price:8272, img:"fl/f-delta.jpg" },
+        { id:"fita", g:"Обычные", name:"Фита", note:"Классический излив, высота 215 мм · латунь", price:10900, img:"fl/f-fita.jpg" },
+        { id:"klio-pro", g:"Обычные", name:"Клио Pro", note:"J-образный излив, высота 250 мм · нержавейка", price:11013, img:"fl/f-klio-pro.jpg" },
+        { id:"vita-pro", g:"Обычные", name:"Вита Pro", note:"J-образный излив, высота 212 мм · нержавейка", price:12529, img:"fl/f-vita-pro.jpg" },
+        { id:"palermo", g:"Обычные", name:"Палермо", note:"L-образный излив, высота 290 мм · нержавейка", price:13400, img:"fl/f-palermo.jpg" },
+        { id:"shale", g:"Под фильтр", name:"Шале", note:"J-образный излив, высота 290 мм · латунь", price:8982, img:"fl/f-shale.jpg" },
+        { id:"klio", g:"Под фильтр", name:"Клио", note:"J-образный излив, высота 275 мм · нержавейка", price:9087, img:"fl/f-klio.jpg" },
+        { id:"aktsent", g:"Под фильтр", name:"Акцент", note:"L-образный излив, высота 313 мм · нержавейка", price:10139, img:"fl/f-aktsent.jpg" },
+        { id:"aldo", g:"Под фильтр", name:"Альдо", note:"L-образный излив, высота 313 мм · нержавейка", price:10300, img:"fl/f-aldo.jpg" },
+        { id:"ares", g:"Под фильтр", name:"Арес", note:"L-образный излив, высота 300 мм · латунь", price:11013, img:"fl/f-ares.jpg" },
+        { id:"arija", g:"Под фильтр", name:"Ария", note:"L-образный излив, высота 220 мм · латунь · два рычага", price:12000, img:"fl/f-arija.jpg" },
+        { id:"kristall", g:"Под фильтр", name:"Кристалл", note:"L-образный излив, высота 295 мм · нержавейка", price:16169, img:"fl/f-kristall.jpg" },
+        { id:"maestro", g:"Под фильтр", name:"Маэстро", note:"J-образный излив, высота 185 мм · нержавейка", price:16400, img:"fl/f-maestro.jpg" }
+      ] },
+    { id:"tray", group:"rare", name:"Поддон под мойку", spot:null,
+      desc:"Защищает дно шкафа от воды, если подтечёт сифон. Размер — по ширине шкафа под мойкой",
+      choice:[
+        { id:"alyuminievyy-poddon-v-shkaf-450mm-dlya-y-1", g:"Алюминий", name:"Поддон 450 мм", note:"для шкафа 450 мм · алюминий", price:1277, img:"fl/pd-01.jpg" },
+        { id:"alyuminievyy-poddon-v-shkaf-500mm-dlya-y-2", g:"Алюминий", name:"Поддон 500 мм", note:"для шкафа 500 мм · алюминий", price:1315, img:"fl/pd-02.jpg" },
+        { id:"alyuminievyy-poddon-v-shkaf-600mm-dlya-y-3", g:"Алюминий", name:"Поддон 600 мм", note:"для шкафа 600 мм · алюминий", price:1456, img:"fl/pd-01.jpg" },
+        { id:"alyuminievyy-poddon-v-shkaf-700mm-dlya-y-4", g:"Алюминий", name:"Поддон 700 мм", note:"для шкафа 700 мм · алюминий", price:1578, img:"fl/pd-04.jpg" },
+        { id:"alyuminievyy-poddon-v-shkaf-800mm-dlya-y-5", g:"Алюминий", name:"Поддон 800 мм", note:"для шкафа 800 мм · алюминий", price:1810, img:"fl/pd-01.jpg" },
+        { id:"alyuminievyy-poddon-v-shkaf-900mm-dlya-y-6", g:"Алюминий", name:"Поддон 900 мм", note:"для шкафа 900 мм · алюминий", price:2069, img:"fl/pd-01.jpg" },
+        { id:"alyuminievyy-poddon-v-shkaf-1000mm-dlya--0", g:"Алюминий", name:"Поддон 1000 мм", note:"для шкафа 1000 мм · алюминий", price:2088, img:"fl/pd-01.jpg" },
+        { id:"alyuminievyy-poddon-v-shkaf-450mm-dlya-y-15", g:"Алюминий графит", name:"Поддон 450 мм", note:"для шкафа 450 мм · алюминий, цвет графит", price:1365, img:"fl/pd-15.jpg" },
+        { id:"alyuminievyy-poddon-v-shkaf-500mm-dlya-y-16", g:"Алюминий графит", name:"Поддон 500 мм", note:"для шкафа 500 мм · алюминий, цвет графит", price:1479, img:"fl/pd-16.jpg" },
+        { id:"alyuminievyy-poddon-v-shkaf-600mm-dlya-y-17", g:"Алюминий графит", name:"Поддон 600 мм", note:"для шкафа 600 мм · алюминий, цвет графит", price:1639, img:"fl/pd-17.jpg" },
+        { id:"alyuminievyy-poddon-v-shkaf-700mm-dlya-y-18", g:"Алюминий графит", name:"Поддон 700 мм", note:"для шкафа 700 мм · алюминий, цвет графит", price:1929, img:"fl/pd-18.jpg" },
+        { id:"alyuminievyy-poddon-v-shkaf-800mm-dlya-y-19", g:"Алюминий графит", name:"Поддон 800 мм", note:"для шкафа 800 мм · алюминий, цвет графит", price:2159, img:"fl/pd-19.jpg" },
+        { id:"alyuminievyy-poddon-v-shkaf-900mm-dlya-y-7", g:"Алюминий графит", name:"Поддон 900 мм", note:"для шкафа 900 мм · алюминий, цвет графит", price:2378, img:"fl/pd-07.jpg" },
+        { id:"alyuminievyy-poddon-v-shkaf-1000mm-dlya--13", g:"Алюминий графит", name:"Поддон 1000 мм", note:"для шкафа 1000 мм · алюминий, цвет графит", price:2634, img:"fl/pd-13.jpg" },
+        { id:"alyuminievyy-poddon-v-shkaf-1200mm-dlya--14", g:"Алюминий графит", name:"Поддон 1200 мм", note:"для шкафа 1200 мм · алюминий, цвет графит", price:3154, img:"fl/pd-14.jpg" },
+        { id:"plastikovyy-poddon-dlya-yashchika-pod-ra-9", g:"Пластик", name:"Поддон 600 мм", note:"для шкафа 600 мм · серый", price:756, img:"fl/pd-09.jpg" },
+        { id:"plastikovyy-poddon-dlya-yashchika-pod-ra-10", g:"Пластик", name:"Поддон 600 мм", note:"для шкафа 600 мм · серый матовый", price:969, img:"fl/pd-09.jpg" },
+        { id:"plastikovyy-poddon-dlya-yashchika-pod-ra-11", g:"Пластик", name:"Поддон 800 мм", note:"для шкафа 800 мм · серый", price:973, img:"fl/pd-11.jpg" },
+        { id:"plastikovyy-poddon-dlya-yashchika-pod-ra-12", g:"Пластик", name:"Поддон 900 мм", note:"для шкафа 900 мм · серый матовый", price:1106, img:"fl/pd-12.jpg" },
+        { id:"plastikovyy-poddon-dlya-yashchika-pod-ra-8", g:"Пластик", name:"Поддон 1000 мм", note:"для шкафа 1000 мм · серый", price:1187, img:"fl/pd-08.jpg" },
+        { id:"plastikovyy-poddon-v-verkhnyuyu-bazu-450-20", g:"Под сушку", name:"Поддон 450 мм", note:"для шкафа 450 мм · в верхний шкаф с сушкой, белый пластик", price:455, img:"fl/pd-20.jpg" },
+        { id:"plastikovyy-poddon-v-verkhnyuyu-bazu-600-21", g:"Под сушку", name:"Поддон 600 мм", note:"для шкафа 600 мм · в верхний шкаф с сушкой, белый пластик", price:863, img:"fl/pd-21.jpg" },
+        { id:"plastikovyy-poddon-v-verkhnyuyu-bazu-800-22", g:"Под сушку", name:"Поддон 800 мм", note:"для шкафа 800 мм · в верхний шкаф с сушкой, белый пластик", price:1068, img:"fl/pd-22.jpg" }
+      ] },
+    { id:"hood", name:"Подключение вытяжки", price:4000,
+      desc:"К электросети и вентиляции, с материалами (пластиковые трубы)", spot:{v:"f",x:76,y:31} },
+    { id:"worklight", name:"Подсветка рабочей зоны", price:12000, inc:["base","opt","prem"],
+      desc:"Свет падает прямо на столешницу: хорошо видно продукты, удобно резать и готовить, тень от шкафов не мешает. Вечером — мягкий уютный свет вместо верхней люстры. Включается взмахом руки у датчика, даже если руки в муке. Лента SWG, нейтральный свет, в накладном профиле", spot:{v:"f",x:80,y:43} },
+    { id:"hob", name:"Варочная панель", price:1000, group:"connect",
+      desc:"К электросети", spot:null },
+    { id:"oven", name:"Духовка", price:1500, group:"connect",
+      desc:"К электросети", spot:null },
+    { id:"mw", name:"СВЧ", price:500, group:"connect",
+      desc:"К электросети", spot:null },
+    { id:"sinkcon", name:"Мойка и смеситель", price:2500, group:"connect",
+      desc:"К канализации и воде", spot:null },
+    { id:"dw", name:"Посудомойка", price:1500, group:"connect",
+      desc:"К воде, канализации и электросети", spot:null },
+    { id:"filtercon", name:"Фильтр для воды", price:1500, group:"connect",
+      desc:"Установка и подключение фильтра под мойкой", spot:null },
+    // tiers — показывается только в этих комплектациях, в блоке «Можно добавить к комплектации»
+    { id:"x-hissen", tiers:["base"], name:"Ящики с металлическими стенками Hissen", price:11400,
+      desc:"Металлические борта вместо ЛДСП: ящик прочнее и выглядит аккуратнее", spot:null },
+    { id:"x-handle", tiers:["opt"], name:"Врезная ручка", price:null,
+      desc:"Ручка встроена в фасад, вместо накладных скоб", spot:null },
+    { id:"x-blumh", tiers:["opt"], name:"Петли Blum", price:6400,
+      desc:"Вместо GTV или Samet, 10 петель с доводчиком", spot:null },
+    { id:"x-blumd", tiers:["opt"], name:"Ящики Blum Tandembox", price:18000,
+      desc:"Вместо ящиков Hissen", spot:null },
+    { id:"x-italy", tiers:["opt"], name:"Сушка Италия", price:10000,
+      desc:"Вместо российской сушки", spot:null },
+    { id:"x-tray", group:"rare", name:"Металлический лоток для приборов", price:19800,
+      desc:"Вместо пластикового лотка", spot:null },
+    { id:"socket", group:"rare", name:"Встраиваемая розетка", spot:null,
+      desc:"Прячется в столешницу или стену, выдвигается, когда нужна",
+      choice:[
+        { id:"rz3", g:"Вертикальные", name:"Вертикальная, 3хEURO", note:"Ø 60мм, ручное, пластик, черный", price:1790, img:"fl/rz-03.jpg" },
+        { id:"rz2", g:"Вертикальные", name:"Вертикальная, 3хEURO", note:"Ø 60мм, ручное, пластик, серый", price:2133, img:"fl/rz-02.jpg" },
+        { id:"rz4", g:"Вертикальные", name:"Вертикальная, 3хEURO", note:"Ø 60мм, ручное, пластик, черный", price:2133, img:"fl/rz-04.jpg" },
+        { id:"rz28", g:"Вертикальные", name:"Вертикальная, 2хUSB A+C+индукц.зарядка", note:"Ø60мм, автомат, вход 12В, пластик", price:2647, img:"fl/rz-28.jpg" },
+        { id:"rz1", g:"Вертикальные", name:"Вертикальная, 3хEURO", note:"Ø 60мм, ручное, пластик, серый", price:2939, img:"fl/rz-01.jpg" },
+        { id:"rz5", g:"Вертикальные", name:"Вертикальная, 3хEURO+2USB", note:"Ø 60мм, ручное выдвижение, усовое заземление, шнур 1", price:3566, img:"fl/rz-05.jpg" },
+        { id:"rz7", g:"Вертикальные", name:"Вертикальная, 3хEURO+2USB", note:"Ø 60мм, ручное, пластик, серый", price:3566, img:"fl/rz-07.jpg" },
+        { id:"rz0", g:"Вертикальные", name:"Вертикальная, 3хEURO", note:"Ø 60мм, ручное, пластик, серый", price:4417, img:"fl/rz-00.jpg" },
+        { id:"rz8", g:"Вертикальные", name:"Вертикальная, 4хEURO", note:"Ø120мм, автовыдвижение, металл, нерж.сталь", price:4608, img:"fl/rz-08.jpg" },
+        { id:"rz6", g:"Вертикальные", name:"Вертикальная, 3хEURO+2USB", note:"Ø 60мм, ручное, пластик, серый", price:4680, img:"fl/rz-06.jpg" },
+        { id:"rz29", g:"Вертикальные", name:"Вертикальная, 4хEURO+4хUSB A+C+индукц.зарядка", note:"Ø120мм, автомат, пластик, белый", price:8393, img:"fl/rz-29.jpg" },
+        { id:"rz27", g:"Вертикальные", name:"Вертикальная, 2хEURO", note:"Ø80мм, полуавтомат, пластик, черный", price:15209, img:"fl/rz-27.jpg" },
+        { id:"rz26", g:"Горизонтальные", name:"Горизонтальная, 3хEURO", note:"ручное, алюминий, с щёткой, IP20", price:2735, img:"fl/rz-26.jpg" },
+        { id:"rz45", g:"Горизонтальные", name:"Горизонтальная, 3хEURO", note:"полуавтомат, черный, усов.заземл., 265х118х68мм", price:3054, img:"fl/rz-45.jpg" },
+        { id:"rz43", g:"Горизонтальные", name:"Горизонтальная, 3хEURO", note:"полуавтомат, белый, усов. заземл., 265х118х68мм", price:3500, img:"fl/rz-43.jpg" },
+        { id:"rz44", g:"Горизонтальные", name:"Горизонтальная, 3хEURO", note:"полуавтомат, серый, усов. заземл., 265х118х65мм", price:3511, img:"fl/rz-44.jpg" },
+        { id:"rz40", g:"Горизонтальные", name:"Горизонтальная, 2хEURO+2хUSB A+C", note:"полуавтомат, черный, 265х118х65мм, металл/пластик", price:3971, img:"fl/rz-40.jpg" },
+        { id:"rz42", g:"Горизонтальные", name:"Горизонтальная, 2хEURO+2хUSB A+RJ45+2хHDMI", note:"полуавтомат, черный, 265х118х65мм, металл", price:3999, img:"fl/rz-42.jpg" },
+        { id:"rz41", g:"Горизонтальные", name:"Горизонтальная, 2хEURO+2хUSB A+RJ45+2хHDMI", note:"полуавтомат, серый, 265х118х65мм, металл", price:4044, img:"fl/rz-41.jpg" },
+        { id:"rz18", g:"Горизонтальные", name:"Горизонтальная, 1хEURO+2хUSB A+C", note:"полуавтомат, алюминий, 138х135х68мм, металл/пластик", price:4251, img:"fl/rz-18.jpg" },
+        { id:"rz19", g:"Горизонтальные", name:"Горизонтальная, 1хEURO+2хUSB A+C", note:"полуавтомат, черный, 138х135х68мм, металл/пластик", price:4251, img:"fl/rz-19.jpg" },
+        { id:"rz38", g:"Горизонтальные", name:"Горизонтальная, 2хEURO+2хUSB A+C", note:"полуавтомат, белый, 265х118х65мм, металл/пластик", price:4262, img:"fl/rz-38.jpg" },
+        { id:"rz39", g:"Горизонтальные", name:"Горизонтальная, 2хEURO+2хUSB A+C", note:"полуавтомат, серый, 265х118х65мм, металл/пластик", price:4442, img:"fl/rz-39.jpg" },
+        { id:"rz23", g:"Горизонтальные", name:"Горизонтальная, 3хEURO", note:"полуавтомат, белый, 263х117х65мм, металл/пластик", price:4884, img:"fl/rz-23.jpg" },
+        { id:"rz24", g:"Горизонтальные", name:"Горизонтальная, 3хEURO", note:"полуавтомат, серый, 263х117х65мм, металл/пластик", price:4884, img:"fl/rz-24.jpg" },
+        { id:"rz25", g:"Горизонтальные", name:"Горизонтальная, 3хEURO", note:"полуавтомат, черный, 263х117х65мм, металл/пластик", price:4884, img:"fl/rz-25.jpg" },
+        { id:"rz20", g:"Горизонтальные", name:"Горизонтальная, 2хEURO+2хUSB A+C", note:"полуавтомат, белый, 263х117х65мм, металл/пластик", price:5581, img:"fl/rz-20.jpg" },
+        { id:"rz21", g:"Горизонтальные", name:"Горизонтальная, 2хEURO+2хUSB A+C", note:"полуавтомат, серый, 263х117х65мм, металл/пластик", price:5581, img:"fl/rz-21.jpg" },
+        { id:"rz22", g:"Горизонтальные", name:"Горизонтальная, 2хEURO+2хUSB A+C", note:"полуавтомат, черный, 263х117х65мм, металл/пластик", price:5581, img:"fl/rz-22.jpg" },
+        { id:"rz37", g:"Горизонтальные", name:"Горизонтальная, 1хEURO+2хUSB A+C+Qi", note:"полуавтомат, черный, 265х118х68мм, металл/пластик", price:7046, img:"fl/rz-37.jpg" },
+        { id:"rz36", g:"Горизонтальные", name:"Горизонтальная, 1хEURO+2хUSB A+C+Qi", note:"полуавтомат, серый, 265х118х68мм, металл/пластик", price:7777, img:"fl/rz-36.jpg" },
+        { id:"rz35", g:"Горизонтальные", name:"Горизонтальная, 1хEURO+2хUSB A+C+Qi", note:"полуавтомат, белый, 265х118х68мм, металл/пластик", price:7852, img:"fl/rz-35.jpg" },
+        { id:"rz12", g:"Встраиваемые", name:"Встраиваемая 2хUSB-A, 5В/2.1А (1х2.1А/2х1.05А)", note:"вход 12В, квадрат 37х37мм, черный, IP20", price:445, img:"fl/rz-12.jpg" },
+        { id:"rz10", g:"Встраиваемые", name:"Встраиваемая 2хUSB-A, 5В/2.1А (1х2.1А/2х1.05А)", note:"вход 12В, Ø37мм, черный, IP20", price:725, img:"fl/rz-10.jpg" },
+        { id:"rz9", g:"Встраиваемые", name:"Встраиваемая 2хUSB-A, 5В/2.1А (1х2.1А/2х1.05А)", note:"вход 12В, Ø37мм, серебро, IP20", price:756, img:"fl/rz-09.jpg" },
+        { id:"rz11", g:"Встраиваемые", name:"Встраиваемая 2хUSB-A, 5В/2.1А (1х2.1А/2х1.05А)", note:"вход 12В, квадрат 37х37, серебро, IP20", price:782, img:"fl/rz-11.jpg" },
+        { id:"rz30", g:"Встраиваемые", name:"Встраиваемая 2хUSB A+C, 5В/3А (2х3.0А)", note:"вход 12В, Ø37мм, серебро, IP20", price:1457, img:"fl/rz-30.jpg" },
+        { id:"rz14", g:"Встраиваемые", name:"Встраиваемая беспроводная Qi, 12В/2А/15Вт", note:"вход 12В, Ø70мм, серебро, IP44", price:1479, img:"fl/rz-14.jpg" },
+        { id:"rz31", g:"Встраиваемые", name:"Встраиваемая, 2хEURO+2хUSB A+1хUSB C", note:"белый, кнопка выкл., 272х54х45 мм, алюм./пластик", price:3262, img:"fl/rz-31.jpg" },
+        { id:"rz13", g:"Встраиваемые", name:"Встраиваемая беспроводная 1хUSB+Qi, 5В/2.1А/1Вт", note:"вход 5В+зарядка, Ø60мм, черный, IP20", price:3320, img:"fl/rz-13.jpg" },
+        { id:"rz15", g:"Встраиваемые", name:"Встраиваемая, 1хEURO+2хUSB А+беспр.зарядка Qi", note:"Ø60мм, откидн. крышка, пластик, белый", price:3515, img:"fl/rz-15.jpg" },
+        { id:"rz33", g:"Встраиваемые", name:"Встраиваемая, 3хEURO", note:"сдвижн. крышка, серебро, усовое заземл., алюминий/железо", price:7776, img:"fl/rz-33.jpg" },
+        { id:"rz34", g:"Встраиваемые", name:"Встраиваемая, 3хEURO", note:"сдвижн. крышка, черный, усовое заземл., алюминий/железо", price:7776, img:"fl/rz-34.jpg" },
+        { id:"rz17", g:"Встраиваемые", name:"Встраиваемая, 2хEURO+2хUSB А", note:"сдвижн. крышка, черный, усовое заземл., алюминий/железо", price:8371, img:"fl/rz-17.jpg" },
+        { id:"rz16", g:"Встраиваемые", name:"Встраиваемая, 2хEURO+2хUSB А", note:"сдвижн. крышка, серебро, усовое заземл., алюминий/железо", price:8651, img:"fl/rz-16.jpg" },
+        { id:"rz32", g:"Встраиваемые", name:"Встраиваемая, 2хEURO+2хUSB А+C+Qi", note:"полуавтомат, белый, усовое заземл., алюминий/пластик", price:9304, img:"fl/rz-32.jpg" },
+        { id:"rz46", g:"Прочие", name:"Угловая накладная, 3хEURO+2USB A", note:"серый, усовое заземл., IP20, пластик", price:2941, img:"fl/rz-46.jpg" }
+      ] },
+    { id:"stone", name:"Столешница из камня или компакт-плиты", price:null,
+      desc:"Акриловый камень, кварц или компакт-плита вместо стандартной столешницы. Рассчитаю отдельно по размерам проекта", spot:null },
+    { id:"inlight", name:"Подсветка внутри шкафов", price:5000, inc:["prem"], unit:["модуль","модуля","модулей"],
+      bulk:{from:5, price:4000},
+      desc:"Включается сама: открыли дверцу — внутри сразу светло, закрыли — погасла. Вечером не нужно включать верхний свет, чтобы найти чашку или специи: всё видно до дальней стенки. А посуду и банки можно красиво расставить, со светом шкаф выглядит как витрина. 5 000 ₽ за модуль, от 5 модулей — по 4 000 ₽", spot:{v:"nf",x:65,y:28} }
+  ],
+
+  included: [
+    "📐 Проект по вашим размерам",
+    "🚚 Доставка и подъём на этаж",
+    "🔧 Сборка и монтаж",
+    "📏 Контрольный замер после ремонта — запускаю в работу только по нему"
+  ],
+  term: "25–35 рабочих дней с момента оплаты",
+  tg: "https://t.me/kuhnya154",           // Telegram-канал с работами
+  ig: "https://www.instagram.com/kuhnya54/",  // Instagram «КУХНИ НА ЗАКАЗ»
+  vk: "https://vk.com/kuhnya54",              // ВК, группа «Разговоры на кухне»
+  pay: [
+    ["70 %", "💳 предоплата при запуске в работу — материалы и фурнитура"],
+    ["30 %", "🤝 по завершении работ"]
+  ],
+  notIncluded: "Подключение техники к электросети, вытяжки к вентиляции, мойки и посудомойки к канализации и смесителя к воде в цену комплектаций не входит. Подключение вытяжки есть в опциях, остальное можно заказать в блоке «Подключение техники».",
+  footer: [
+    "⏳ Цены рассчитаны по проекту и действуют 14 дней.",
+    "💬 Выберите комплектацию и опции, нажмите «Скопировать выбор» и пришлите мне в этот же чат."
+  ]
+};
+
+/* ===================================================================== */
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? "").replace(/[<>&"]/g, c => ({"<":"&lt;",">":"&gt;","&":"&amp;",'"':"&quot;"}[c]));
+const rub = n => n.toLocaleString("ru-RU") + " ₽";
+
+const state = { tier: KP.defaultTier, on: new Set(), qty: {}, pick: {} };
+const tierById = id => KP.tiers.find(t => t.id === id);
+const isInc = a => (a.inc || []).includes(state.tier);
+const isVis = a => !a.tiers || a.tiers.includes(state.tier);
+
+/* шапка и статичные блоки */
+$("master").textContent = KP.master;
+$("masterSub").textContent = KP.masterSub;
+$("date").textContent = KP.date;
+$("title").textContent = KP.title;
+$("intro").textContent = KP.intro;
+$("facts").innerHTML = KP.facts.map(([b,s]) => `<div><b>${esc(b)}</b><span>${esc(s)}</span></div>`).join("");
+$("included").innerHTML = KP.included.map(x => `<li>${esc(x)}</li>`).join("");
+$("term").textContent = "📅 Срок: " + KP.term;
+if (KP.ig) { $("ig").href = KP.ig; $("ig").textContent = "📸 Instagram: kuhnya54"; } else $("ig").hidden = true;
+if (KP.vk) { $("vk").href = KP.vk; $("vk").textContent = "💬 ВК: «Разговоры на кухне»"; } else $("vk").hidden = true;
+if (KP.tg) { $("tg").href = KP.tg; $("tg").textContent = "✈️ Telegram: " + KP.tg.replace("https://",""); } else $("tg").hidden = true;
+$("pay").innerHTML = KP.pay.map(([p,t]) => `<div><b class="num">${esc(p)}</b><span>${esc(t)}</span></div>`).join("");
+$("notIncl").innerHTML = "<b>❗ Отдельно.</b> " + esc(KP.notIncluded);
+$("foot").innerHTML = KP.footer.map(x => `<span>${esc(x)}</span>`).join("")
+  + `<span>${esc(KP.master)} ${esc(KP.masterSub)}</span>`
+  + `<span>📷 Мои работы: ${KP.tg ? `<a href="${esc(KP.tg)}" target="_blank" rel="noopener">Telegram</a>` : ""}${KP.tg && KP.ig ? " · " : ""}${KP.ig ? `<a href="${esc(KP.ig)}" target="_blank" rel="noopener">Instagram</a>` : ""}${KP.vk ? ` · <a href="${esc(KP.vk)}" target="_blank" rel="noopener">ВК «Разговоры на кухне»</a>` : ""}</span>`;
+
+/* номера только у опций с точкой на картинке */
+KP.addons.filter(a => a.spot).forEach((a, i) => a.n = i + 1);
+/* цена опции с учётом количества */
+const qtyOf = a => state.qty[a.id] || 0;
+const pickOf = a => a.choice && a.choice.find(m => m.id === state.pick[a.id]);
+const minOf = a => Math.min(...a.choice.map(m => m.price));
+const aPrice = a => a.choice ? (pickOf(a)?.price || 0)
+  : a.unit ? qtyOf(a) * (a.bulk && qtyOf(a) >= a.bulk.from ? a.bulk.price : a.price) : (a.price || 0);
+const qtyTxt = a => qtyOf(a) + " " + plural(qtyOf(a), ...a.unit);
+const priceTxt = a => a.choice ? (pickOf(a) ? pickOf(a).name + " — " + rub(pickOf(a).price) : "от " + rub(minOf(a)))
+  : a.price == null ? "цена отдельно"
+  : a.unit ? (qtyOf(a) ? qtyTxt(a) + " — " + rub(aPrice(a)) : rub(a.price) + " / " + a.unit[0])
+  : (a.from ? "от " : "") + rub(a.price);
+const fullName = a => a.group === "connect" ? "Подключение: " + a.name.toLowerCase() : a.name;
+
+/* ---------- виды проекта и материалы ---------- */
+state.view = KP.views[0].id;
+function drawViews(){
+  const v = KP.views.find(x => x.id === state.view);
+  $("render").src = v.img; $("render").alt = v.alt;
+  $("views").innerHTML = KP.views.map(x =>
+    `<button role="tab" aria-selected="${x.id===state.view}" data-v="${x.id}">${esc(x.label)}</button>`).join("");
+  $("views").querySelectorAll("[data-v]").forEach(b => b.addEventListener("click", () => { state.view = b.dataset.v; update(); }));
+}
+const mats = (KP.materials || []).filter(([, v]) => v);
+if (mats.length) $("mats").innerHTML = mats.map(([k,v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join("");
+else $("matSec").hidden = true;
+
+/* ---------- комплектации ---------- */
+function drawTiers(){
+  $("tiers").innerHTML = KP.tiers.map(t => `
+    <button class="tier" role="radio" aria-checked="${t.id===state.tier}" data-t="${t.id}">
+      <div class="top">${t.tag ? `<span class="tag">${esc(t.tag)}</span>` : "<span></span>"}<span class="radio"></span></div>
+      <h3>${esc(t.name)}</h3>
+      <div class="price num">${rub(t.price)}</div>
+      <p class="sub">${esc(t.sub)}</p>
+      <ul>${t.short.map(x => `<li>${esc(x)}</li>`).join("")}</ul>
+    </button>`).join("");
+  $("tiers").querySelectorAll(".tier").forEach(b => b.addEventListener("click", () => {
+    state.tier = b.dataset.t; update();
+  }));
+}
+function drawCmp(){
+  $("cmp").innerHTML =
+    `<thead><tr><th></th>${KP.tiers.map(t => `<th class="${t.id===state.tier?"on":""}">${esc(t.name)}</th>`).join("")}</tr></thead>
+     <tbody>${KP.rows.map(([k,l]) => `<tr><td>${esc(l)}</td>${KP.tiers.map(t => `<td class="${t.id===state.tier?"on":""}">${esc(t.spec[k]||"—")}</td>`).join("")}</tr>`).join("")}
+     <tr><td>Можно добавить</td>${KP.tiers.map(t => `<td class="${t.id===state.tier?"on":""}">${esc(KP.addons.filter(a => a.tiers && a.tiers.includes(t.id)).map(a => a.name).join(", ") || "—")}</td>`).join("")}</tr>
+     <tr><td>Цена</td>${KP.tiers.map(t => `<td class="num ${t.id===state.tier?"on":""}">${rub(t.price)}</td>`).join("")}</tr></tbody>`;
+}
+
+/* ---------- опции ---------- */
+function toggle(id){
+  const a = KP.addons.find(x => x.id === id);
+  if (!a || isInc(a)) return;
+  if (a.unit) return setQty(id, qtyOf(a) ? 0 : 1);
+  if (a.choice) {            // точка на рендере раскрывает каталог и прокручивает к нему
+    state.open[id] = true; update();
+    document.getElementById("addon-" + id)?.scrollIntoView({behavior:"smooth", block:"start"});
+    return;
+  }
+  state.on.has(id) ? state.on.delete(id) : state.on.add(id);
+  update();
+}
+const groupsOf = a => [...new Set(a.choice.map(m => m.g).filter(Boolean))];
+state.cg = {}; state.open = {};
+function curGroup(a){
+  if (state.cg[a.id]) return state.cg[a.id];
+  const p = pickOf(a); return p && p.g ? p.g : groupsOf(a)[0];
+}
+function setPick(id, m){
+  state.pick[id] = state.pick[id] === m ? null : m;
+  state.pick[id] ? state.on.add(id) : state.on.delete(id);
+  update();
+}
+function setQty(id, q){
+  state.qty[id] = Math.max(0, Math.min(30, q));
+  state.qty[id] ? state.on.add(id) : state.on.delete(id);
+  update();
+}
+function addonHTML(a){
+  const inc = isInc(a), on = state.on.has(a.id) && !inc;
+  if (a.choice) { const p = pickOf(a), open = state.open[a.id]; return `<div class="addon choice" aria-pressed="${on}" data-c="${a.id}" id="addon-${a.id}">
+    <span class="box"></span>
+    <span class="t">${a.spot ? `<span class="n">${a.n}</span>` : ""}${esc(a.name)}</span>
+    <span class="p num">${on ? "+ " + rub(aPrice(a)) : "от " + rub(minOf(a))}</span>
+    <span class="d">${esc(a.desc)}</span>
+    <div class="pickbar">
+      ${p ? `<span class="mini"><img src="${esc(p.img)}" alt=""><span><b>${esc(p.name)}</b><br><small>${esc(p.note)}</small></span></span>` : ""}
+      <button class="pbtn" data-open="1" aria-expanded="${!!open}">${open ? "Свернуть ▴" : p ? "Изменить ▾" : `Выбрать модель · ${a.choice.length} шт. ▾`}</button>
+      ${p ? `<button class="pbtn ghost" data-clear="1">Убрать</button>` : ""}
+    </div>
+    ${!open ? "" : `${groupsOf(a).length > 1 ? `<div class="mtabs">${groupsOf(a).map(g => `<button data-g="${esc(g)}" aria-selected="${g===curGroup(a)}">${esc(g)} <span>${a.choice.filter(m=>m.g===g).length}</span></button>`).join("")}</div>` : ""}
+    <div class="models">${a.choice.filter(m => !m.g || m.g === curGroup(a)).map(m => `
+      <button class="model" aria-pressed="${state.pick[a.id]===m.id}" data-m="${m.id}">
+        <span class="ph"><img src="${esc(m.img)}" alt="${esc(m.name)}" loading="lazy"></span>
+        <span class="mn">${esc(m.name)}</span>
+        <span class="mt">${esc(m.note)}</span>
+        <span class="mp num">${rub(m.price)}</span>
+      </button>`).join("")}</div>`}
+  </div>`; }
+  if (a.unit && !inc) return `<div class="addon" aria-pressed="${on}" data-q="${a.id}">
+    <span class="box"></span>
+    <span class="t">${esc(a.name)}</span>
+    <span class="p num">${on ? "+ " + rub(aPrice(a)) : rub(a.price) + " / " + a.unit[0]}</span>
+    <span class="d">${esc(a.desc)}</span>
+    <span class="step"><button data-d="-1" aria-label="Меньше">−</button><b class="num">${qtyTxt(a)}</b><button data-d="1" aria-label="Больше">+</button></span>
+  </div>`;
+  return `<button class="addon ${inc?"inc":""}" aria-pressed="${on}" ${inc?'aria-disabled="true"':""} data-a="${a.id}">
+    <span class="box"></span>
+    <span class="t">${a.spot ? `<span class="n">${a.n}</span>` : ""}${esc(a.name)}</span>
+    <span class="p num">${inc ? "уже входит" : a.price == null ? "цена отдельно" : "+ " + priceTxt(a)}</span>
+    <span class="d">${esc(a.desc)}</span>
+  </button>`;
+}
+function drawAddons(){
+  $("addons").innerHTML = KP.addons.filter(a => !a.group && !a.tiers).map(addonHTML).join("");
+  const tx = KP.addons.filter(a => a.tiers && isVis(a));
+  $("tierExtrasWrap").hidden = !tx.length;
+  $("tierExtrasTitle").textContent = "Можно добавить к комплектации «" + tierById(state.tier).name + "»";
+  $("tierExtras").innerHTML = tx.map(addonHTML).join("");
+  $("addonsCon").innerHTML = KP.addons.filter(a => a.group === "connect").map(addonHTML).join("");
+  const rare = KP.addons.filter(a => a.group === "rare");
+  $("rareWrap").hidden = !rare.length;
+  $("addonsRare").innerHTML = rare.map(addonHTML).join("");
+  document.querySelectorAll(".addon[data-a]").forEach(b => b.addEventListener("click", () => toggle(b.dataset.a)));
+  document.querySelectorAll(".addon[data-c]").forEach(d => d.querySelectorAll("[data-g]").forEach(b =>
+    b.addEventListener("click", () => { state.cg[d.dataset.c] = b.dataset.g; update(); })));
+  document.querySelectorAll(".addon[data-c]").forEach(d => d.querySelectorAll("[data-m]").forEach(b =>
+    b.addEventListener("click", () => { state.open[d.dataset.c] = false; state.pick[d.dataset.c] = null; setPick(d.dataset.c, b.dataset.m); })));
+  document.querySelectorAll(".addon[data-c] [data-open]").forEach(b => b.addEventListener("click", () => {
+    const id = b.closest("[data-c]").dataset.c; state.open[id] = !state.open[id]; update();
+  }));
+  document.querySelectorAll(".addon[data-c] [data-clear]").forEach(b => b.addEventListener("click", () => {
+    const id = b.closest("[data-c]").dataset.c; state.pick[id] = null; state.on.delete(id); update();
+  }));
+  document.querySelectorAll(".addon[data-q]").forEach(d => d.querySelectorAll("[data-d]").forEach(b =>
+    b.addEventListener("click", () => setQty(d.dataset.q, (state.qty[d.dataset.q] || 0) + +b.dataset.d))));
+}
+
+/* ---------- точки на рендере ---------- */
+const stage = $("stage"), tip = $("tip");
+function drawSpots(){
+  stage.querySelectorAll(".spot").forEach(s => s.remove());
+  KP.addons.filter(a => a.spot && (!a.spot.v || a.spot.v === state.view)).forEach(a => {
+    const inc = isInc(a), on = state.on.has(a.id) && !inc;
+    const b = document.createElement("button");
+    b.className = "spot" + (inc ? " inc" : "");
+    b.style.left = a.spot.x + "%"; b.style.top = a.spot.y + "%";
+    b.setAttribute("aria-pressed", on);
+    b.setAttribute("aria-label", `${a.name}, ${inc ? "уже входит" : priceTxt(a)}`);
+    b.textContent = inc ? "✓" : (on ? "✓" : a.n);
+    b.addEventListener("click", () => { toggle(a.id); showTip(a); });
+    b.addEventListener("mouseenter", () => showTip(a));
+    b.addEventListener("focus", () => showTip(a));
+    b.addEventListener("mouseleave", hideTip);
+    b.addEventListener("blur", hideTip);
+    stage.appendChild(b);
+  });
+}
+function showTip(a){
+  const inc = isInc(a), on = state.on.has(a.id);
+  tip.innerHTML = `<b>${esc(a.name)}</b>${inc ? "уже входит в комплектацию" : (on ? "добавлено · " : "+ ") + priceTxt(a)}`;
+  tip.hidden = false;
+  const W = stage.clientWidth, H = stage.clientHeight;
+  const x = a.spot.x / 100 * W, y = a.spot.y / 100 * H;
+  const tw = tip.offsetWidth, th = tip.offsetHeight;
+  let left = Math.min(Math.max(8, x - tw / 2), W - tw - 8);
+  let top = y - th - 24; if (top < 8) top = y + 24;
+  tip.style.left = left + "px"; tip.style.top = top + "px";
+}
+function hideTip(){ tip.hidden = true; }
+/* на телефоне подсказка сама прячется при прокрутке */
+window.addEventListener("scroll", hideTip, {passive:true});
+
+/* ---------- итог ---------- */
+function chosen(){ return KP.addons.filter(a => state.on.has(a.id) && !isInc(a) && isVis(a)); }
+const addSum = ch => ch.reduce((s,a) => s + aPrice(a), 0);
+const hasFrom = () => chosen().some(a => a.from);
+function total(){ return tierById(state.tier).price + addSum(chosen()); }
+let last = null;
+function drawTotal(){
+  const t = tierById(state.tier), ch = chosen(), open = ch.filter(a => a.price == null);
+  $("what").innerHTML = `<b>${esc(t.name)}</b> ${rub(t.price)}` +
+    (ch.length ? ` + ${ch.length} ${plural(ch.length,"опция","опции","опций")} ${rub(addSum(ch))}` : " · опции не выбраны") +
+    (open.length ? ` · ${open.map(a => esc(a.name.toLowerCase())).join(", ")} — цена отдельно` : "");
+  const sum = total();
+  $("big").textContent = (hasFrom() ? "от " : "") + rub(sum);
+  if (last !== null && last !== sum){ const el=$("big"); el.classList.remove("bump"); void el.offsetWidth; el.classList.add("bump"); }
+  last = sum;
+}
+function plural(n,a,b,c){ const m=n%10, h=n%100; return m===1&&h!==11?a:(m>=2&&m<=4&&(h<12||h>14)?b:c); }
+
+$("copy").addEventListener("click", async () => {
+  const t = tierById(state.tier), ch = chosen();
+  const text = [
+    `${KP.title}`,
+    `Комплектация: ${t.name} — ${rub(t.price)}`,
+    ...(ch.length ? ["Опции:", ...ch.map(a => `• ${fullName(a)} — ${priceTxt(a)}`)] : ["Опции: без опций"]),
+    `Итого: ${hasFrom() ? "от " : ""}${rub(total())}`
+  ].join("\n");
+  const btn = $("copy");
+  try { await navigator.clipboard.writeText(text); btn.textContent = "Скопировано"; }
+  catch(e){
+    const r = document.createRange(); r.selectNodeContents($("what")); const s = getSelection(); s.removeAllRanges(); s.addRange(r);
+    btn.textContent = "Скопируйте выделенное";
+  }
+  setTimeout(() => btn.textContent = "Скопировать выбор", 2200);
+});
+
+function update(){ drawViews(); drawTiers(); drawCmp(); drawAddons(); drawSpots(); drawTotal(); hideTip(); }
+update();
+</script>
+
+</body>
+</html>
