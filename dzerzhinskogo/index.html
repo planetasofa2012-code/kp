@@ -225,6 +225,25 @@ footer{border-top:1px solid var(--line);padding-top:18px;color:var(--muted);font
 .total .copy{background:var(--acc);color:#fff;border:none;border-radius:4px;padding:10px 16px;font-weight:500;font-size:14.5px}
 :root[data-theme="dark"] .total .copy{color:#10201A}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .total .copy{color:#10201A}}
+/* ---------- окно «отправить выбор» ---------- */
+.send{border:none;border-radius:10px;padding:0;width:min(440px,calc(100vw - 24px));background:var(--card);color:var(--ink);box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.send::backdrop{background:rgba(15,20,18,.45)}
+.send .in{padding:20px 18px 18px;display:flex;flex-direction:column;gap:12px}
+.send h3{margin:0;font-size:19px;font-weight:600}
+.send .sum{background:var(--soft);border:1px solid var(--line);border-radius:6px;padding:10px 12px;font-size:13.5px;white-space:pre-line;max-height:180px;overflow:auto}
+.send label{display:flex;flex-direction:column;gap:4px;font-size:13px;color:var(--muted)}
+.send input,.send textarea{font:inherit;font-size:16px;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:6px;padding:9px 10px}
+.send textarea{min-height:60px;resize:vertical}
+.send .go{background:var(--acc);color:#fff;border:none;border-radius:6px;padding:13px 16px;font:inherit;font-weight:600;font-size:16px;cursor:pointer}
+.send .go[disabled]{opacity:.6}
+.send .or{font-size:13px;color:var(--muted);text-align:center;margin-top:2px}
+.send .ms{display:flex;gap:8px}
+.send .ms a{flex:1;text-align:center;text-decoration:none;border:1px solid var(--line);border-radius:6px;padding:10px;color:var(--ink);font-weight:500;font-size:14.5px}
+.send .hint{font-size:12.5px;color:var(--muted);margin:0}
+.send .ok{background:var(--acc-soft);color:var(--ink);border-radius:6px;padding:14px;font-size:15px;text-align:center}
+.send .x{position:absolute;right:8px;top:6px;background:none;border:none;font-size:24px;color:var(--muted);cursor:pointer;padding:4px 8px}
+:root[data-theme="dark"] .send .go{color:#10201A}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .send .go{color:#10201A}}
 /* ---------- телефон ---------- */
 @media (max-width:560px){
   body{font-size:15.5px;padding-block:0 150px}
@@ -360,10 +379,29 @@ footer{border-top:1px solid var(--line);padding-top:18px;color:var(--muted);font
     <div class="what" id="what"></div>
     <div class="sum">
       <span class="big num" id="big" aria-live="polite"></span>
-      <button class="copy" id="copy">Скопировать выбор</button>
+      <button class="copy" id="copy">📨 Отправить выбор</button>
     </div>
   </div>
 </div>
+
+<dialog class="send" id="send" aria-labelledby="sendTitle">
+  <button class="x" id="sendX" aria-label="Закрыть">×</button>
+  <div class="in" id="sendForm">
+    <h3 id="sendTitle">Отправить ваш выбор</h3>
+    <div class="sum" id="sendSum"></div>
+    <div id="autoBox">
+      <label>Как к вам обращаться <input id="sendName" autocomplete="name"></label>
+      <label style="margin-top:10px">Вопрос или комментарий — необязательно <textarea id="sendNote"></textarea></label>
+      <button class="go" id="sendGo" style="width:100%;margin-top:12px"></button>
+      <p class="or" id="orTxt">или напишите сами в мессенджер:</p>
+    </div>
+    <div class="ms" id="msBox"></div>
+    <p class="hint" id="msHint">Текст выбора скопируется сам — в чате зажмите поле ввода → «Вставить» → отправьте.</p>
+  </div>
+  <div class="in" id="sendDone" hidden>
+    <div class="ok">✅ Отправлено!<br><span id="doneWho"></span> получил ваш выбор и скоро свяжется с вами.</div>
+  </div>
+</dialog>
 
 <script>
 /* =====================================================================
@@ -664,11 +702,13 @@ const KP = {
   notIncluded: "Подключение техники к электросети, вытяжки к вентиляции, мойки и посудомойки к канализации и смесителя к воде в цену комплектаций не входит. Подключение вытяжки есть в опциях, остальное можно заказать в блоке «Подключение техники».",
   footer: [
     "⏳ Цены рассчитаны по проекту и действуют 14 дней.",
-    "💬 Выберите комплектацию и опции, нажмите «Скопировать выбор» и пришлите мне в этот же чат."
+    "💬 Выберите комплектацию и опции и нажмите «📨 Отправить выбор» — он сразу придёт мне."
   ]
 };
 
 /* ===================================================================== */
+KP.sendUrl = "https://script.google.com/macros/s/AKfycbwOGnPXF-z379yVIGv0gcdzanEsa-39LCR7GHuyEORSMRhwmpKyeRWP-UBR6Sw89QTouw/exec";   // пересылка выбора в Telegram мастеру
+KP.maxChat = ""; KP.tgChat = "";
 const $ = id => document.getElementById(id);
 const esc = s => String(s ?? "").replace(/[<>&"]/g, c => ({"<":"&lt;",">":"&gt;","&":"&amp;",'"':"&quot;"}[c]));
 const rub = n => n.toLocaleString("ru-RU") + " ₽";
@@ -888,22 +928,64 @@ function drawTotal(){
 }
 function plural(n,a,b,c){ const m=n%10, h=n%100; return m===1&&h!==11?a:(m>=2&&m<=4&&(h<12||h>14)?b:c); }
 
-$("copy").addEventListener("click", async () => {
+/* ---------- отправка выбора мастеру ---------- */
+function choiceText(){
   const t = tierById(state.tier), ch = chosen();
-  const text = [
+  return [
     `${KP.title}`,
     `Комплектация: ${t.name} — ${rub(t.price)}`,
     ...(ch.length ? ["Опции:", ...ch.map(a => `• ${fullName(a)} — ${priceTxt(a)}`)] : ["Опции: без опций"]),
     `Итого: ${hasFrom() ? "от " : ""}${rub(total())}`
   ].join("\n");
-  const btn = $("copy");
-  try { await navigator.clipboard.writeText(text); btn.textContent = "Скопировано"; }
+}
+async function copyText(text){
+  try { await navigator.clipboard.writeText(text); return true; }
   catch(e){
-    const r = document.createRange(); r.selectNodeContents($("what")); const s = getSelection(); s.removeAllRanges(); s.addRange(r);
-    btn.textContent = "Скопируйте выделенное";
+    const ta = document.createElement("textarea"); ta.value = text; ta.style.position = "fixed"; ta.style.opacity = "0";
+    document.body.appendChild(ta); ta.select(); let ok = false; try { ok = document.execCommand("copy"); } catch(_){}
+    ta.remove(); return ok;
   }
-  setTimeout(() => btn.textContent = "Скопировать выбор", 2200);
+}
+const who = (KP.master || "мастер").split(/[ ,—-]/)[0] || "мастер";
+const dlg = $("send");
+$("sendGo").textContent = "Отправить " + (/[бвгджзклмнпрстфхцчшщ]$/i.test(who) ? who + "у" : "мастеру");   // Александр → Александру
+$("doneWho").textContent = who === "мастер" ? "Мастер" : who;
+$("autoBox").hidden = !KP.sendUrl;
+const chats = [["MAX", KP.maxChat], ["Telegram", KP.tgChat]].filter(x => x[1]);
+$("msBox").innerHTML = chats.map(([n, u]) => `<a href="${esc(u)}" target="_blank" rel="noopener">${n}</a>`).join("");
+$("orTxt").hidden = !chats.length;
+$("msHint").hidden = !chats.length;
+$("msBox").querySelectorAll("a").forEach(a => a.addEventListener("click", () => { copyText(choiceText()); }));
+$("copy").addEventListener("click", () => {
+  $("sendSum").textContent = choiceText();
+  $("sendForm").hidden = false; $("sendDone").hidden = true;
+  if (!KP.sendUrl && !chats.length) {       // некуда отправлять — просто копируем, как раньше
+    copyText(choiceText()).then(ok => { $("copy").textContent = ok ? "Скопировано" : "Не получилось"; setTimeout(() => $("copy").textContent = "📨 Отправить выбор", 2200); });
+    return;
+  }
+  dlg.showModal ? dlg.showModal() : dlg.setAttribute("open", "");
 });
+$("sendX").addEventListener("click", () => dlg.close ? dlg.close() : dlg.removeAttribute("open"));
+dlg.addEventListener("click", e => { if (e.target === dlg) dlg.close(); });
+$("sendGo").addEventListener("click", async () => {
+  const b = $("sendGo"), label = b.textContent;
+  b.disabled = true; b.textContent = "Отправляю…";
+  try {
+    // text/plain — чтобы браузер не делал лишний предварительный запрос
+    const r = await fetch(KP.sendUrl, {method: "POST", headers: {"Content-Type": "text/plain;charset=utf-8"},
+      body: JSON.stringify({page: location.href, title: KP.title, text: choiceText(),
+                            name: $("sendName").value.trim(), note: $("sendNote").value.trim()})});
+    const j = await r.json().catch(() => ({ok: false}));
+    if (!r.ok || !j.ok) throw new Error(r.status);
+    $("sendForm").hidden = true; $("sendDone").hidden = false;
+  } catch(e) {
+    b.textContent = "Не отправилось — напишите в мессенджер ниже";
+    setTimeout(() => { b.textContent = label; b.disabled = false; }, 4000);
+    return;
+  }
+  b.disabled = false; b.textContent = label;
+});
+
 
 function update(){ drawViews(); drawTiers(); drawCmp(); drawAddons(); drawSpots(); drawTotal(); hideTip(); }
 update();
