@@ -244,6 +244,9 @@ footer{border-top:1px solid var(--line);padding-top:18px;color:var(--muted);font
 .send .x{position:absolute;right:8px;top:6px;background:none;border:none;font-size:24px;color:var(--muted);cursor:pointer;padding:4px 8px}
 :root[data-theme="dark"] .send .go{color:#10201A}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .send .go{color:#10201A}}
+/* ---------- вид из нейросети ---------- */
+.aibadge{position:absolute;left:10px;top:10px;background:rgba(27,32,29,.78);color:#fff;font-size:12.5px;font-weight:500;padding:4px 9px;border-radius:4px;pointer-events:none}
+.ainote{margin:10px 0 0;font-size:13.5px;color:var(--muted);background:var(--soft);border:1px solid var(--line);border-radius:6px;padding:10px 12px}
 /* ---------- телефон ---------- */
 @media (max-width:560px){
   body{font-size:15.5px;padding-block:0 150px}
@@ -300,7 +303,9 @@ footer{border-top:1px solid var(--line);padding-top:18px;color:var(--muted);font
   <div class="stage" id="stage">
     <img id="render" src="" alt="">
     <div class="tip" id="tip" hidden></div>
+    <span class="aibadge" id="aiBadge" hidden>🤖 Нейросеть · ориентир</span>
   </div>
+  <p class="ainote" id="aiNote" hidden></p>
   <div class="caption">
     <span><i class="dot" style="background:var(--brass)"></i>можно добавить</span>
     <span><i class="dot" style="background:var(--acc)"></i>добавлено</span>
@@ -420,7 +425,9 @@ const KP = {
     { id:"f",   label:"С фасадами",   img:"k2-fasady.png",      alt:"Проект кухни с фасадами" },
     { id:"nf",  label:"Без фасадов",  img:"k2-bez-fasadov.png", alt:"Проект кухни без фасадов: наполнение шкафов" },
     { id:"open", label:"Двери открыты", img:"k2-otkryvanie.png", alt:"Проект кухни с открытыми дверцами и ящиком: видно наполнение и открывание" },
-    { id:"dim", label:"Размеры",      img:"k2-razmery.png",     alt:"Проект кухни с размерами модулей" }
+    { id:"dim", label:"Размеры",      img:"k2-razmery.png",     alt:"Проект кухни с размерами модулей" },
+    { id:"ai1", label:"🤖 Кухня в квартире", img:"ai-kuhnya.jpg",     alt:"Как кухня может выглядеть в вашей квартире — картинка нейросети" },
+    { id:"ai2", label:"🤖 У холодильника",   img:"ai-holodilnik.jpg", alt:"Антресоль и пенал у холодильника в вашей квартире — картинка нейросети" }
   ],
 
   // материалы и декоры этого проекта (одинаковые для всех комплектаций)
@@ -753,9 +760,13 @@ const fullName = a => a.group === "connect" ? "Подключение: " + a.nam
 
 /* ---------- виды проекта и материалы ---------- */
 state.view = KP.views[0].id;
+const AI_NOTE = "🤖 Эта картинка сгенерирована нейросетью по проекту и фото вашей квартиры — только ориентир, как кухня может смотреться у вас. Количество дверей, оттенки и детали могут отличаться: точный проект — на картинках «С фасадами» и «Размеры».";
 function drawViews(){
   const v = KP.views.find(x => x.id === state.view);
   $("render").src = v.img; $("render").alt = v.alt;
+  const ai = v.id.startsWith("ai");          // картинка из нейросети — предупредить, что это ориентир
+  $("aiBadge").hidden = !ai;
+  $("aiNote").hidden = !ai; $("aiNote").textContent = v.note || AI_NOTE;
   $("views").innerHTML = KP.views.map(x =>
     `<button role="tab" aria-selected="${x.id===state.view}" data-v="${x.id}">${esc(x.label)}</button>`).join("");
   $("views").querySelectorAll("[data-v]").forEach(b => b.addEventListener("click", () => { state.view = b.dataset.v; update(); }));
