@@ -396,8 +396,7 @@ footer{border-top:1px solid var(--line);padding-top:18px;color:var(--muted);font
     <h3 id="sendTitle">Отправить ваш выбор</h3>
     <div class="sum" id="sendSum"></div>
     <div id="autoBox">
-      <label>Как к вам обращаться <input id="sendName" autocomplete="name"></label>
-      <label style="margin-top:10px">Вопрос или комментарий — необязательно <textarea id="sendNote"></textarea></label>
+      <label>Вопрос или комментарий — необязательно <textarea id="sendNote"></textarea></label>
       <button class="go" id="sendGo" style="width:100%;margin-top:12px"></button>
       <p class="or" id="orTxt">или напишите сами в мессенджер:</p>
     </div>
@@ -704,7 +703,7 @@ $("sendGo").addEventListener("click", async () => {
     // text/plain — чтобы браузер не делал лишний предварительный запрос
     const r = await fetch(KP.sendUrl, {method: "POST", headers: {"Content-Type": "text/plain;charset=utf-8"},
       body: JSON.stringify({page: location.href, title: KP.title, text: choiceText(),
-                            name: $("sendName").value.trim(), note: $("sendNote").value.trim()})});
+                            name: "", note: $("sendNote").value.trim()})});
     const j = await r.json().catch(() => ({ok: false}));
     if (!r.ok || !j.ok) throw new Error(r.status);
     $("sendForm").hidden = true; $("sendDone").hidden = false;
