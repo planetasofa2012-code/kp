@@ -1,0 +1,730 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>шкаф в спальне </title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="Шкаф на заказ: проект и расчёт">
+<meta property="og:description" content="4 комплектации от 84 160 ₽. Выберите и добавьте наполнение">
+<meta property="og:image" content="https://planetasofa2012-code.github.io/kp/shkaf-v-spalne/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<style>html{color-scheme:light}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,500;7..72,600&family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#EEF0EC; --card:#FFFFFF; --soft:#F6F7F4; --ink:#1B201D; --muted:#5F6862;
+  --line:#D8DDD7; --acc:#2E5A4C; --acc-soft:#E3ECE7; --brass:#B68A2E; --brass-ink:#FFFFFF;
+  --shadow:0 1px 2px rgba(20,30,25,.06),0 8px 24px rgba(20,30,25,.06);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#131715; --card:#1B201D; --soft:#202622; --ink:#E6EAE6; --muted:#9BA59F;
+    --line:#2E3632; --acc:#8CC3AE; --acc-soft:#23332C; --brass:#D9AE52; --brass-ink:#1B1A14;
+    --shadow:none;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#131715; --card:#1B201D; --soft:#202622; --ink:#E6EAE6; --muted:#9BA59F;
+  --line:#2E3632; --acc:#8CC3AE; --acc-soft:#23332C; --brass:#D9AE52; --brass-ink:#1B1A14;
+  --shadow:none;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+.tier,.addon,.model{width:100%}
+h1,h2,p,li,dd{overflow-wrap:anywhere}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:"Golos Text",system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-size:16px; line-height:1.55;
+  padding-inline:16px; padding-block:0 120px;
+}
+.wrap{max-width:1040px;margin:0 auto;display:flex;flex-direction:column;gap:56px}
+h1,h2,h3{font-family:Literata,Georgia,serif;font-weight:600;margin:0;text-wrap:balance;letter-spacing:-.01em}
+h2{font-size:clamp(22px,3.4vw,28px);line-height:1.15}
+.label{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:500}
+.num{font-family:"JetBrains Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums}
+.lead{color:var(--muted);max-width:62ch;margin:6px 0 0}
+section{display:flex;flex-direction:column;gap:18px}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--brass);outline-offset:2px}
+
+/* ---------- шапка ---------- */
+header{padding-top:36px;display:flex;flex-direction:column;gap:14px}
+.who{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;align-items:baseline}
+.who .name{font-weight:600}
+.who .meta{color:var(--muted);font-size:14px}
+header h1{font-size:clamp(32px,6vw,52px);line-height:1.02}
+.facts{display:flex;flex-wrap:wrap;gap:10px 36px;border-top:1px solid var(--line);padding-top:14px}
+.facts div{display:flex;flex-direction:column}
+.facts b{font-size:17px;font-weight:600}
+.facts span{font-size:13px;color:var(--muted)}
+
+/* ---------- рендер с точками ---------- */
+.stage{position:relative;background:#fff;border:1px solid var(--line);border-radius:6px;overflow:hidden;box-shadow:var(--shadow)}
+.stage img{display:block;width:100%;height:auto}
+.spot{
+  position:absolute;transform:translate(-50%,-50%);
+  width:30px;height:30px;border-radius:50%;border:2px solid #fff;
+  background:var(--brass);color:var(--brass-ink);font-weight:600;font-size:18px;line-height:1;
+  display:grid;place-items:center;padding:0;
+  box-shadow:0 2px 8px rgba(0,0,0,.25);transition:transform .15s,background .15s;
+}
+.spot::after{content:"";position:absolute;inset:-7px;border-radius:50%;border:2px solid var(--brass);opacity:.55;animation:ping 2.2s ease-out infinite}
+.spot:hover{transform:translate(-50%,-50%) scale(1.12)}
+.spot[aria-pressed="true"]{background:var(--acc);color:#fff}
+.spot[aria-pressed="true"]::after{display:none}
+.spot.inc{background:#8B948F}
+.spot.inc::after{display:none}
+@keyframes ping{from{transform:scale(.8);opacity:.6}to{transform:scale(1.5);opacity:0}}
+.tip{
+  position:absolute;z-index:3;pointer-events:none;
+  background:var(--ink);color:var(--bg);border-radius:4px;padding:7px 10px;font-size:13.5px;line-height:1.35;
+  max-width:230px;box-shadow:0 4px 14px rgba(0,0,0,.2)
+}
+.tip b{display:block;font-weight:600}
+.views{display:flex;flex-wrap:wrap;gap:6px}
+.views button{background:var(--card);color:var(--muted);border:1px solid var(--line);border-radius:20px;padding:7px 14px;font-size:14px;font-weight:500}
+.views button[aria-selected="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.matph{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,260px));gap:12px}
+.mats div:last-child:nth-child(odd){grid-column:1/-1}
+.matph figure{margin:0;background:var(--card);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.matph img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
+.matph figcaption{padding:9px 12px;font-size:14px;font-weight:500}
+.mats{margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.mats div{background:var(--card);padding:12px 16px;display:flex;flex-direction:column;gap:2px}
+.mats dt{font-size:13px;color:var(--muted)}
+.mats dd{margin:0;font-weight:500}
+.caption{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center;font-size:14px;color:var(--muted)}
+.dot{display:inline-block;width:12px;height:12px;border-radius:50%;vertical-align:-1px;margin-right:6px}
+
+/* ---------- комплектации ---------- */
+.tiers{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;align-items:stretch}
+@media (max-width:1000px){.tiers{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:820px){.tiers{grid-template-columns:1fr}}
+.tier{
+  text-align:left;color:inherit;background:var(--card);border:1px solid var(--line);border-radius:6px;
+  padding:20px;display:flex;flex-direction:column;gap:12px;box-shadow:var(--shadow);transition:border-color .15s
+}
+.tier:hover{border-color:var(--muted)}
+.tier[aria-checked="true"]{border:2px solid var(--acc);padding:19px;background:var(--card)}
+.tier .top{display:flex;justify-content:space-between;align-items:center;gap:10px;min-height:24px}
+.tier .tag{font-size:12px;font-weight:500;background:var(--acc-soft);color:var(--acc);padding:3px 9px;border-radius:20px}
+.tier .radio{width:20px;height:20px;border-radius:50%;border:2px solid var(--line);flex:none;display:grid;place-items:center}
+.tier[aria-checked="true"] .radio{border-color:var(--acc)}
+.tier[aria-checked="true"] .radio::after{content:"";width:10px;height:10px;border-radius:50%;background:var(--acc)}
+.tier h3{font-size:22px}
+.tier .price{font-size:26px;font-weight:500;letter-spacing:-.02em}
+.tier .sub{font-size:14px;color:var(--muted);margin:0}
+.tier ul{margin:0;padding:12px 0 0;border-top:1px solid var(--line);list-style:none;display:flex;flex-direction:column;gap:7px;font-size:14.5px}
+.tier li{padding-left:18px;position:relative}
+.tier li::before{content:"";position:absolute;left:2px;top:.62em;width:7px;height:7px;border-radius:50%;background:var(--acc);opacity:.75}
+
+/* ---------- таблица сравнения ---------- */
+details.cmp{background:var(--card);border:1px solid var(--line);border-radius:6px}
+details.cmp summary{cursor:pointer;padding:14px 18px;font-weight:500;list-style-position:inside}
+.tw{overflow-x:auto;border-top:1px solid var(--line)}
+table{width:100%;border-collapse:collapse;font-size:14.5px;min-width:640px}
+th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:500}
+td:first-child{color:var(--muted);width:20%}
+td.on,th.on{background:var(--acc-soft)}
+tr:last-child td{border-bottom:none}
+details.con{background:transparent}
+details.con summary{color:var(--muted);font-size:14.5px}
+.con-in{border-top:1px solid var(--line);padding:14px;display:flex;flex-direction:column;gap:12px}
+.con-in .lead{font-size:14px}
+
+/* ---------- опции ---------- */
+.fillbox{margin-top:18px;padding:22px 20px;border:2px solid var(--acc);border-radius:10px;background:var(--acc-soft)}
+.fillbox h3{margin:0 0 8px;font-size:22px;line-height:1.25}
+.fillbox p{margin:0 0 16px;font-size:16px;line-height:1.5}
+.fillbox[hidden]{display:none}
+.addons{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media (max-width:680px){.addons{grid-template-columns:1fr}}
+.addon{
+  text-align:left;color:inherit;background:var(--card);border:1px solid var(--line);border-radius:6px;
+  padding:14px 16px;display:grid;grid-template-columns:auto 1fr auto;gap:4px 14px;align-items:start;transition:border-color .15s
+}
+.addon:hover{border-color:var(--muted)}
+.addon .box{width:22px;height:22px;border-radius:4px;border:2px solid var(--line);display:grid;place-items:center;margin-top:1px;grid-row:span 2}
+.addon[aria-pressed="true"]{border-color:var(--acc);background:var(--acc-soft)}
+.addon[aria-pressed="true"] .box{background:var(--acc);border-color:var(--acc)}
+.addon[aria-pressed="true"] .box::after{content:"";width:6px;height:11px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg) translate(-1px,-1px)}
+.addon .t{font-weight:500}
+.addon .p{white-space:nowrap;font-size:15px}
+.addon .d{grid-column:2 / 4;font-size:13.5px;color:var(--muted)}
+.addon.inc{cursor:default;background:var(--soft)}
+.addon.inc .box{border-style:dashed}
+.addon.inc .p{color:var(--acc);font-family:"Golos Text",sans-serif;font-size:13.5px;font-weight:500}
+.addon.choice{grid-column:1 / -1}
+.tx{display:flex;flex-direction:column;gap:10px;background:var(--acc-soft);border-radius:6px;padding:14px}
+.tx h3{font-family:"Golos Text",sans-serif;font-size:15px;font-weight:600;color:var(--acc)}
+.pickbar{grid-column:1 / -1;display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:10px}
+.pickbar .mini{display:flex;align-items:center;gap:10px;flex:1 1 220px;min-width:0}
+.pickbar .mini img{width:64px;height:48px;object-fit:contain;background:#fff;border:1px solid var(--line);border-radius:4px;flex:none}
+.pickbar .mini small{color:var(--muted)}
+.pbtn{background:var(--ink);color:var(--bg);border:none;border-radius:4px;padding:9px 14px;font-size:14px;font-weight:500}
+.pbtn.ghost{background:transparent;color:var(--muted);border:1px solid var(--line)}
+.mtabs{grid-column:1 / -1;display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.mtabs button{background:var(--card);color:var(--muted);border:1px solid var(--line);border-radius:20px;padding:6px 12px;font-size:13.5px;font-weight:500}
+.mtabs button span{opacity:.6;font-weight:400}
+.mtabs button[aria-selected="true"]{background:var(--acc);color:#fff;border-color:var(--acc)}
+.models{grid-column:1 / -1;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:10px}
+@media (max-width:680px){.models{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.model{text-align:left;color:inherit;background:var(--card);border:1px solid var(--line);border-radius:5px;padding:0 0 10px;display:flex;flex-direction:column;gap:2px;overflow:hidden}
+.model:hover{border-color:var(--muted)}
+.model[aria-pressed="true"]{border:2px solid var(--acc);padding-bottom:9px}
+.model .ph{display:block;background:#fff;aspect-ratio:4 / 3;margin-bottom:6px}
+.model img{width:100%;height:100%;object-fit:contain;display:block}
+.model .mn,.model .mt,.model .mp{padding-inline:10px}
+.model .mn{font-weight:500;font-size:14.5px}
+.model .mt{font-size:13px;color:var(--muted)}
+.model .mp{font-size:14px;margin-top:2px}
+.addon .step{grid-column:2 / 4;display:flex;align-items:center;gap:12px;margin-top:6px}
+.addon .step button{width:34px;height:34px;border-radius:4px;border:1px solid var(--line);background:var(--card);color:var(--ink);font-size:18px;line-height:1;padding:0}
+.addon .step button:hover{border-color:var(--muted)}
+.addon .step b{font-weight:500;font-size:14.5px;min-width:90px}
+.addon .n{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:var(--brass);color:var(--brass-ink);font-size:11.5px;font-weight:600;margin-right:6px;vertical-align:1px}
+
+/* ---------- условия ---------- */
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px}
+.inc-list{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px}
+.inc-list li{display:flex;gap:10px}
+.inc-list li::before{content:none}
+.pay{display:flex;flex-direction:column;gap:12px}
+.pay div{display:grid;grid-template-columns:64px 1fr;gap:12px;align-items:baseline}
+.pay b{font-size:20px;font-weight:500}
+.pay span{color:var(--muted);font-size:14.5px}
+.note{background:var(--soft);border:1px solid var(--line);border-radius:6px;padding:14px 16px;font-size:14.5px;color:var(--muted)}
+.note b{color:var(--ink);font-weight:500}
+.links{display:flex;flex-wrap:wrap;gap:8px}
+.tg{align-self:flex-start;background:var(--acc-soft);color:var(--acc);text-decoration:none;font-weight:500;font-size:14.5px;padding:8px 14px;border-radius:20px}
+.tg:hover{text-decoration:underline}
+footer a{color:var(--acc)}
+footer{border-top:1px solid var(--line);padding-top:18px;color:var(--muted);font-size:14px;display:flex;flex-direction:column;gap:6px}
+
+/* ---------- итог внизу ---------- */
+.total{
+  position:fixed;left:0;right:0;bottom:0;z-index:10;
+  background:var(--card);border-top:1px solid var(--line);box-shadow:0 -6px 24px rgba(20,30,25,.08);
+  padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px));
+}
+.total .in{max-width:1040px;margin:0 auto;display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center;justify-content:space-between}
+.total .what{font-size:14px;color:var(--muted);min-width:0;flex:1 1 280px}
+.total .what b{color:var(--ink);font-weight:500}
+.total .sum{display:flex;align-items:baseline;gap:14px}
+.total .big{font-size:clamp(22px,4vw,28px);font-weight:500;letter-spacing:-.02em}
+.total .copy{background:var(--acc);color:#fff;border:none;border-radius:4px;padding:10px 16px;font-weight:500;font-size:14.5px}
+:root[data-theme="dark"] .total .copy{color:#10201A}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .total .copy{color:#10201A}}
+/* ---------- окно «отправить выбор» ---------- */
+.send{border:none;border-radius:10px;padding:0;width:min(440px,calc(100vw - 24px));background:var(--card);color:var(--ink);box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.send::backdrop{background:rgba(15,20,18,.45)}
+.send .in{padding:20px 18px 18px;display:flex;flex-direction:column;gap:12px}
+.send h3{margin:0;font-size:19px;font-weight:600}
+.send .sum{background:var(--soft);border:1px solid var(--line);border-radius:6px;padding:10px 12px;font-size:13.5px;white-space:pre-line;max-height:180px;overflow:auto}
+.send label{display:flex;flex-direction:column;gap:4px;font-size:13px;color:var(--muted)}
+.send input,.send textarea{font:inherit;font-size:16px;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:6px;padding:9px 10px}
+.send textarea{min-height:60px;resize:vertical}
+.send .go{background:var(--acc);color:#fff;border:none;border-radius:6px;padding:13px 16px;font:inherit;font-weight:600;font-size:16px;cursor:pointer}
+.send .go[disabled]{opacity:.6}
+.send .or{font-size:13px;color:var(--muted);text-align:center;margin-top:2px}
+.send .ms{display:flex;gap:8px}
+.send .ms a{flex:1;text-align:center;text-decoration:none;border:1px solid var(--line);border-radius:6px;padding:10px;color:var(--ink);font-weight:500;font-size:14.5px}
+.send .hint{font-size:12.5px;color:var(--muted);margin:0}
+.send .ok{background:var(--acc-soft);color:var(--ink);border-radius:6px;padding:14px;font-size:15px;text-align:center}
+.send .x{position:absolute;right:8px;top:6px;background:none;border:none;font-size:24px;color:var(--muted);cursor:pointer;padding:4px 8px}
+:root[data-theme="dark"] .send .go{color:#10201A}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .send .go{color:#10201A}}
+/* ---------- вид из нейросети ---------- */
+.aibadge{position:absolute;left:10px;top:10px;background:rgba(27,32,29,.78);color:#fff;font-size:12.5px;font-weight:500;padding:4px 9px;border-radius:4px;pointer-events:none}
+.ainote{margin:10px 0 0;font-size:13.5px;color:var(--muted);background:var(--soft);border:1px solid var(--line);border-radius:6px;padding:10px 12px}
+/* ---------- телефон ---------- */
+@media (max-width:560px){
+  body{font-size:15.5px;padding-block:0 150px}
+  .wrap{gap:40px}
+  header{padding-top:24px}
+  .facts{gap:10px 22px}
+  .stage{border-radius:4px;margin-inline:-6px}
+  .spot{width:26px;height:26px;font-size:13px}
+  .spot::after{inset:-5px}
+  .tip{font-size:13px;max-width:200px}
+  .views{display:flex;flex-wrap:wrap;gap:6px}
+.views button{background:var(--card);color:var(--muted);border:1px solid var(--line);border-radius:20px;padding:7px 14px;font-size:14px;font-weight:500}
+.views button[aria-selected="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.mats{margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.mats div{background:var(--card);padding:12px 16px;display:flex;flex-direction:column;gap:2px}
+.mats dt{font-size:13px;color:var(--muted)}
+.mats dd{margin:0;font-weight:500}
+.caption{font-size:13px;flex-direction:column;align-items:flex-start;gap:4px}
+  .tier{padding:16px}
+  .tier[aria-checked="true"]{padding:15px}
+  .tier .price{font-size:23px}
+  .addon{padding:12px 14px;gap:4px 12px}
+  .addon .p{font-size:14px}
+  .total{padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px))}
+  .total .in{gap:6px 12px}
+  .total .what{font-size:12.5px;line-height:1.4;flex-basis:100%;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .total .sum{width:100%;justify-content:space-between}
+  .total .copy{padding:10px 14px;font-size:14px}
+}
+.bump{animation:bump .35s ease}
+@keyframes bump{50%{transform:scale(1.04)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<div class="wrap">
+
+<header>
+  <div class="who">
+    <span><span class="name" id="master"></span> <span class="meta" id="masterSub"></span></span>
+    <span class="meta" id="date"></span>
+  </div>
+  <h1 id="title"></h1>
+  <p class="lead" id="intro" style="margin:0"></p>
+  <div class="facts" id="facts"></div>
+  <div class="links"><a class="tg" id="tg" target="_blank" rel="noopener"></a><a class="tg" id="ig" target="_blank" rel="noopener"></a><a class="tg" id="vk" target="_blank" rel="noopener"></a></div>
+</header>
+
+<section>
+  <div>
+    <span class="label">Ваш проект</span>
+    <h2 id="stageTitle">👆 Нажмите на точку — посмотрите, что можно добавить</h2>
+  </div>
+  <div class="views" id="views" role="tablist" aria-label="Вид проекта"></div>
+  <div class="stage" id="stage">
+    <img id="render" src="" alt="">
+    <div class="tip" id="tip" hidden></div>
+    <span class="aibadge" id="aiBadge" hidden>🤖 Нейросеть · ориентир</span>
+  </div>
+  <p class="ainote" id="aiNote" hidden></p>
+  <div class="caption" id="stageCaption">
+    <span><i class="dot" style="background:var(--brass)"></i>можно добавить</span>
+    <span><i class="dot" style="background:var(--acc)"></i>добавлено</span>
+    <span><i class="dot" style="background:#8B948F"></i>уже входит в выбранную комплектацию</span>
+  </div>
+</section>
+
+<section id="matSec">
+  <div>
+    <span class="label">Материалы</span>
+    <h2>🧱 Из чего сделана кухня</h2>
+  </div>
+  <dl class="mats" id="mats"></dl>
+  <div class="matph" id="matph"></div>
+</section>
+
+<section>
+  <div>
+    <span class="label">Шаг 1</span>
+    <h2>✅ Выберите комплектацию</h2>
+    <p class="lead" id="tiersLead">Размеры и проект одинаковые во всех вариантах. Отличаются фасады, столешница и то, чем кухня открывается и закрывается каждый день.</p>
+  </div>
+  <div class="tiers" id="tiers" role="radiogroup" aria-label="Комплектация"></div>
+  <details class="cmp">
+    <summary>📋 Сравнить построчно</summary>
+    <div class="tw"><table id="cmp"></table></div>
+  </details>
+</section>
+
+<section>
+  <div>
+    <span class="label">Шаг 2</span>
+    <h2>➕ Добавьте то, что нужно вам</h2>
+    <p class="lead" id="addonsLead">Цена пересчитывается сразу. Номер у опции совпадает с точкой на проекте.</p>
+  </div>
+  <div id="tierExtrasWrap" class="tx">
+    <h3 id="tierExtrasTitle"></h3>
+    <div class="addons" id="tierExtras"></div>
+  </div>
+  <div class="addons" id="addons"></div>
+  <div id="fillWrap" class="fillbox" hidden>
+    <h3 id="fillTitle"></h3>
+    <p id="fillText"></p>
+    <div class="addons" id="addonsFill"></div>
+  </div>
+  <details class="cmp con" id="conWrap">
+    <summary>🔌 Подключение техники</summary>
+    <div class="con-in">
+      <p class="lead" style="margin:0">Обычно подключение делает ваш электрик и сантехник. Если удобнее, чтобы это сделал я, отметьте нужное. К цене работы добавляется стоимость материалов по чеку из магазина.</p>
+      <div class="addons" id="addonsCon"></div>
+    </div>
+  </details>
+  <details class="cmp con" id="rareWrap">
+    <summary>🧩 Редкие опции</summary>
+    <div class="con-in">
+      <div class="addons" id="addonsRare"></div>
+    </div>
+  </details>
+</section>
+
+<section>
+  <div class="cols">
+    <div>
+      <span class="label">В любой комплектации</span>
+      <h2 style="margin:6px 0 14px">🧰 Уже в цене</h2>
+      <ul class="inc-list" id="included"></ul>
+    </div>
+    <div>
+      <span class="label">Срок и оплата</span>
+      <h2 style="margin:6px 0 14px" id="term"></h2>
+      <div class="pay" id="pay"></div>
+    </div>
+  </div>
+  <p class="note" id="notIncl"></p>
+</section>
+
+<footer id="foot"></footer>
+</div>
+
+<div class="total" role="region" aria-label="Итог">
+  <div class="in">
+    <div class="what" id="what"></div>
+    <div class="sum">
+      <span class="big num" id="big" aria-live="polite"></span>
+      <button class="copy" id="copy">📨 Отправить выбор</button>
+    </div>
+  </div>
+</div>
+
+<dialog class="send" id="send" aria-labelledby="sendTitle">
+  <button class="x" id="sendX" aria-label="Закрыть">×</button>
+  <div class="in" id="sendForm">
+    <h3 id="sendTitle">Отправить ваш выбор</h3>
+    <div class="sum" id="sendSum"></div>
+    <div id="autoBox">
+      <label>Вопрос или комментарий — необязательно <textarea id="sendNote"></textarea></label>
+      <button class="go" id="sendGo" style="width:100%;margin-top:12px"></button>
+      <p class="or" id="orTxt">или напишите сами в мессенджер:</p>
+    </div>
+    <div class="ms" id="msBox"></div>
+    <p class="hint" id="msHint">Текст выбора скопируется сам — в чате зажмите поле ввода → «Вставить» → отправьте.</p>
+  </div>
+  <div class="in" id="sendDone" hidden>
+    <div class="ok">✅ Отправлено!<br><span id="doneWho"></span> получил ваш выбор и скоро свяжется с вами.</div>
+  </div>
+</dialog>
+
+<script>
+/* =====================================================================
+   НАСТРОЙКИ КП — всё, что меняется от клиента к клиенту, здесь.
+   Для шкафа, прихожей и т.д.: поменяй тексты, строки ROWS, комплектации,
+   опции и координаты точек (x, y — проценты от ширины/высоты картинки).
+   ===================================================================== */
+const KP = {"client": "", "title": "шкаф в спальне ", "date": "30 сентября 2026 г.", "intro": "шкаф в спальне. ", "views": [{"id": "f", "label": "С фасадами", "img": "1-fasady.jpg", "alt": "С фасадами"}, {"id": "nf", "label": "Без фасадов", "img": "2-bez-fasadov.jpg", "alt": "Без фасадов"}], "materials": [], "matPhotos": [], "master": "Александр Самосудов", "masterSub": "· кухни, шкафы и корпусная мебель, Новосибирск", "facts": [["16 лет", "делаю мебель"], ["Сам", "проект, сборка и монтаж"], ["Свой сборочный цех", "детали на станках ЧПУ"]], "rows": [["corpus", "Корпус"], ["facade", "Фасады"], ["open", "Открывание"], ["hinge", "Петли"], ["drawer", "Ящики"], ["fill", "Наполнение"], ["light", "Подсветка"]], "fillNote": {"title": "📐 Выдвижное наполнение — ставится отдельно", "text": "Корзины, брючницы, полки и обувницы бывают только стандартных размеров. <b>Перед заказом я сверю размеры</b>: войдёт ли выбранная модель в ваш шкаф и подойдёт ли решение. Выбирайте, что нравится, — размеры согласуем со мной."}, "tiers": [{"id": "min", "name": "Стартовая", "price": 84160, "sub": "Всё необходимое по проекту", "spec": {"corpus": "ЛДСП Томлесдрев / Увадрев", "facade": "ЛДСП Томлесдрев / Увадрев", "open": "Длинные ручки", "hinge": "Петли Samet / GTV с доводчиком", "drawer": "Шариковые направляющие с доводчиком", "fill": "Штанга хром", "light": "Нет, можно добавить"}, "short": ["Фасады: ЛДСП Томлесдрев / Увадрев", "Корпус: ЛДСП Томлесдрев / Увадрев", "Петли Samet / GTV с доводчиком", "Ящики: Шариковые направляющие с доводчиком"]}, {"id": "base", "name": "Базовая", "price": 93360, "sub": "Лучше материалы и фурнитура", "spec": {"corpus": "ЛДСП Томлесдрев / Увадрев", "facade": "ЛДСП Egger / Lamarty", "open": "Длинные ручки", "hinge": "Петли Samet / GTV с доводчиком", "drawer": "Скрытые направляющие с доводчиком: ящик выезжает плавно и закрывается сам", "fill": "Штанга хром", "light": "Нет, можно добавить"}, "short": ["Фасады: ЛДСП Egger / Lamarty", "Корпус: ЛДСП Томлесдрев / Увадрев", "Петли Samet / GTV с доводчиком", "Ящики: Скрытые направляющие с доводчиком"]}, {"id": "opt", "name": "Оптимальная", "price": 181200, "sub": "Лучшее соотношение цены и качества", "spec": {"corpus": "ЛДСП Egger / Lamarty", "facade": "Панели AGT", "open": "Длинные ручки", "hinge": "Петли Blum с доводчиком", "fill": "Штанга хром", "light": "Внутри шкафа: светодиодная лента в профиле, включается сама при открывании дверцы"}, "short": ["Фасады: Панели AGT", "Корпус: ЛДСП Egger / Lamarty", "Петли Blum с доводчиком", "Подсветка внутри шкафа"], "tag": "Популярная"}, {"id": "prem", "name": "Максимальная", "price": 236600, "sub": "Максимум качества и удобства", "spec": {"corpus": "ЛДСП Egger / Lamarty", "facade": "МДФ, эмаль матовая", "open": "Длинные ручки", "hinge": "Петли Blum с доводчиком", "fill": "Штанга на выбор: чёрная, золото или серебро", "light": "Внутри шкафа: светодиодная лента в профиле, включается сама при открывании дверцы"}, "short": ["Фасады: МДФ, эмаль матовая", "Корпус: ЛДСП Egger / Lamarty", "Петли Blum с доводчиком", "Подсветка внутри шкафа"]}], "defaultTier": "opt", "addons": [{"id": "inlight", "name": "Подсветка внутри шкафа", "spot": null, "price": 24400, "desc": "Светодиодная лента в профиле, включается сама при открывании дверцы", "inc": ["opt", "prem"]}, {"id": "rod", "name": "Цветная штанга: чёрная, золото или серебро", "spot": null, "tiers": ["opt"], "desc": "Вместо хромированной штанги — в цвет ручек и фурнитуры", "price": 6000}, {"id": "agt", "name": "Фасады из панелей AGT", "spot": null, "tiers": ["base"], "desc": "Вместо фасадов из ЛДСП — панели AGT, цвет подберём по каталогу", "price": 45000}, {"id": "c-shoe", "name": "Выдвижная полка для обуви", "desc": "Обувь на виду, полка выезжает на доводчике — выберите модель", "spot": null, "choice": [{"id": "vydvizhnaya-polka-dlya-obuvi-alba-hz004a-564kh475k", "g": "Для обуви", "name": "Выдвижная полка для обуви ALBA HZ004A,564х475х152", "note": "", "price": 3520, "img": "fl/nf/vydvizhnaya-polka-dlya-obuvi-alba-hz004a-564kh475kh152.jpg"}, {"id": "vydvizhnaya-polka-dlya-obuvi-alba-hz022-295kh485kh", "g": "Для обуви", "name": "Выдвижная полка для обуви ALBA HZ022, 295х485х500", "note": "", "price": 3700, "img": "fl/nf/vydvizhnaya-polka-dlya-obuvi-alba-hz022-295kh485kh500.jpg"}, {"id": "vydvizhnaya-polka-dlya-obuvi-unihopper-v-bazu-600m", "g": "в базу 600 мм", "name": "Выдвижная полка для обуви Unihopper в базу 600мм, с доводчиком, clip-on, COKA", "note": "", "price": 6660, "img": "fl/nf/vydvizhnaya-polka-dlya-obuvi-unihopper-v-bazu-600mm-s-dovodc.jpg"}, {"id": "vydvizhnaya-polka-dlya-obuvi-stalnaya-unihopper-v-", "g": "в базу 600 мм", "name": "Выдвижная полка для обуви стальная Unihopper в базу 600мм, с доводчиком, clip-on, COKA", "note": "", "price": 6880, "img": "fl/nf/vydvizhnaya-polka-dlya-obuvi-stalnaya-unihopper-v-bazu-600mm.jpg"}, {"id": "vydvizhnaya-polka-dlya-obuvi-unihopper-v-bazu-600m", "g": "в базу 600 мм", "name": "Выдвижная полка для обуви Unihopper в базу 600мм с доводчиком clip-on MONIKA", "note": "", "price": 7300, "img": "fl/nf/vydvizhnaya-polka-dlya-obuvi-unihopper-v-bazu-600mm-s-dovodc.jpg"}, {"id": "vydvizhnaya-polka-dlya-obuvi-unihopper-v-bazu-800m", "g": "в базу 800 мм", "name": "Выдвижная полка для обуви Unihopper в базу 800мм, с доводчиком, clip-on, COKA", "note": "", "price": 7390, "img": "fl/nf/vydvizhnaya-polka-dlya-obuvi-unihopper-v-bazu-800mm-s-dovodc.jpg"}, {"id": "vydvizhnaya-polka-dlya-obuvi-stalnaya-unihopper-v-", "g": "в базу 800 мм", "name": "Выдвижная полка для обуви стальная Unihopper в базу 800мм, с доводчиком, clip-on, COKA", "note": "", "price": 7590, "img": "fl/nf/vydvizhnaya-polka-dlya-obuvi-stalnaya-unihopper-v-bazu-800mm.jpg"}, {"id": "vydvizhnaya-polka-dlya-obuvi-unihopper-v-bazu-600-", "g": "в базу 600 мм", "name": "Выдвижная полка для обуви Unihopper, в базу 600 мм, с доводчиком, clip-on, MOKA", "note": "", "price": 7810, "img": "fl/nf/vydvizhnaya-polka-dlya-obuvi-unihopper-v-bazu-600-mm-s-dovod.jpg"}, {"id": "vydvizhnaya-polka-dlya-obuvi-unihopper-v-bazu-900m", "g": "в базу 900 мм", "name": "Выдвижная полка для обуви Unihopper в базу 900мм, с доводчиком, clip-on, COKA", "note": "", "price": 8260, "img": "fl/nf/vydvizhnaya-polka-dlya-obuvi-unihopper-v-bazu-900mm-s-dovodc.jpg"}, {"id": "vydvizhnaya-polka-dlya-obuvi-so-steklyannoy-panely", "g": "в базу 600 мм", "name": "Выдвижная полка для обуви со стеклянной панелью Unihopper в базу 600мм, c доводчиком, clip-on, GLASS NAKA", "note": "", "price": 8860, "img": "fl/nf/vydvizhnaya-polka-dlya-obuvi-so-steklyannoy-panelyu-unihoppe.jpg"}, {"id": "vydvizhnaya-polka-dlya-obuvi-unihopper-v-bazu-900m", "g": "в базу 900 мм", "name": "Выдвижная полка для обуви Unihopper в базу 900мм с доводчиком clip-on MONIKA", "note": "", "price": 9120, "img": "fl/nf/vydvizhnaya-polka-dlya-obuvi-unihopper-v-bazu-900mm-s-dovodc.jpg"}, {"id": "vydvizhnaya-polka-dlya-obuvi-stalnaya-unihopper-v-", "g": "в базу 900 мм", "name": "Выдвижная полка для обуви стальная Unihopper в базу 900мм, с доводчиком, clip-on, COKA", "note": "", "price": 9140, "img": "fl/nf/vydvizhnaya-polka-dlya-obuvi-stalnaya-unihopper-v-bazu-900mm.jpg"}, {"id": "vydvizhnaya-polka-dlya-obuvi-unihopper-v-bazu-900-", "g": "в базу 900 мм", "name": "Выдвижная полка для обуви Unihopper, в базу 900 мм, с доводчиком, clip-on, MOKA", "note": "", "price": 9570, "img": "fl/nf/vydvizhnaya-polka-dlya-obuvi-unihopper-v-bazu-900-mm-s-dovod.jpg"}, {"id": "vydvizhnaya-polka-dlya-obuvi-so-steklyannoy-panely", "g": "в базу 800 мм", "name": "Выдвижная полка для обуви со стеклянной панелью Unihopper в базу 800мм, c доводчиком, clip-on, GLASS NAKA", "note": "", "price": 10430, "img": "fl/nf/vydvizhnaya-polka-dlya-obuvi-so-steklyannoy-panelyu-unihoppe.jpg"}, {"id": "vydvizhnaya-polka-dlya-obuvi-stalnaya-unihopper-v-", "g": "в базу 600 мм", "name": "Выдвижная полка для обуви стальная Unihopper в базу 600 мм, с доводчиком, clip-on, MOKA", "note": "", "price": 11120, "img": "fl/nf/vydvizhnaya-polka-dlya-obuvi-stalnaya-unihopper-v-bazu-600-m.jpg"}, {"id": "vydvizhnaya-polka-dlya-obuvi-so-steklyannoy-panely", "g": "в базу 900 мм", "name": "Выдвижная полка для обуви со стеклянной панелью Unihopper в базу 900мм, c доводчиком, clip-on, GLASS NAKA", "note": "", "price": 11310, "img": "fl/nf/vydvizhnaya-polka-dlya-obuvi-so-steklyannoy-panelyu-unihoppe.jpg"}, {"id": "vydvizhnaya-polka-dlya-obuvi-stalnaya-unihopper-v-", "g": "в базу 900 мм", "name": "Выдвижная полка для обуви стальная Unihopper в базу 900 мм, с доводчиком, clip-on, MOKA", "note": "", "price": 14010, "img": "fl/nf/vydvizhnaya-polka-dlya-obuvi-stalnaya-unihopper-v-bazu-900-m.jpg"}], "group": "fill"}, {"id": "c-pants", "name": "Выдвижная брючница", "desc": "Брюки не мнутся, выдвигается целиком — выберите модель", "spot": null, "choice": [{"id": "vydvizhnaya-polka-dlya-bryuk-alba-hz005a-564kh475k", "g": "Брючницы", "name": "Выдвижная полка для брюк ALBA HZ005A,564х475х82", "note": "", "price": 2470, "img": "fl/nf/vydvizhnaya-polka-dlya-bryuk-alba-hz005a-564kh475kh82.jpg"}, {"id": "vydvizhnaya-veshalka-dlya-bryuk-unihopper-v-bazu-6", "g": "в базу 600 мм", "name": "Выдвижная вешалка для брюк Unihopper в базу 600мм, c доводчиком, clip-on, COKA", "note": "", "price": 4800, "img": "fl/nf/vydvizhnaya-veshalka-dlya-bryuk-unihopper-v-bazu-600mm-c-dov.jpg"}, {"id": "vydvizhnaya-veshalka-dlya-bryuk-unihopper-v-bazu-8", "g": "в базу 800 мм", "name": "Выдвижная вешалка для брюк Unihopper в базу 800мм, c доводчиком, clip-on, COKA", "note": "", "price": 5640, "img": "fl/nf/vydvizhnaya-veshalka-dlya-bryuk-unihopper-v-bazu-800mm-c-dov.jpg"}, {"id": "vydvizhnaya-veshalka-dlya-bryuk-so-steklyannoy-pan", "g": "в базу 600 мм", "name": "Выдвижная вешалка для брюк со стеклянной панелью Unihopper в базу 600мм, c доводчиком, clip-on, GLASS NAKA", "note": "", "price": 6000, "img": "fl/nf/vydvizhnaya-veshalka-dlya-bryuk-so-steklyannoy-panelyu-uniho.jpg"}, {"id": "vydvizhnaya-veshalka-dlya-bryuk-unihopper-v-bazu-9", "g": "в базу 900 мм", "name": "Выдвижная вешалка для брюк Unihopper в базу 900мм, c доводчиком, clip-on, COKA", "note": "", "price": 6090, "img": "fl/nf/vydvizhnaya-veshalka-dlya-bryuk-unihopper-v-bazu-900mm-c-dov.jpg"}, {"id": "vydvizhnaya-veshalka-dlya-bryuk-unihopper-v-bazu-6", "g": "в базу 600 мм", "name": "Выдвижная вешалка для брюк Unihopper в базу 600мм, c доводчиком, clip-on MONIKA", "note": "", "price": 6130, "img": "fl/nf/vydvizhnaya-veshalka-dlya-bryuk-unihopper-v-bazu-600mm-c-dov.jpg"}, {"id": "vydvizhnaya-s-obraznaya-veshalka-dlya-bryuk-unihop", "g": "Брючницы", "name": "Выдвижная S-образная вешалка для брюк Unihopper с доводчиком MONIKA пушечный серый", "note": "", "price": 6330, "img": "fl/nf/vydvizhnaya-s-obraznaya-veshalka-dlya-bryuk-unihopper-s-dovo.jpg"}, {"id": "vydvizhnaya-d-obraznaya-veshalka-dlya-bryuk-unihop", "g": "Брючницы", "name": "Выдвижная D-образная вешалка для брюк Unihopper с доводчиком MONIKA пушечный серый", "note": "", "price": 6640, "img": "fl/nf/vydvizhnaya-d-obraznaya-veshalka-dlya-bryuk-unihopper-s-dovo.jpg"}, {"id": "vydvizhnaya-veshalka-dlya-bryuk-so-steklyannoy-pan", "g": "в базу 800 мм", "name": "Выдвижная вешалка для брюк со стеклянной панелью Unihopper в базу 800мм, c доводчиком, clip-on, GLASS NAKA", "note": "", "price": 7230, "img": "fl/nf/vydvizhnaya-veshalka-dlya-bryuk-so-steklyannoy-panelyu-uniho.jpg"}, {"id": "085db73e-fdba-4a10-bff6-ba62cc75", "g": "в базу 900 мм", "name": "Выдвижная вешалка для брюк Unihopper в базу 900мм, c доводчиком, clip-on MONIKA", "note": "", "price": 7370, "img": "fl/nf/085db73e-fdba-4a10-bff6-ba62cc75.jpg"}, {"id": "vydvizhnaya-veshalka-dlya-bryuk-unihopper-v-bazu-6", "g": "в базу 600 мм", "name": "Выдвижная вешалка для брюк Unihopper, в базу 600 мм, c доводчиком, clip-on, MOKA", "note": "", "price": 7730, "img": "fl/nf/vydvizhnaya-veshalka-dlya-bryuk-unihopper-v-bazu-600-mm-c-do.jpg"}, {"id": "vydvizhnaya-veshalka-dlya-bryuk-so-steklyannoy-pan", "g": "в базу 900 мм", "name": "Выдвижная вешалка для брюк со стеклянной панелью Unihopper в базу 900мм, c доводчиком, clip-on, GLASS NAKA", "note": "", "price": 8820, "img": "fl/nf/vydvizhnaya-veshalka-dlya-bryuk-so-steklyannoy-panelyu-uniho.jpg"}, {"id": "vydvizhnaya-veshalka-dlya-bryuk-unihopper-v-bazu-9", "g": "в базу 900 мм", "name": "Выдвижная вешалка для брюк Unihopper, в базу 900 мм, c доводчиком, clip-on, MOKA", "note": "", "price": 9630, "img": "fl/nf/vydvizhnaya-veshalka-dlya-bryuk-unihopper-v-bazu-900-mm-c-do.jpg"}, {"id": "vydvizhnaya-veshalka-dlya-bryuk-unihopper-s-korzin", "g": "в базу 900 мм", "name": "Выдвижная вешалка для брюк Unihopper с корзиной, в базу 900 мм, с доводчиком, clip-on, MOKA", "note": "", "price": 10420, "img": "fl/nf/vydvizhnaya-veshalka-dlya-bryuk-unihopper-s-korzinoy-v-bazu-.jpg"}, {"id": "vydvizhnaya-veshalka-dlya-bryuk-unihopper-v-bazu-9", "g": "в базу 900 мм", "name": "Выдвижная вешалка для брюк Unihopper, в базу 900 мм, с доводчиком, clip-on, MOKA", "note": "", "price": 17040, "img": "fl/nf/vydvizhnaya-veshalka-dlya-bryuk-unihopper-v-bazu-900-mm-s-do.jpg"}], "group": "fill"}, {"id": "c-basket", "name": "Выдвижная корзина", "desc": "Для белья, шарфов, сумок — выберите модель", "spot": null, "choice": [{"id": "vydvizhnaya-korzina-iz-pvkh-rotanga-so-steklyannoy", "g": "в базу 600 мм", "name": "Выдвижная корзина из ПВХ ротанга со стеклянной панелью Unihopper в базу 600мм, c доводчиком, clip-on, GLASS NAKA", "note": "", "price": 11130, "img": "fl/nf/vydvizhnaya-korzina-iz-pvkh-rotanga-so-steklyannoy-panelyu-u.jpg"}, {"id": "vydvizhnaya-korzina-iz-pvkh-rotanga-so-steklyannoy", "g": "в базу 800 мм", "name": "Выдвижная корзина из ПВХ ротанга со стеклянной панелью Unihopper в базу 800мм, c доводчиком, clip-on, GLASS NAKA", "note": "", "price": 12110, "img": "fl/nf/vydvizhnaya-korzina-iz-pvkh-rotanga-so-steklyannoy-panelyu-u.jpg"}, {"id": "vydvizhnaya-korzina-iz-pvkh-rotanga-unihopper-v-ba", "g": "в базу 600 мм", "name": "Выдвижная корзина из ПВХ ротанга Unihopper, в базу 600 мм, c доводчиком, clip-on, MOKA", "note": "", "price": 12510, "img": "fl/nf/vydvizhnaya-korzina-iz-pvkh-rotanga-unihopper-v-bazu-600-mm-.jpg"}, {"id": "vydvizhnaya-korzina-iz-pvkh-rotanga-unihopper-v-ba", "g": "в базу 900 мм", "name": "Выдвижная корзина из ПВХ ротанга Unihopper, в базу 900 мм, c доводчиком, clip-on, MOKA", "note": "", "price": 12930, "img": "fl/nf/vydvizhnaya-korzina-iz-pvkh-rotanga-unihopper-v-bazu-900-mm-.jpg"}, {"id": "vydvizhnaya-korzina-iz-pvkh-rotanga-so-steklyannoy", "g": "в базу 900 мм", "name": "Выдвижная корзина из ПВХ ротанга со стеклянной панелью Unihopper в базу 900мм, c доводчиком, clip-on, GLASS NAKA", "note": "", "price": 13420, "img": "fl/nf/vydvizhnaya-korzina-iz-pvkh-rotanga-so-steklyannoy-panelyu-u.jpg"}, {"id": "vydvizhnaya-korzina-seraya-kozha-unihopper-v-bazu-", "g": "в базу 600 мм", "name": "Выдвижная корзина серая кожа Unihopper в базу 600мм с доводчиком clip-on MONIKA", "note": "", "price": 14540, "img": "fl/nf/vydvizhnaya-korzina-seraya-kozha-unihopper-v-bazu-600mm-s-do.jpg"}, {"id": "vydvizhnaya-korzina-seraya-kozha-unihopper-v-bazu-", "g": "в базу 900 мм", "name": "Выдвижная корзина серая кожа Unihopper в базу 900мм с доводчиком clip-on MONIKA", "note": "", "price": 18260, "img": "fl/nf/vydvizhnaya-korzina-seraya-kozha-unihopper-v-bazu-900mm-s-do.jpg"}], "group": "fill"}, {"id": "c-shelf", "name": "Выдвижная полка или ящик", "desc": "Для белья, аксессуаров, зеркало — выберите модель", "spot": null, "choice": [{"id": "vydvizhnaya-polka-dlya-belya-alba-hz006a-564kh475k", "g": "Полки и ящики", "name": "Выдвижная полка для белья ALBA HZ006A,564х475х155", "note": "", "price": 3850, "img": "fl/nf/vydvizhnaya-polka-dlya-belya-alba-hz006a-564kh475kh155.jpg"}, {"id": "vydvizhnaya-polka-dlya-belya-alba-hz006-900-864kh4", "g": "Полки и ящики", "name": "Выдвижная полка для белья ALBA HZ006-900,864х475х155", "note": "", "price": 4490, "img": "fl/nf/vydvizhnaya-polka-dlya-belya-alba-hz006-900-864kh475kh155.jpg"}, {"id": "vydvizhnoe-zerkalo-unihopper-1000-300-monika", "g": "Полки и ящики", "name": "Выдвижное зеркало Unihopper 1000*300 MONIKA", "note": "", "price": 4840, "img": "fl/nf/vydvizhnoe-zerkalo-unihopper-1000-300-monika.jpg"}, {"id": "vydvizhnaya-polka-stalnaya-unihopper-v-bazu-600mm-", "g": "в базу 600 мм", "name": "Выдвижная полка стальная Unihopper в базу 600мм, c доводчиком, clip-on, COKA", "note": "", "price": 5560, "img": "fl/nf/vydvizhnaya-polka-stalnaya-unihopper-v-bazu-600mm-c-dovodchi.jpg"}, {"id": "vydvizhnaya-polka-stalnaya-unihopper-v-bazu-900mm-", "g": "в базу 900 мм", "name": "Выдвижная полка стальная Unihopper в базу 900мм, c доводчиком, clip-on, COKA", "note": "", "price": 6560, "img": "fl/nf/vydvizhnaya-polka-stalnaya-unihopper-v-bazu-900mm-c-dovodchi.jpg"}, {"id": "vydvizhnaya-polka-stal-seraya-kozha-unihopper-v-ba", "g": "в базу 600 мм", "name": "Выдвижная полка сталь, серая кожа Unihopper в базу 600мм c доводчиком clip-on MONIKA", "note": "", "price": 7420, "img": "fl/nf/vydvizhnaya-polka-stal-seraya-kozha-unihopper-v-bazu-600mm-c.jpg"}, {"id": "vydvizhnaya-polka-dlya-aksessuarov-unihopper-v-baz", "g": "в базу 600 мм", "name": "Выдвижная полка для аксессуаров Unihopper в базу 600мм, с доводчиком, clip-on, COKA", "note": "", "price": 8050, "img": "fl/nf/vydvizhnaya-polka-dlya-aksessuarov-unihopper-v-bazu-600mm-s-.jpg"}, {"id": "vydvizhnaya-polka-unihopper-v-bazu-600mm-c-dovodch", "g": "в базу 600 мм", "name": "Выдвижная полка Unihopper в базу 600мм, c доводчиком, clip-on, COKA", "note": "", "price": 8230, "img": "fl/nf/vydvizhnaya-polka-unihopper-v-bazu-600mm-c-dovodchikom-clip-.jpg"}, {"id": "vydvizhnaya-polka-unihopper-v-bazu-900mm-c-dovodch", "g": "в базу 900 мм", "name": "Выдвижная полка Unihopper в базу 900мм, c доводчиком, clip-on, COKA", "note": "", "price": 8910, "img": "fl/nf/vydvizhnaya-polka-unihopper-v-bazu-900mm-c-dovodchikom-clip-.jpg"}, {"id": "vydvizhnaya-polka-stal-seraya-kozha-unihopper-v-ba", "g": "в базу 900 мм", "name": "Выдвижная полка сталь, серая кожа Unihopper в базу 900мм c доводчиком clip-on MONIKA", "note": "", "price": 9210, "img": "fl/nf/vydvizhnaya-polka-stal-seraya-kozha-unihopper-v-bazu-900mm-c.jpg"}, {"id": "vydvizhnaya-polka-dlya-aksessuarov-unihopper-v-baz", "g": "в базу 900 мм", "name": "Выдвижная полка для аксессуаров Unihopper в базу 900мм, с доводчиком, clip-on, COKA", "note": "", "price": 9630, "img": "fl/nf/vydvizhnaya-polka-dlya-aksessuarov-unihopper-v-bazu-900mm-s-.jpg"}, {"id": "vydvizhnaya-polka-stalnaya-unihopper-v-bazu-600-mm", "g": "в базу 600 мм", "name": "Выдвижная полка стальная Unihopper в базу 600 мм, c доводчиком, clip-on, MOKA", "note": "", "price": 10150, "img": "fl/nf/vydvizhnaya-polka-stalnaya-unihopper-v-bazu-600-mm-c-dovodch.jpg"}, {"id": "vydvizhnaya-polka-dlya-belya-i-aksessuarov-unihopp", "g": "в базу 600 мм", "name": "Выдвижная полка для белья и аксессуаров Unihopper в базу 600мм, с доводчиком, clip-on, COKA", "note": "", "price": 10310, "img": "fl/nf/vydvizhnaya-polka-dlya-belya-i-aksessuarov-unihopper-v-bazu-.jpg"}, {"id": "vydvizhnaya-polka-dlya-aksessuarov-so-steklyannoy-", "g": "в базу 600 мм", "name": "Выдвижная полка для аксессуаров со стеклянной панелью Unihopper в базу 600мм, c доводчиком, clip-on, GLASS NAKA", "note": "", "price": 11070, "img": "fl/nf/vydvizhnaya-polka-dlya-aksessuarov-so-steklyannoy-panelyu-un.jpg"}, {"id": "vydvizhnaya-polka-dlya-belya-seraya-kozha-unihoppe", "g": "в базу 600 мм", "name": "Выдвижная полка для белья серая кожа Unihopper в базу 600мм с доводчиком clip-on MONIKA", "note": "", "price": 11460, "img": "fl/nf/vydvizhnaya-polka-dlya-belya-seraya-kozha-unihopper-v-bazu-6.jpg"}, {"id": "vydvizhnaya-polka-stalnaya-unihopper-v-bazu-900-mm", "g": "в базу 900 мм", "name": "Выдвижная полка стальная Unihopper в базу 900 мм, c доводчиком, clip-on, MOKA", "note": "", "price": 11590, "img": "fl/nf/vydvizhnaya-polka-stalnaya-unihopper-v-bazu-900-mm-c-dovodch.jpg"}, {"id": "vydvizhnaya-polka-dlya-aksessuarov-seraya-kozha-un", "g": "в базу 600 мм", "name": "Выдвижная полка для аксессуаров серая кожа Unihopper в базу 600мм с доводчиком clip-on MONIKA", "note": "", "price": 11720, "img": "fl/nf/vydvizhnaya-polka-dlya-aksessuarov-seraya-kozha-unihopper-v-.jpg"}, {"id": "vydvizhnaya-polka-dlya-aksessuarov-so-steklyannoy-", "g": "в базу 800 мм", "name": "Выдвижная полка для аксессуаров со стеклянной панелью Unihopper в базу 800мм, c доводчиком, clip-on, GLASS NAKA", "note": "", "price": 13550, "img": "fl/nf/vydvizhnaya-polka-dlya-aksessuarov-so-steklyannoy-panelyu-un.jpg"}, {"id": "vydvizhnaya-polka-dlya-belya-i-aksessuarov-unihopp", "g": "в базу 900 мм", "name": "Выдвижная полка для белья и аксессуаров Unihopper в базу 900мм, с доводчиком, clip-on, COKA", "note": "", "price": 13740, "img": "fl/nf/vydvizhnaya-polka-dlya-belya-i-aksessuarov-unihopper-v-bazu-.jpg"}, {"id": "vydvizhnaya-polka-dlya-aksessuarov-so-steklyannoy-", "g": "в базу 900 мм", "name": "Выдвижная полка для аксессуаров со стеклянной панелью Unihopper в базу 900мм, c доводчиком, clip-on, GLASS NAKA", "note": "", "price": 14480, "img": "fl/nf/vydvizhnaya-polka-dlya-aksessuarov-so-steklyannoy-panelyu-un.jpg"}, {"id": "vydvizhnaya-polka-dlya-aksessuarov-seraya-kozha-un", "g": "в базу 900 мм", "name": "Выдвижная полка для аксессуаров серая кожа Unihopper в базу 900мм с доводчиком clip-on MONIKA", "note": "", "price": 14750, "img": "fl/nf/vydvizhnaya-polka-dlya-aksessuarov-seraya-kozha-unihopper-v-.jpg"}, {"id": "vydvizhnaya-polka-dlya-belya-seraya-kozha-unihoppe", "g": "в базу 900 мм", "name": "Выдвижная полка для белья серая кожа Unihopper в базу 900мм с доводчиком clip-on MONIKA", "note": "", "price": 15650, "img": "fl/nf/vydvizhnaya-polka-dlya-belya-seraya-kozha-unihopper-v-bazu-9.jpg"}, {"id": "vydvizhnoe-zerkalo-unihopper-s-dovodchikom-moka", "g": "Полки и ящики", "name": "Выдвижное зеркало Unihopper, с доводчиком, MOKA", "note": "", "price": 16350, "img": "fl/nf/vydvizhnoe-zerkalo-unihopper-s-dovodchikom-moka.jpg"}, {"id": "vydvizhnaya-polka-3-kh-urovnevaya-seraya-kozha-uni", "g": "в базу 400 мм", "name": "Выдвижная полка 3-х уровневая серая кожа Unihopper в базу 400мм левая с доводчиком MONIKA пушечный серый", "note": "", "price": 17300, "img": "fl/nf/vydvizhnaya-polka-3-kh-urovnevaya-seraya-kozha-unihopper-v-b.jpg"}, {"id": "vydvizhnaya-polka-dlya-aksessuarov-s-kryshkoy-unih", "g": "в базу 900 мм", "name": "Выдвижная полка для аксессуаров с крышкой Unihopper, в базу 900 мм, с доводчиком, clip-on, MOKA", "note": "", "price": 24510, "img": "fl/nf/vydvizhnaya-polka-dlya-aksessuarov-s-kryshkoy-unihopper-v-ba.jpg"}], "group": "fill"}, {"id": "c-hang", "name": "Выдвижная вешалка", "desc": "Для галстуков и ремней — выберите модель", "spot": null, "choice": [{"id": "vydvizhnaya-veshalka-dlya-galstukov-unihopper-s-do", "g": "Вешалки и аксессуары", "name": "Выдвижная вешалка для галстуков Unihopper с доводчиком MONIKA пушечный серый", "note": "", "price": 2170, "img": "fl/nf/vydvizhnaya-veshalka-dlya-galstukov-unihopper-s-dovodchikom-.jpg"}, {"id": "vydvizhnaya-veshalka-verkhnego-krepleniya-unihoppe", "g": "Вешалки и аксессуары", "name": "Выдвижная вешалка верхнего крепления UNIHOPPER с доводчиком MONIKA пушечный серый", "note": "", "price": 2560, "img": "fl/nf/vydvizhnaya-veshalka-verkhnego-krepleniya-unihopper-s-dovodc.jpg"}], "group": "fill"}, {"id": "c-panto", "name": "Пантограф", "desc": "Опускает штангу с одеждой с верхней полки — выберите размер", "spot": null, "choice": [{"id": "pantograf-alyuminievyy-14105-003-830-1150mm", "g": "Пантографы", "name": "Пантограф алюминиевый 14105.003 830-1150мм", "note": "", "price": 2760, "img": "fl/nf/pantograf-alyuminievyy-14105-003-830-1150mm.jpg"}, {"id": "pantograf-alyuminievyy-14105-001-450-600mm", "g": "Пантографы", "name": "Пантограф алюминиевый 14105.001 450-600мм", "note": "", "price": 2760, "img": "fl/nf/pantograf-alyuminievyy-14105-001-450-600mm.jpg"}, {"id": "pantograf-alyuminievyy-14105-002-600-830mm", "g": "Пантографы", "name": "Пантограф алюминиевый 14105.002 600-830мм", "note": "", "price": 2760, "img": "fl/nf/pantograf-alyuminievyy-14105-002-600-830mm.jpg"}, {"id": "pantograf-dlya-shkafa-teleskopicheskiy-unihopper-v", "g": "Пантографы", "name": "Пантограф для шкафа телескопический Unihopper Victora, 880-1270 мм", "note": "", "price": 4080, "img": "fl/nf/pantograf-dlya-shkafa-teleskopicheskiy-unihopper-victora-880.jpg"}, {"id": "pantograf-dlya-shkafa-teleskopicheskiy-unihopper-v", "g": "Пантографы", "name": "Пантограф для шкафа телескопический Unihopper Victora, 550-670 мм", "note": "", "price": 4080, "img": "fl/nf/pantograf-dlya-shkafa-teleskopicheskiy-unihopper-victora-550.jpg"}, {"id": "pantograf-dlya-shkafa-teleskopicheskiy-unihopper-v", "g": "Пантографы", "name": "Пантограф для шкафа телескопический Unihopper Victora, 650-920 мм", "note": "", "price": 4080, "img": "fl/nf/pantograf-dlya-shkafa-teleskopicheskiy-unihopper-victora-650.jpg"}], "group": "fill"}, {"id": "c-rare", "name": "Особое наполнение", "group": "rare", "spot": null, "choice": [{"id": "8-mi-urovnevaya-stoyka-dlya-obuvi-unihopper-v-bazu", "g": "Для обуви", "name": "8-ми уровневая стойка для обуви Unihopper, в базу 800 мм, с доводчиком, MOKA", "note": "", "price": 33670, "img": "fl/nf/8-mi-urovnevaya-stoyka-dlya-obuvi-unihopper-v-bazu-800-mm-s-.jpg"}, {"id": "12-ti-urovnevaya-stoyka-dlya-obuvi-unihopper-v-baz", "g": "Для обуви", "name": "12-ти уровневая стойка для обуви Unihopper, в базу 800 мм, с доводчиком, MOKA", "note": "", "price": 38580, "img": "fl/nf/12-ti-urovnevaya-stoyka-dlya-obuvi-unihopper-v-bazu-800-mm-s.jpg"}, {"id": "vydvizhnaya-gladilnaya-doska-alba-hz040-300kh-480-", "g": "Полки и ящики", "name": "Выдвижная гладильная доска ALBA HZ040 300х(480 - 1260)х140", "note": "", "price": 6770, "img": "fl/nf/vydvizhnaya-gladilnaya-doska-alba-hz040-300kh-480-1260-kh140.jpg"}, {"id": "vydvizhnaya-gladilnaya-doska-povorotnaya-alba-hz04", "g": "Полки и ящики", "name": "Выдвижная гладильная доска поворотная ALBA HZ040-2 300х(480 - 1260)х140", "note": "", "price": 7680, "img": "fl/nf/vydvizhnaya-gladilnaya-doska-povorotnaya-alba-hz040-2-300kh-.jpg"}, {"id": "vydvizhnoy-seyf-s-tachskrinom-unihopper-v-bazu-600", "g": "Полки и ящики", "name": "Выдвижной сейф с тачскрином Unihopper, в базу 600 мм, MOKA", "note": "", "price": 21820, "img": "fl/nf/vydvizhnoy-seyf-s-tachskrinom-unihopper-v-bazu-600-mm-moka.jpg"}, {"id": "360-vrashchayushchayasya-3-kh-urovnevaya-stoyka-dl", "g": "Полки и ящики", "name": "360° вращающаяся 3-х уровневая стойка для одежды Unihopper, в базу 800мм, Moka", "note": "", "price": 26840, "img": "fl/nf/360-vrashchayushchayasya-3-kh-urovnevaya-stoyka-dlya-odezhdy.jpg"}], "desc": "Сейф, гладильная доска, многоуровневая стойка для обуви, вращающаяся стойка"}, {"id": "socket", "name": "Встраиваемая розетка", "group": "rare", "spot": null, "choice": [{"id": "rz3", "g": "Вертикальные", "name": "Вертикальная, 3хEURO", "note": "Ø 60мм, ручное, пластик, черный", "price": 1790, "img": "fl/rz-03.jpg"}, {"id": "rz2", "g": "Вертикальные", "name": "Вертикальная, 3хEURO", "note": "Ø 60мм, ручное, пластик, серый", "price": 2133, "img": "fl/rz-02.jpg"}, {"id": "rz4", "g": "Вертикальные", "name": "Вертикальная, 3хEURO", "note": "Ø 60мм, ручное, пластик, черный", "price": 2133, "img": "fl/rz-04.jpg"}, {"id": "rz28", "g": "Вертикальные", "name": "Вертикальная, 2хUSB A+C+индукц.зарядка", "note": "Ø60мм, автомат, вход 12В, пластик", "price": 2647, "img": "fl/rz-28.jpg"}, {"id": "rz1", "g": "Вертикальные", "name": "Вертикальная, 3хEURO", "note": "Ø 60мм, ручное, пластик, серый", "price": 2939, "img": "fl/rz-01.jpg"}, {"id": "rz5", "g": "Вертикальные", "name": "Вертикальная, 3хEURO+2USB", "note": "Ø 60мм, ручное выдвижение, усовое заземление, шнур 1", "price": 3566, "img": "fl/rz-05.jpg"}, {"id": "rz7", "g": "Вертикальные", "name": "Вертикальная, 3хEURO+2USB", "note": "Ø 60мм, ручное, пластик, серый", "price": 3566, "img": "fl/rz-07.jpg"}, {"id": "rz0", "g": "Вертикальные", "name": "Вертикальная, 3хEURO", "note": "Ø 60мм, ручное, пластик, серый", "price": 4417, "img": "fl/rz-00.jpg"}, {"id": "rz8", "g": "Вертикальные", "name": "Вертикальная, 4хEURO", "note": "Ø120мм, автовыдвижение, металл, нерж.сталь", "price": 4608, "img": "fl/rz-08.jpg"}, {"id": "rz6", "g": "Вертикальные", "name": "Вертикальная, 3хEURO+2USB", "note": "Ø 60мм, ручное, пластик, серый", "price": 4680, "img": "fl/rz-06.jpg"}, {"id": "rz29", "g": "Вертикальные", "name": "Вертикальная, 4хEURO+4хUSB A+C+индукц.зарядка", "note": "Ø120мм, автомат, пластик, белый", "price": 8393, "img": "fl/rz-29.jpg"}, {"id": "rz27", "g": "Вертикальные", "name": "Вертикальная, 2хEURO", "note": "Ø80мм, полуавтомат, пластик, черный", "price": 15209, "img": "fl/rz-27.jpg"}, {"id": "rz26", "g": "Горизонтальные", "name": "Горизонтальная, 3хEURO", "note": "ручное, алюминий, с щёткой, IP20", "price": 2735, "img": "fl/rz-26.jpg"}, {"id": "rz45", "g": "Горизонтальные", "name": "Горизонтальная, 3хEURO", "note": "полуавтомат, черный, усов.заземл., 265х118х68мм", "price": 3054, "img": "fl/rz-45.jpg"}, {"id": "rz43", "g": "Горизонтальные", "name": "Горизонтальная, 3хEURO", "note": "полуавтомат, белый, усов. заземл., 265х118х68мм", "price": 3500, "img": "fl/rz-43.jpg"}, {"id": "rz44", "g": "Горизонтальные", "name": "Горизонтальная, 3хEURO", "note": "полуавтомат, серый, усов. заземл., 265х118х65мм", "price": 3511, "img": "fl/rz-44.jpg"}, {"id": "rz40", "g": "Горизонтальные", "name": "Горизонтальная, 2хEURO+2хUSB A+C", "note": "полуавтомат, черный, 265х118х65мм, металл/пластик", "price": 3971, "img": "fl/rz-40.jpg"}, {"id": "rz42", "g": "Горизонтальные", "name": "Горизонтальная, 2хEURO+2хUSB A+RJ45+2хHDMI", "note": "полуавтомат, черный, 265х118х65мм, металл", "price": 3999, "img": "fl/rz-42.jpg"}, {"id": "rz41", "g": "Горизонтальные", "name": "Горизонтальная, 2хEURO+2хUSB A+RJ45+2хHDMI", "note": "полуавтомат, серый, 265х118х65мм, металл", "price": 4044, "img": "fl/rz-41.jpg"}, {"id": "rz18", "g": "Горизонтальные", "name": "Горизонтальная, 1хEURO+2хUSB A+C", "note": "полуавтомат, алюминий, 138х135х68мм, металл/пластик", "price": 4251, "img": "fl/rz-18.jpg"}, {"id": "rz19", "g": "Горизонтальные", "name": "Горизонтальная, 1хEURO+2хUSB A+C", "note": "полуавтомат, черный, 138х135х68мм, металл/пластик", "price": 4251, "img": "fl/rz-19.jpg"}, {"id": "rz38", "g": "Горизонтальные", "name": "Горизонтальная, 2хEURO+2хUSB A+C", "note": "полуавтомат, белый, 265х118х65мм, металл/пластик", "price": 4262, "img": "fl/rz-38.jpg"}, {"id": "rz39", "g": "Горизонтальные", "name": "Горизонтальная, 2хEURO+2хUSB A+C", "note": "полуавтомат, серый, 265х118х65мм, металл/пластик", "price": 4442, "img": "fl/rz-39.jpg"}, {"id": "rz23", "g": "Горизонтальные", "name": "Горизонтальная, 3хEURO", "note": "полуавтомат, белый, 263х117х65мм, металл/пластик", "price": 4884, "img": "fl/rz-23.jpg"}, {"id": "rz24", "g": "Горизонтальные", "name": "Горизонтальная, 3хEURO", "note": "полуавтомат, серый, 263х117х65мм, металл/пластик", "price": 4884, "img": "fl/rz-24.jpg"}, {"id": "rz25", "g": "Горизонтальные", "name": "Горизонтальная, 3хEURO", "note": "полуавтомат, черный, 263х117х65мм, металл/пластик", "price": 4884, "img": "fl/rz-25.jpg"}, {"id": "rz20", "g": "Горизонтальные", "name": "Горизонтальная, 2хEURO+2хUSB A+C", "note": "полуавтомат, белый, 263х117х65мм, металл/пластик", "price": 5581, "img": "fl/rz-20.jpg"}, {"id": "rz21", "g": "Горизонтальные", "name": "Горизонтальная, 2хEURO+2хUSB A+C", "note": "полуавтомат, серый, 263х117х65мм, металл/пластик", "price": 5581, "img": "fl/rz-21.jpg"}, {"id": "rz22", "g": "Горизонтальные", "name": "Горизонтальная, 2хEURO+2хUSB A+C", "note": "полуавтомат, черный, 263х117х65мм, металл/пластик", "price": 5581, "img": "fl/rz-22.jpg"}, {"id": "rz37", "g": "Горизонтальные", "name": "Горизонтальная, 1хEURO+2хUSB A+C+Qi", "note": "полуавтомат, черный, 265х118х68мм, металл/пластик", "price": 7046, "img": "fl/rz-37.jpg"}, {"id": "rz36", "g": "Горизонтальные", "name": "Горизонтальная, 1хEURO+2хUSB A+C+Qi", "note": "полуавтомат, серый, 265х118х68мм, металл/пластик", "price": 7777, "img": "fl/rz-36.jpg"}, {"id": "rz35", "g": "Горизонтальные", "name": "Горизонтальная, 1хEURO+2хUSB A+C+Qi", "note": "полуавтомат, белый, 265х118х68мм, металл/пластик", "price": 7852, "img": "fl/rz-35.jpg"}, {"id": "rz12", "g": "Встраиваемые", "name": "Встраиваемая 2хUSB-A, 5В/2.1А (1х2.1А/2х1.05А)", "note": "вход 12В, квадрат 37х37мм, черный, IP20", "price": 445, "img": "fl/rz-12.jpg"}, {"id": "rz10", "g": "Встраиваемые", "name": "Встраиваемая 2хUSB-A, 5В/2.1А (1х2.1А/2х1.05А)", "note": "вход 12В, Ø37мм, черный, IP20", "price": 725, "img": "fl/rz-10.jpg"}, {"id": "rz9", "g": "Встраиваемые", "name": "Встраиваемая 2хUSB-A, 5В/2.1А (1х2.1А/2х1.05А)", "note": "вход 12В, Ø37мм, серебро, IP20", "price": 756, "img": "fl/rz-09.jpg"}, {"id": "rz11", "g": "Встраиваемые", "name": "Встраиваемая 2хUSB-A, 5В/2.1А (1х2.1А/2х1.05А)", "note": "вход 12В, квадрат 37х37, серебро, IP20", "price": 782, "img": "fl/rz-11.jpg"}, {"id": "rz30", "g": "Встраиваемые", "name": "Встраиваемая 2хUSB A+C, 5В/3А (2х3.0А)", "note": "вход 12В, Ø37мм, серебро, IP20", "price": 1457, "img": "fl/rz-30.jpg"}, {"id": "rz14", "g": "Встраиваемые", "name": "Встраиваемая беспроводная Qi, 12В/2А/15Вт", "note": "вход 12В, Ø70мм, серебро, IP44", "price": 1479, "img": "fl/rz-14.jpg"}, {"id": "rz31", "g": "Встраиваемые", "name": "Встраиваемая, 2хEURO+2хUSB A+1хUSB C", "note": "белый, кнопка выкл., 272х54х45 мм, алюм./пластик", "price": 3262, "img": "fl/rz-31.jpg"}, {"id": "rz13", "g": "Встраиваемые", "name": "Встраиваемая беспроводная 1хUSB+Qi, 5В/2.1А/1Вт", "note": "вход 5В+зарядка, Ø60мм, черный, IP20", "price": 3320, "img": "fl/rz-13.jpg"}, {"id": "rz15", "g": "Встраиваемые", "name": "Встраиваемая, 1хEURO+2хUSB А+беспр.зарядка Qi", "note": "Ø60мм, откидн. крышка, пластик, белый", "price": 3515, "img": "fl/rz-15.jpg"}, {"id": "rz33", "g": "Встраиваемые", "name": "Встраиваемая, 3хEURO", "note": "сдвижн. крышка, серебро, усовое заземл., алюминий/железо", "price": 7776, "img": "fl/rz-33.jpg"}, {"id": "rz34", "g": "Встраиваемые", "name": "Встраиваемая, 3хEURO", "note": "сдвижн. крышка, черный, усовое заземл., алюминий/железо", "price": 7776, "img": "fl/rz-34.jpg"}, {"id": "rz17", "g": "Встраиваемые", "name": "Встраиваемая, 2хEURO+2хUSB А", "note": "сдвижн. крышка, черный, усовое заземл., алюминий/железо", "price": 8371, "img": "fl/rz-17.jpg"}, {"id": "rz16", "g": "Встраиваемые", "name": "Встраиваемая, 2хEURO+2хUSB А", "note": "сдвижн. крышка, серебро, усовое заземл., алюминий/железо", "price": 8651, "img": "fl/rz-16.jpg"}, {"id": "rz32", "g": "Встраиваемые", "name": "Встраиваемая, 2хEURO+2хUSB А+C+Qi", "note": "полуавтомат, белый, усовое заземл., алюминий/пластик", "price": 9304, "img": "fl/rz-32.jpg"}, {"id": "rz46", "g": "Прочие", "name": "Угловая накладная, 3хEURO+2USB A", "note": "серый, усовое заземл., IP20, пластик", "price": 2941, "img": "fl/rz-46.jpg"}], "desc": "В полку или столешницу — зарядить телефон, подключить фен"}], "included": ["📐 Проект по вашим размерам", "🚚 Доставка и подъём на этаж", "🔧 Сборка и монтаж", "📏 Контрольный замер после ремонта — запускаю в работу только по нему"], "term": "15-25 рабочих дней ", "tg": "https://t.me/kuhnya154", "ig": "https://www.instagram.com/kuhnya54/", "vk": "https://vk.com/kuhnya54", "pay": [["70 %", "💳 предоплата при запуске в работу — материалы и фурнитура"], ["30 %", "🤝 по завершении работ"]], "tiersLead": "Размеры и проект одинаковые во всех вариантах. Отличаются корпус, фасады, ящики и то, насколько удобно наполнение внутри.", "notIncluded": "", "footer": ["⏳ Цены рассчитаны по проекту и действуют 14 дней.", "💬 Выберите комплектацию и наполнение и нажмите «📨 Отправить выбор» — он сразу придёт мне."], "sendUrl": "https://script.google.com/macros/s/AKfycbwOGnPXF-z379yVIGv0gcdzanEsa-39LCR7GHuyEORSMRhwmpKyeRWP-UBR6Sw89QTouw/exec", "maxChat": "", "tgChat": "", "og": {"title": "Шкаф на заказ: проект и расчёт", "image": "https://planetasofa2012-code.github.io/kp/shkaf-v-spalne/og.jpg", "desc": "4 комплектации от 84 160 ₽. Выберите и добавьте наполнение"}};
+
+
+/* ===================================================================== */
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? "").replace(/[<>&"]/g, c => ({"<":"&lt;",">":"&gt;","&":"&amp;",'"':"&quot;"}[c]));
+const rub = n => n.toLocaleString("ru-RU") + " ₽";
+
+const state = { tier: KP.defaultTier, on: new Set(), qty: {}, pick: {} };
+const tierById = id => KP.tiers.find(t => t.id === id);
+const isInc = a => (a.inc || []).includes(state.tier);
+const isVis = a => !a.tiers || a.tiers.includes(state.tier);
+
+/* шапка и статичные блоки */
+$("master").textContent = KP.master;
+$("masterSub").textContent = KP.masterSub;
+$("date").textContent = KP.date;
+$("title").textContent = KP.title;
+$("intro").textContent = KP.intro;
+$("facts").innerHTML = KP.facts.map(([b,s]) => `<div><b>${esc(b)}</b><span>${esc(s)}</span></div>`).join("");
+$("included").innerHTML = KP.included.map(x => `<li>${esc(x)}</li>`).join("");
+$("term").textContent = "📅 Срок: " + KP.term;
+if (KP.ig) { $("ig").href = KP.ig; $("ig").textContent = "📸 Instagram: kuhnya54"; } else $("ig").hidden = true;
+if (KP.vk) { $("vk").href = KP.vk; $("vk").textContent = "💬 ВК: «Разговоры на кухне»"; } else $("vk").hidden = true;
+if (KP.tg) { $("tg").href = KP.tg; $("tg").textContent = "✈️ Telegram: " + KP.tg.replace("https://",""); } else $("tg").hidden = true;
+$("pay").innerHTML = KP.pay.map(([p,t]) => `<div><b class="num">${esc(p)}</b><span>${esc(t)}</span></div>`).join("");
+$("notIncl").innerHTML = "<b>❗ Отдельно.</b> " + esc(KP.notIncluded);
+$("notIncl").hidden = !KP.notIncluded;
+/* тексты под изделие (шкаф и т.п.) — если заданы в KP */
+if (KP.tiersLead) $("tiersLead").textContent = KP.tiersLead;
+if (!KP.addons.some(a => a.spot)) $("addonsLead").textContent = "Цена пересчитывается сразу.";
+$("foot").innerHTML = KP.footer.map(x => `<span>${esc(x)}</span>`).join("")
+  + `<span>${esc(KP.master)} ${esc(KP.masterSub)}</span>`
+  + `<span>📷 Мои работы: ${KP.tg ? `<a href="${esc(KP.tg)}" target="_blank" rel="noopener">Telegram</a>` : ""}${KP.tg && KP.ig ? " · " : ""}${KP.ig ? `<a href="${esc(KP.ig)}" target="_blank" rel="noopener">Instagram</a>` : ""}${KP.vk ? ` · <a href="${esc(KP.vk)}" target="_blank" rel="noopener">ВК «Разговоры на кухне»</a>` : ""}</span>`;
+
+/* номера только у опций с точкой на картинке */
+KP.addons.filter(a => a.spot).forEach((a, i) => a.n = i + 1);
+/* цена опции с учётом количества */
+const qtyOf = a => state.qty[a.id] || 0;
+const pickOf = a => a.choice && a.choice.find(m => m.id === state.pick[a.id]);
+const minOf = a => Math.min(...a.choice.map(m => m.price));
+const aPrice = a => a.choice ? (pickOf(a)?.price || 0)
+  : a.unit ? qtyOf(a) * (a.bulk && qtyOf(a) >= a.bulk.from ? a.bulk.price : a.price) : (a.price || 0);
+const qtyTxt = a => qtyOf(a) + " " + plural(qtyOf(a), ...a.unit);
+const priceTxt = a => a.choice ? (pickOf(a) ? pickOf(a).name + " — " + rub(pickOf(a).price) : "от " + rub(minOf(a)))
+  : a.price == null ? "цена отдельно"
+  : a.unit ? (qtyOf(a) ? qtyTxt(a) + " — " + rub(aPrice(a)) : rub(a.price) + " / " + a.unit[0])
+  : (a.from ? "от " : "") + rub(a.price);
+const fullName = a => a.group === "connect" ? "Подключение: " + a.name.toLowerCase() : a.name;
+
+/* ---------- виды проекта и материалы ---------- */
+state.view = KP.views[0].id;
+const AI_NOTE = "🤖 Эта картинка сгенерирована нейросетью по проекту и фото вашей квартиры — только ориентир, как кухня может смотреться у вас. Количество дверей, оттенки и детали могут отличаться: точный проект — на картинках «С фасадами» и «Размеры».";
+function drawViews(){
+  const v = KP.views.find(x => x.id === state.view);
+  $("render").src = v.img; $("render").alt = v.alt;
+  const ai = v.id.startsWith("ai");          // картинка из нейросети — предупредить, что это ориентир
+  $("aiBadge").hidden = !ai;
+  $("aiNote").hidden = !ai; $("aiNote").textContent = v.note || AI_NOTE;
+  $("views").innerHTML = KP.views.map(x =>
+    `<button role="tab" aria-selected="${x.id===state.view}" data-v="${x.id}">${esc(x.label)}</button>`).join("");
+  $("views").querySelectorAll("[data-v]").forEach(b => b.addEventListener("click", () => { state.view = b.dataset.v; update(); }));
+}
+const mats = (KP.materials || []).filter(([, v]) => v);
+if (mats.length) $("mats").innerHTML = mats.map(([k,v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join("");
+else $("mats").hidden = true;
+const mph = KP.matPhotos || [];
+$("matph").innerHTML = mph.map(m => `<figure><img src="${esc(m.img)}" alt="${esc(m.caption)}" loading="lazy">${m.caption ? `<figcaption>${esc(m.caption)}</figcaption>` : ""}</figure>`).join("");
+$("matph").hidden = !mph.length;
+if (!mats.length && !mph.length) $("matSec").hidden = true;
+/* нет точек на картинке — простой заголовок без подсказки про точки */
+if (!KP.addons.some(a => a.spot)) { $("stageTitle").textContent = "📐 Ваш проект"; $("stageCaption").hidden = true; }
+
+/* ---------- комплектации ---------- */
+function drawTiers(){
+  $("tiers").innerHTML = KP.tiers.map(t => `
+    <button class="tier" role="radio" aria-checked="${t.id===state.tier}" data-t="${t.id}">
+      <div class="top">${t.tag ? `<span class="tag">${esc(t.tag)}</span>` : "<span></span>"}<span class="radio"></span></div>
+      <h3>${esc(t.name)}</h3>
+      <div class="price num">${rub(t.price)}</div>
+      <p class="sub">${esc(t.sub)}</p>
+      <ul>${t.short.map(x => `<li>${esc(x)}</li>`).join("")}</ul>
+    </button>`).join("");
+  $("tiers").querySelectorAll(".tier").forEach(b => b.addEventListener("click", () => {
+    state.tier = b.dataset.t; update();
+  }));
+}
+function drawCmp(){
+  $("cmp").innerHTML =
+    `<thead><tr><th></th>${KP.tiers.map(t => `<th class="${t.id===state.tier?"on":""}">${esc(t.name)}</th>`).join("")}</tr></thead>
+     <tbody>${KP.rows.map(([k,l]) => `<tr><td>${esc(l)}</td>${KP.tiers.map(t => `<td class="${t.id===state.tier?"on":""}">${esc(t.spec[k]||"—")}</td>`).join("")}</tr>`).join("")}
+     <tr><td>Можно добавить</td>${KP.tiers.map(t => `<td class="${t.id===state.tier?"on":""}">${esc(KP.addons.filter(a => a.tiers && a.tiers.includes(t.id)).map(a => a.name).join(", ") || "—")}</td>`).join("")}</tr>
+     <tr><td>Цена</td>${KP.tiers.map(t => `<td class="num ${t.id===state.tier?"on":""}">${rub(t.price)}</td>`).join("")}</tr></tbody>`;
+}
+
+/* ---------- опции ---------- */
+function toggle(id){
+  const a = KP.addons.find(x => x.id === id);
+  if (!a || isInc(a)) return;
+  if (a.unit) return setQty(id, qtyOf(a) ? 0 : 1);
+  if (a.choice) {            // точка на рендере раскрывает каталог и прокручивает к нему
+    state.open[id] = true; update();
+    document.getElementById("addon-" + id)?.scrollIntoView({behavior:"smooth", block:"start"});
+    return;
+  }
+  state.on.has(id) ? state.on.delete(id) : state.on.add(id);
+  update();
+}
+const groupsOf = a => [...new Set(a.choice.map(m => m.g).filter(Boolean))];
+state.cg = {}; state.open = {};
+function curGroup(a){
+  if (state.cg[a.id]) return state.cg[a.id];
+  const p = pickOf(a); return p && p.g ? p.g : groupsOf(a)[0];
+}
+function setPick(id, m){
+  state.pick[id] = state.pick[id] === m ? null : m;
+  state.pick[id] ? state.on.add(id) : state.on.delete(id);
+  update();
+}
+function setQty(id, q){
+  state.qty[id] = Math.max(0, Math.min(30, q));
+  state.qty[id] ? state.on.add(id) : state.on.delete(id);
+  update();
+}
+function addonHTML(a){
+  const inc = isInc(a), on = state.on.has(a.id) && !inc;
+  if (a.choice) { const p = pickOf(a), open = state.open[a.id]; return `<div class="addon choice" aria-pressed="${on}" data-c="${a.id}" id="addon-${a.id}">
+    <span class="box"></span>
+    <span class="t">${a.spot ? `<span class="n">${a.n}</span>` : ""}${esc(a.name)}</span>
+    <span class="p num">${on ? "+ " + rub(aPrice(a)) : "от " + rub(minOf(a))}</span>
+    <span class="d">${esc(a.desc)}</span>
+    <div class="pickbar">
+      ${p ? `<span class="mini"><img src="${esc(p.img)}" alt=""><span><b>${esc(p.name)}</b><br><small>${esc(p.note)}</small></span></span>` : ""}
+      <button class="pbtn" data-open="1" aria-expanded="${!!open}">${open ? "Свернуть ▴" : p ? "Изменить ▾" : `Выбрать модель · ${a.choice.length} шт. ▾`}</button>
+      ${p ? `<button class="pbtn ghost" data-clear="1">Убрать</button>` : ""}
+    </div>
+    ${!open ? "" : `${groupsOf(a).length > 1 ? `<div class="mtabs">${groupsOf(a).map(g => `<button data-g="${esc(g)}" aria-selected="${g===curGroup(a)}">${esc(g)} <span>${a.choice.filter(m=>m.g===g).length}</span></button>`).join("")}</div>` : ""}
+    <div class="models">${a.choice.filter(m => !m.g || m.g === curGroup(a)).map(m => `
+      <button class="model" aria-pressed="${state.pick[a.id]===m.id}" data-m="${m.id}">
+        <span class="ph"><img src="${esc(m.img)}" alt="${esc(m.name)}" loading="lazy"></span>
+        <span class="mn">${esc(m.name)}</span>
+        <span class="mt">${esc(m.note)}</span>
+        <span class="mp num">${rub(m.price)}</span>
+      </button>`).join("")}</div>`}
+  </div>`; }
+  if (a.unit && !inc) return `<div class="addon" aria-pressed="${on}" data-q="${a.id}">
+    <span class="box"></span>
+    <span class="t">${esc(a.name)}</span>
+    <span class="p num">${on ? "+ " + rub(aPrice(a)) : rub(a.price) + " / " + a.unit[0]}</span>
+    <span class="d">${esc(a.desc)}</span>
+    <span class="step"><button data-d="-1" aria-label="Меньше">−</button><b class="num">${qtyTxt(a)}</b><button data-d="1" aria-label="Больше">+</button></span>
+  </div>`;
+  return `<button class="addon ${inc?"inc":""}" aria-pressed="${on}" ${inc?'aria-disabled="true"':""} data-a="${a.id}">
+    <span class="box"></span>
+    <span class="t">${a.spot ? `<span class="n">${a.n}</span>` : ""}${esc(a.name)}</span>
+    <span class="p num">${inc ? "уже входит" : a.price == null ? "цена отдельно" : "+ " + priceTxt(a)}</span>
+    <span class="d">${esc(a.desc)}</span>
+  </button>`;
+}
+function drawAddons(){
+  $("addons").innerHTML = KP.addons.filter(a => !a.group && !a.tiers).map(addonHTML).join("");
+  const tx = KP.addons.filter(a => a.tiers && isVis(a));
+  $("tierExtrasWrap").hidden = !tx.length;
+  $("tierExtrasTitle").textContent = "Можно добавить к комплектации «" + tierById(state.tier).name + "»";
+  $("tierExtras").innerHTML = tx.map(addonHTML).join("");
+  const fill = KP.addons.filter(a => a.group === "fill");
+  $("fillWrap").hidden = !fill.length;
+  if (fill.length && KP.fillNote) { $("fillTitle").textContent = KP.fillNote.title; $("fillText").innerHTML = KP.fillNote.text; }
+  $("addonsFill").innerHTML = fill.map(addonHTML).join("");
+  const con = KP.addons.filter(a => a.group === "connect");
+  $("conWrap").hidden = !con.length;
+  $("addonsCon").innerHTML = con.map(addonHTML).join("");
+  const rare = KP.addons.filter(a => a.group === "rare");
+  $("rareWrap").hidden = !rare.length;
+  $("addonsRare").innerHTML = rare.map(addonHTML).join("");
+  document.querySelectorAll(".addon[data-a]").forEach(b => b.addEventListener("click", () => toggle(b.dataset.a)));
+  document.querySelectorAll(".addon[data-c]").forEach(d => d.querySelectorAll("[data-g]").forEach(b =>
+    b.addEventListener("click", () => { state.cg[d.dataset.c] = b.dataset.g; update(); })));
+  document.querySelectorAll(".addon[data-c]").forEach(d => d.querySelectorAll("[data-m]").forEach(b =>
+    b.addEventListener("click", () => { state.open[d.dataset.c] = false; state.pick[d.dataset.c] = null; setPick(d.dataset.c, b.dataset.m); })));
+  document.querySelectorAll(".addon[data-c] [data-open]").forEach(b => b.addEventListener("click", () => {
+    const id = b.closest("[data-c]").dataset.c; state.open[id] = !state.open[id]; update();
+  }));
+  document.querySelectorAll(".addon[data-c] [data-clear]").forEach(b => b.addEventListener("click", () => {
+    const id = b.closest("[data-c]").dataset.c; state.pick[id] = null; state.on.delete(id); update();
+  }));
+  document.querySelectorAll(".addon[data-q]").forEach(d => d.querySelectorAll("[data-d]").forEach(b =>
+    b.addEventListener("click", () => setQty(d.dataset.q, (state.qty[d.dataset.q] || 0) + +b.dataset.d))));
+}
+
+/* ---------- точки на рендере ---------- */
+const stage = $("stage"), tip = $("tip");
+function drawSpots(){
+  stage.querySelectorAll(".spot").forEach(s => s.remove());
+  KP.addons.filter(a => a.spot && (!a.spot.v || a.spot.v === state.view)).forEach(a => {
+    const inc = isInc(a), on = state.on.has(a.id) && !inc;
+    const b = document.createElement("button");
+    b.className = "spot" + (inc ? " inc" : "");
+    b.style.left = a.spot.x + "%"; b.style.top = a.spot.y + "%";
+    b.setAttribute("aria-pressed", on);
+    b.setAttribute("aria-label", `${a.name}, ${inc ? "уже входит" : priceTxt(a)}`);
+    b.textContent = inc ? "✓" : (on ? "✓" : a.n);
+    b.addEventListener("click", () => { toggle(a.id); showTip(a); });
+    b.addEventListener("mouseenter", () => showTip(a));
+    b.addEventListener("focus", () => showTip(a));
+    b.addEventListener("mouseleave", hideTip);
+    b.addEventListener("blur", hideTip);
+    stage.appendChild(b);
+  });
+}
+function showTip(a){
+  const inc = isInc(a), on = state.on.has(a.id);
+  tip.innerHTML = `<b>${esc(a.name)}</b>${inc ? "уже входит в комплектацию" : (on ? "добавлено · " : "+ ") + priceTxt(a)}`;
+  tip.hidden = false;
+  const W = stage.clientWidth, H = stage.clientHeight;
+  const x = a.spot.x / 100 * W, y = a.spot.y / 100 * H;
+  const tw = tip.offsetWidth, th = tip.offsetHeight;
+  let left = Math.min(Math.max(8, x - tw / 2), W - tw - 8);
+  let top = y - th - 24; if (top < 8) top = y + 24;
+  tip.style.left = left + "px"; tip.style.top = top + "px";
+}
+function hideTip(){ tip.hidden = true; }
+/* на телефоне подсказка сама прячется при прокрутке */
+window.addEventListener("scroll", hideTip, {passive:true});
+
+/* ---------- итог ---------- */
+function chosen(){ return KP.addons.filter(a => state.on.has(a.id) && !isInc(a) && isVis(a)); }
+const addSum = ch => ch.reduce((s,a) => s + aPrice(a), 0);
+const hasFrom = () => chosen().some(a => a.from);
+function total(){ return tierById(state.tier).price + addSum(chosen()); }
+let last = null;
+function drawTotal(){
+  const t = tierById(state.tier), ch = chosen(), open = ch.filter(a => a.price == null);
+  $("what").innerHTML = `<b>${esc(t.name)}</b> ${rub(t.price)}` +
+    (ch.length ? ` + ${ch.length} ${plural(ch.length,"опция","опции","опций")} ${rub(addSum(ch))}` : " · опции не выбраны") +
+    (open.length ? ` · ${open.map(a => esc(a.name.toLowerCase())).join(", ")} — цена отдельно` : "");
+  const sum = total();
+  $("big").textContent = (hasFrom() ? "от " : "") + rub(sum);
+  if (last !== null && last !== sum){ const el=$("big"); el.classList.remove("bump"); void el.offsetWidth; el.classList.add("bump"); }
+  last = sum;
+}
+function plural(n,a,b,c){ const m=n%10, h=n%100; return m===1&&h!==11?a:(m>=2&&m<=4&&(h<12||h>14)?b:c); }
+
+/* ---------- отправка выбора мастеру ---------- */
+function choiceText(){
+  const t = tierById(state.tier), ch = chosen();
+  return [
+    `${KP.title}`,
+    `Комплектация: ${t.name} — ${rub(t.price)}`,
+    ...(ch.length ? ["Опции:", ...ch.map(a => `• ${fullName(a)} — ${priceTxt(a)}`)] : ["Опции: без опций"]),
+    `Итого: ${hasFrom() ? "от " : ""}${rub(total())}`
+  ].join("\n");
+}
+async function copyText(text){
+  try { await navigator.clipboard.writeText(text); return true; }
+  catch(e){
+    const ta = document.createElement("textarea"); ta.value = text; ta.style.position = "fixed"; ta.style.opacity = "0";
+    document.body.appendChild(ta); ta.select(); let ok = false; try { ok = document.execCommand("copy"); } catch(_){}
+    ta.remove(); return ok;
+  }
+}
+const who = (KP.master || "мастер").split(/[ ,—-]/)[0] || "мастер";
+const dlg = $("send");
+$("sendGo").textContent = "Отправить " + (/[бвгджзклмнпрстфхцчшщ]$/i.test(who) ? who + "у" : "мастеру");   // Александр → Александру
+$("doneWho").textContent = who === "мастер" ? "Мастер" : who;
+$("autoBox").hidden = !KP.sendUrl;
+const chats = [["MAX", KP.maxChat], ["Telegram", KP.tgChat]].filter(x => x[1]);
+$("msBox").innerHTML = chats.map(([n, u]) => `<a href="${esc(u)}" target="_blank" rel="noopener">${n}</a>`).join("");
+$("orTxt").hidden = !chats.length;
+$("msHint").hidden = !chats.length;
+$("msBox").querySelectorAll("a").forEach(a => a.addEventListener("click", () => { copyText(choiceText()); }));
+$("copy").addEventListener("click", () => {
+  $("sendSum").textContent = choiceText();
+  $("sendForm").hidden = false; $("sendDone").hidden = true;
+  if (!KP.sendUrl && !chats.length) {       // некуда отправлять — просто копируем, как раньше
+    copyText(choiceText()).then(ok => { $("copy").textContent = ok ? "Скопировано" : "Не получилось"; setTimeout(() => $("copy").textContent = "📨 Отправить выбор", 2200); });
+    return;
+  }
+  dlg.showModal ? dlg.showModal() : dlg.setAttribute("open", "");
+});
+$("sendX").addEventListener("click", () => dlg.close ? dlg.close() : dlg.removeAttribute("open"));
+dlg.addEventListener("click", e => { if (e.target === dlg) dlg.close(); });
+$("sendGo").addEventListener("click", async () => {
+  const b = $("sendGo"), label = b.textContent;
+  b.disabled = true; b.textContent = "Отправляю…";
+  try {
+    // text/plain — чтобы браузер не делал лишний предварительный запрос
+    const r = await fetch(KP.sendUrl, {method: "POST", headers: {"Content-Type": "text/plain;charset=utf-8"},
+      body: JSON.stringify({page: location.href, title: KP.title, text: choiceText(),
+                            name: "", note: $("sendNote").value.trim()})});
+    const j = await r.json().catch(() => ({ok: false}));
+    if (!r.ok || !j.ok) throw new Error(r.status);
+    $("sendForm").hidden = true; $("sendDone").hidden = false;
+  } catch(e) {
+    b.textContent = "Не отправилось — напишите в мессенджер ниже";
+    setTimeout(() => { b.textContent = label; b.disabled = false; }, 4000);
+    return;
+  }
+  b.disabled = false; b.textContent = label;
+});
+
+function update(){ drawViews(); drawTiers(); drawCmp(); drawAddons(); drawSpots(); drawTotal(); hideTip(); }
+update();
+</script>
+
+</body>
+</html>
