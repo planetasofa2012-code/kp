@@ -1,7 +1,7 @@
-:HL["/kp/briz/demo/_next/static/chunks/0_x_ikgbxvmt3.css","style"]
+:HL["/kp/briz/demo/_next/static/chunks/0ipkvkr_wf6of.css","style"]
 :HL["/kp/briz/demo/_next/static/media/16d91c780434f2ce-s.p.0y1w0k24nk0rl.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/kp/briz/demo/_next/static/media/8800dfc60902df36-s.p.2sla2yow9-9p_.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 3:[["children",{"s":"__PAGE__","h":160}]]
 2:[["children",{"s":"competition","h":96,"c":"$Q3"}]]
 1:[["children",{"s":"admin","h":96,"c":"$Q2"}]]
-0:{"b":"8qoFm8gUklKyENm0mfPLM","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
+0:{"b":"EtzrWrWh-ZRk-bEJ6zql7","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
