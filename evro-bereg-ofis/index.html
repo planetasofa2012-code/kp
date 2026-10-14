@@ -1,0 +1,686 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Мебель для офиса Евро Берег</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="Мебель для офиса Евро Берег: проект и расчёт">
+<meta property="og:description" content="5 объекта из одного материала  итого 249 224 ₽">
+<meta property="og:image" content="https://planetasofa2012-code.github.io/kp/evro-bereg-ofis/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<style>html{color-scheme:light}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,500;7..72,600&family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+
+:root{
+  --bg:#EEF0EC; --card:#FFFFFF; --soft:#F6F7F4; --ink:#1B201D; --muted:#5F6862;
+  --line:#D8DDD7; --acc:#2E5A4C; --acc-soft:#E3ECE7; --brass:#B68A2E; --brass-ink:#FFFFFF;
+  --shadow:0 1px 2px rgba(20,30,25,.06),0 8px 24px rgba(20,30,25,.06);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#131715; --card:#1B201D; --soft:#202622; --ink:#E6EAE6; --muted:#9BA59F;
+    --line:#2E3632; --acc:#8CC3AE; --acc-soft:#23332C; --brass:#D9AE52; --brass-ink:#1B1A14;
+    --shadow:none;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#131715; --card:#1B201D; --soft:#202622; --ink:#E6EAE6; --muted:#9BA59F;
+  --line:#2E3632; --acc:#8CC3AE; --acc-soft:#23332C; --brass:#D9AE52; --brass-ink:#1B1A14;
+  --shadow:none;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+.tier,.addon,.model{width:100%}
+h1,h2,p,li,dd{overflow-wrap:anywhere}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:"Golos Text",system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-size:16px; line-height:1.55;
+  padding-inline:16px; padding-block:0 120px;
+}
+.wrap{max-width:1040px;margin:0 auto;display:flex;flex-direction:column;gap:56px}
+h1,h2,h3{font-family:Literata,Georgia,serif;font-weight:600;margin:0;text-wrap:balance;letter-spacing:-.01em}
+h2{font-size:clamp(22px,3.4vw,28px);line-height:1.15}
+.label{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:500}
+.num{font-family:"JetBrains Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums}
+.lead{color:var(--muted);max-width:62ch;margin:6px 0 0}
+section{display:flex;flex-direction:column;gap:18px}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--brass);outline-offset:2px}
+
+/* ---------- шапка ---------- */
+header{padding-top:36px;display:flex;flex-direction:column;gap:14px}
+.who{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;align-items:baseline}
+.who .name{font-weight:600}
+.who .meta{color:var(--muted);font-size:14px}
+header h1{font-size:clamp(32px,6vw,52px);line-height:1.02}
+.facts{display:flex;flex-wrap:wrap;gap:10px 36px;border-top:1px solid var(--line);padding-top:14px}
+.facts div{display:flex;flex-direction:column}
+.facts b{font-size:17px;font-weight:600}
+.facts span{font-size:13px;color:var(--muted)}
+
+/* ---------- рендер с точками ---------- */
+.stage{position:relative;background:#fff;border:1px solid var(--line);border-radius:6px;overflow:hidden;box-shadow:var(--shadow)}
+.stage img{display:block;width:100%;height:auto}
+.spot{
+  position:absolute;transform:translate(-50%,-50%);
+  width:30px;height:30px;border-radius:50%;border:2px solid #fff;
+  background:var(--brass);color:var(--brass-ink);font-weight:600;font-size:18px;line-height:1;
+  display:grid;place-items:center;padding:0;
+  box-shadow:0 2px 8px rgba(0,0,0,.25);transition:transform .15s,background .15s;
+}
+.spot::after{content:"";position:absolute;inset:-7px;border-radius:50%;border:2px solid var(--brass);opacity:.55;animation:ping 2.2s ease-out infinite}
+.spot:hover{transform:translate(-50%,-50%) scale(1.12)}
+.spot[aria-pressed="true"]{background:var(--acc);color:#fff}
+.spot[aria-pressed="true"]::after{display:none}
+.spot.inc{background:#8B948F}
+.spot.inc::after{display:none}
+@keyframes ping{from{transform:scale(.8);opacity:.6}to{transform:scale(1.5);opacity:0}}
+.tip{
+  position:absolute;z-index:3;pointer-events:none;
+  background:var(--ink);color:var(--bg);border-radius:4px;padding:7px 10px;font-size:13.5px;line-height:1.35;
+  max-width:230px;box-shadow:0 4px 14px rgba(0,0,0,.2)
+}
+.tip b{display:block;font-weight:600}
+.views{display:flex;flex-wrap:wrap;gap:6px}
+.views button{background:var(--card);color:var(--muted);border:1px solid var(--line);border-radius:20px;padding:7px 14px;font-size:14px;font-weight:500}
+.views button[aria-selected="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.matph{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,260px));gap:12px}
+.mats div:last-child:nth-child(odd){grid-column:1/-1}
+.matph figure{margin:0;background:var(--card);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.matph img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
+.matph figcaption{padding:9px 12px;font-size:14px;font-weight:500}
+.mats{margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.mats div{background:var(--card);padding:12px 16px;display:flex;flex-direction:column;gap:2px}
+.mats dt{font-size:13px;color:var(--muted)}
+.mats dd{margin:0;font-weight:500}
+.caption{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center;font-size:14px;color:var(--muted)}
+.dot{display:inline-block;width:12px;height:12px;border-radius:50%;vertical-align:-1px;margin-right:6px}
+
+/* ---------- комплектации ---------- */
+.tiers{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;align-items:stretch}
+@media (max-width:1000px){.tiers{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:820px){.tiers{grid-template-columns:1fr}}
+.tier{
+  text-align:left;color:inherit;background:var(--card);border:1px solid var(--line);border-radius:6px;
+  padding:20px;display:flex;flex-direction:column;gap:12px;box-shadow:var(--shadow);transition:border-color .15s
+}
+.tier:hover{border-color:var(--muted)}
+.tier[aria-checked="true"]{border:2px solid var(--acc);padding:19px;background:var(--card)}
+.tier .top{display:flex;justify-content:space-between;align-items:center;gap:10px;min-height:24px}
+.tier .tag{font-size:12px;font-weight:500;background:var(--acc-soft);color:var(--acc);padding:3px 9px;border-radius:20px}
+.tier .radio{width:20px;height:20px;border-radius:50%;border:2px solid var(--line);flex:none;display:grid;place-items:center}
+.tier[aria-checked="true"] .radio{border-color:var(--acc)}
+.tier[aria-checked="true"] .radio::after{content:"";width:10px;height:10px;border-radius:50%;background:var(--acc)}
+.tier h3{font-size:22px}
+.tier .price{font-size:26px;font-weight:500;letter-spacing:-.02em}
+.tier .sub{font-size:14px;color:var(--muted);margin:0}
+.tier ul{margin:0;padding:12px 0 0;border-top:1px solid var(--line);list-style:none;display:flex;flex-direction:column;gap:7px;font-size:14.5px}
+.tier li{padding-left:18px;position:relative}
+.tier li::before{content:"";position:absolute;left:2px;top:.62em;width:7px;height:7px;border-radius:50%;background:var(--acc);opacity:.75}
+
+/* ---------- таблица сравнения ---------- */
+details.cmp{background:var(--card);border:1px solid var(--line);border-radius:6px}
+details.cmp summary{cursor:pointer;padding:14px 18px;font-weight:500;list-style-position:inside}
+.tw{overflow-x:auto;border-top:1px solid var(--line)}
+table{width:100%;border-collapse:collapse;font-size:14.5px;min-width:640px}
+th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:500}
+td:first-child{color:var(--muted);width:20%}
+td.on,th.on{background:var(--acc-soft)}
+tr:last-child td{border-bottom:none}
+details.con{background:transparent}
+details.con summary{color:var(--muted);font-size:14.5px}
+.con-in{border-top:1px solid var(--line);padding:14px;display:flex;flex-direction:column;gap:12px}
+.con-in .lead{font-size:14px}
+
+/* ---------- опции ---------- */
+.fillbox{margin-top:18px;padding:22px 20px;border:2px solid var(--acc);border-radius:10px;background:var(--acc-soft)}
+.fillbox h3{margin:0 0 8px;font-size:22px;line-height:1.25}
+.fillbox p{margin:0 0 16px;font-size:16px;line-height:1.5}
+.fillbox[hidden]{display:none}
+.addons{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media (max-width:680px){.addons{grid-template-columns:1fr}}
+.addon{
+  text-align:left;color:inherit;background:var(--card);border:1px solid var(--line);border-radius:6px;
+  padding:14px 16px;display:grid;grid-template-columns:auto 1fr auto;gap:4px 14px;align-items:start;transition:border-color .15s
+}
+.addon:hover{border-color:var(--muted)}
+.addon .box{width:22px;height:22px;border-radius:4px;border:2px solid var(--line);display:grid;place-items:center;margin-top:1px;grid-row:span 2}
+.addon[aria-pressed="true"]{border-color:var(--acc);background:var(--acc-soft)}
+.addon[aria-pressed="true"] .box{background:var(--acc);border-color:var(--acc)}
+.addon[aria-pressed="true"] .box::after{content:"";width:6px;height:11px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg) translate(-1px,-1px)}
+.addon .t{font-weight:500}
+.addon .p{white-space:nowrap;font-size:15px}
+.addon .d{grid-column:2 / 4;font-size:13.5px;color:var(--muted)}
+.addon.inc{cursor:default;background:var(--soft)}
+.addon.inc .box{border-style:dashed}
+.addon.inc .p{color:var(--acc);font-family:"Golos Text",sans-serif;font-size:13.5px;font-weight:500}
+.addon.choice{grid-column:1 / -1}
+.tx{display:flex;flex-direction:column;gap:10px;background:var(--acc-soft);border-radius:6px;padding:14px}
+.tx h3{font-family:"Golos Text",sans-serif;font-size:15px;font-weight:600;color:var(--acc)}
+.pickbar{grid-column:1 / -1;display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:10px}
+.pickbar .mini{display:flex;align-items:center;gap:10px;flex:1 1 220px;min-width:0}
+.pickbar .mini img{width:64px;height:48px;object-fit:contain;background:#fff;border:1px solid var(--line);border-radius:4px;flex:none}
+.pickbar .mini small{color:var(--muted)}
+.pbtn{background:var(--ink);color:var(--bg);border:none;border-radius:4px;padding:9px 14px;font-size:14px;font-weight:500}
+.pbtn.ghost{background:transparent;color:var(--muted);border:1px solid var(--line)}
+.mtabs{grid-column:1 / -1;display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.mtabs button{background:var(--card);color:var(--muted);border:1px solid var(--line);border-radius:20px;padding:6px 12px;font-size:13.5px;font-weight:500}
+.mtabs button span{opacity:.6;font-weight:400}
+.mtabs button[aria-selected="true"]{background:var(--acc);color:#fff;border-color:var(--acc)}
+.models{grid-column:1 / -1;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:10px}
+@media (max-width:680px){.models{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.model{text-align:left;color:inherit;background:var(--card);border:1px solid var(--line);border-radius:5px;padding:0 0 10px;display:flex;flex-direction:column;gap:2px;overflow:hidden}
+.model:hover{border-color:var(--muted)}
+.model[aria-pressed="true"]{border:2px solid var(--acc);padding-bottom:9px}
+.model .ph{display:block;background:#fff;aspect-ratio:4 / 3;margin-bottom:6px}
+.model img{width:100%;height:100%;object-fit:contain;display:block}
+.model .mn,.model .mt,.model .mp{padding-inline:10px}
+.model .mn{font-weight:500;font-size:14.5px}
+.model .mt{font-size:13px;color:var(--muted)}
+.model .mp{font-size:14px;margin-top:2px}
+.addon .step{grid-column:2 / 4;display:flex;align-items:center;gap:12px;margin-top:6px}
+.addon .step button{width:34px;height:34px;border-radius:4px;border:1px solid var(--line);background:var(--card);color:var(--ink);font-size:18px;line-height:1;padding:0}
+.addon .step button:hover{border-color:var(--muted)}
+.addon .step b{font-weight:500;font-size:14.5px;min-width:90px}
+.addon .n{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:var(--brass);color:var(--brass-ink);font-size:11.5px;font-weight:600;margin-right:6px;vertical-align:1px}
+
+/* ---------- условия ---------- */
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px}
+.inc-list{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px}
+.inc-list li{display:flex;gap:10px}
+.inc-list li::before{content:none}
+.pay{display:flex;flex-direction:column;gap:12px}
+.pay div{display:grid;grid-template-columns:64px 1fr;gap:12px;align-items:baseline}
+.pay b{font-size:20px;font-weight:500}
+.pay span{color:var(--muted);font-size:14.5px}
+.note{background:var(--soft);border:1px solid var(--line);border-radius:6px;padding:14px 16px;font-size:14.5px;color:var(--muted)}
+.note b{color:var(--ink);font-weight:500}
+.links{display:flex;flex-wrap:wrap;gap:8px}
+.tg{align-self:flex-start;background:var(--acc-soft);color:var(--acc);text-decoration:none;font-weight:500;font-size:14.5px;padding:8px 14px;border-radius:20px}
+.tg:hover{text-decoration:underline}
+footer a{color:var(--acc)}
+footer{border-top:1px solid var(--line);padding-top:18px;color:var(--muted);font-size:14px;display:flex;flex-direction:column;gap:6px}
+
+/* ---------- итог внизу ---------- */
+.total{
+  position:fixed;left:0;right:0;bottom:0;z-index:10;
+  background:var(--card);border-top:1px solid var(--line);box-shadow:0 -6px 24px rgba(20,30,25,.08);
+  padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px));
+}
+.total .in{max-width:1040px;margin:0 auto;display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center;justify-content:space-between}
+.total .what{font-size:14px;color:var(--muted);min-width:0;flex:1 1 280px}
+.total .what b{color:var(--ink);font-weight:500}
+.total .sum{display:flex;align-items:baseline;gap:14px}
+.total .big{font-size:clamp(22px,4vw,28px);font-weight:500;letter-spacing:-.02em}
+.total .copy{background:var(--acc);color:#fff;border:none;border-radius:4px;padding:10px 16px;font-weight:500;font-size:14.5px}
+:root[data-theme="dark"] .total .copy{color:#10201A}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .total .copy{color:#10201A}}
+/* ---------- окно «отправить выбор» ---------- */
+.send{border:none;border-radius:10px;padding:0;width:min(440px,calc(100vw - 24px));background:var(--card);color:var(--ink);box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.send::backdrop{background:rgba(15,20,18,.45)}
+.send .in{padding:20px 18px 18px;display:flex;flex-direction:column;gap:12px}
+.send h3{margin:0;font-size:19px;font-weight:600}
+.send .sum{background:var(--soft);border:1px solid var(--line);border-radius:6px;padding:10px 12px;font-size:13.5px;white-space:pre-line;max-height:180px;overflow:auto}
+.send label{display:flex;flex-direction:column;gap:4px;font-size:13px;color:var(--muted)}
+.send input,.send textarea{font:inherit;font-size:16px;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:6px;padding:9px 10px}
+.send textarea{min-height:60px;resize:vertical}
+.send .go{background:var(--acc);color:#fff;border:none;border-radius:6px;padding:13px 16px;font:inherit;font-weight:600;font-size:16px;cursor:pointer}
+.send .go[disabled]{opacity:.6}
+.send .or{font-size:13px;color:var(--muted);text-align:center;margin-top:2px}
+.send .ms{display:flex;gap:8px}
+.send .ms a{flex:1;text-align:center;text-decoration:none;border:1px solid var(--line);border-radius:6px;padding:10px;color:var(--ink);font-weight:500;font-size:14.5px}
+.send .hint{font-size:12.5px;color:var(--muted);margin:0}
+.send .ok{background:var(--acc-soft);color:var(--ink);border-radius:6px;padding:14px;font-size:15px;text-align:center}
+.send .x{position:absolute;right:8px;top:6px;background:none;border:none;font-size:24px;color:var(--muted);cursor:pointer;padding:4px 8px}
+:root[data-theme="dark"] .send .go{color:#10201A}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .send .go{color:#10201A}}
+/* ---------- вид из нейросети ---------- */
+.aibadge{position:absolute;left:10px;top:10px;background:rgba(27,32,29,.78);color:#fff;font-size:12.5px;font-weight:500;padding:4px 9px;border-radius:4px;pointer-events:none}
+.ainote{margin:10px 0 0;font-size:13.5px;color:var(--muted);background:var(--soft);border:1px solid var(--line);border-radius:6px;padding:10px 12px}
+/* ---------- телефон ---------- */
+@media (max-width:560px){
+  body{font-size:15.5px;padding-block:0 150px}
+  .wrap{gap:40px}
+  header{padding-top:24px}
+  .facts{gap:10px 22px}
+  .stage{border-radius:4px;margin-inline:-6px}
+  .spot{width:26px;height:26px;font-size:13px}
+  .spot::after{inset:-5px}
+  .tip{font-size:13px;max-width:200px}
+  .views{display:flex;flex-wrap:wrap;gap:6px}
+.views button{background:var(--card);color:var(--muted);border:1px solid var(--line);border-radius:20px;padding:7px 14px;font-size:14px;font-weight:500}
+.views button[aria-selected="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.mats{margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.mats div{background:var(--card);padding:12px 16px;display:flex;flex-direction:column;gap:2px}
+.mats dt{font-size:13px;color:var(--muted)}
+.mats dd{margin:0;font-weight:500}
+.caption{font-size:13px;flex-direction:column;align-items:flex-start;gap:4px}
+  .tier{padding:16px}
+  .tier[aria-checked="true"]{padding:15px}
+  .tier .price{font-size:23px}
+  .addon{padding:12px 14px;gap:4px 12px}
+  .addon .p{font-size:14px}
+  .total{padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px))}
+  .total .in{gap:6px 12px}
+  .total .what{font-size:12.5px;line-height:1.4;flex-basis:100%;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .total .sum{width:100%;justify-content:space-between}
+  .total .copy{padding:10px 14px;font-size:14px}
+}
+.bump{animation:bump .35s ease}
+@keyframes bump{50%{transform:scale(1.04)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+</style>
+<style>
+/* ---------- комплексное предложение: объекты ---------- */
+.objs{display:flex;flex-direction:column;gap:22px}
+.obj{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:20px;box-shadow:var(--shadow);
+  display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:14px 26px;transition:opacity .15s}
+.obj.off{opacity:.5}
+.obj .oh{grid-column:1 / -1;display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:space-between}
+.obj .pick{display:flex;align-items:center;gap:12px;cursor:pointer;min-width:0}
+.obj .pick input{width:24px;height:24px;margin:0;accent-color:var(--acc);flex:none;cursor:pointer}
+.obj .pick h2{font-size:clamp(20px,3vw,25px)}
+.obj .oprice{font-size:clamp(20px,3vw,26px);font-weight:500;letter-spacing:-.02em;white-space:nowrap}
+.obj .oview{display:flex;flex-direction:column;gap:10px;min-width:0}
+.pkg{background:var(--card);border:2px solid var(--acc);border-radius:10px;padding:20px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:16px}
+.pkg .oh{display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:space-between}
+.pkg h2{font-size:clamp(20px,3vw,26px)}
+.pkg ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:7px;font-size:14.5px;columns:2 280px;column-gap:28px}
+.pkg li{padding-left:18px;position:relative;break-inside:avoid}
+.pkg li::before{content:"";position:absolute;left:2px;top:.62em;width:7px;height:7px;border-radius:50%;background:var(--acc);opacity:.75}
+.pkobjs{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.pko{background:var(--soft);border:1px solid var(--line);border-radius:8px;padding:14px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.pko h3{font-size:17px}
+.pko .stage img{max-height:300px;object-fit:contain;background:#fff}
+.pko ul{columns:1}
+.obj .sepnote{grid-column:1 / -1;margin:0;background:var(--soft);border:1px dashed var(--brass);border-radius:6px;padding:9px 12px;font-size:14px}
+.obj .stage img{max-height:460px;object-fit:contain;background:#fff}
+.obj .nopic{display:grid;place-items:center;min-height:160px;color:var(--muted);background:var(--soft);border:1px dashed var(--line);border-radius:6px;font-size:14px}
+.obj .what{min-width:0}
+.obj .what .label{display:block;margin-bottom:8px}
+.obj ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:7px;font-size:14.5px}
+.obj li{padding-left:18px;position:relative}
+.obj li::before{content:"";position:absolute;left:2px;top:.62em;width:7px;height:7px;border-radius:50%;background:var(--acc);opacity:.75}
+@media (max-width:820px){.obj{grid-template-columns:1fr}}
+/* ---------- единый материал ---------- */
+.matbox{background:var(--acc-soft);border:2px solid var(--acc);border-radius:10px;padding:20px;display:flex;flex-direction:column;gap:14px}
+.matbox p{margin:0}
+.matbox .why{font-weight:500}
+/* ---------- итог ---------- */
+.sumtab{background:var(--card);border:1px solid var(--line);border-radius:8px;overflow:hidden;box-shadow:var(--shadow)}
+.sumtab .row{display:flex;justify-content:space-between;gap:16px;padding:12px 18px;border-bottom:1px solid var(--line);align-items:baseline}
+.sumtab .row:last-child{border-bottom:none}
+.sumtab .row.disc{color:var(--acc);background:var(--acc-soft);font-weight:500}
+.sumtab .row.fin{font-size:clamp(20px,3.4vw,26px);font-weight:600}
+.sumtab .row.off{color:var(--muted)}
+</style>
+
+<div class="wrap">
+
+<header>
+  <div class="who">
+    <span><span class="name" id="master"></span> <span class="meta" id="masterSub"></span></span>
+    <span class="meta" id="date"></span>
+  </div>
+  <h1 id="title"></h1>
+  <p class="lead" id="intro" style="margin:0"></p>
+  <div class="facts" id="facts"></div>
+  <div class="links"><a class="tg" id="tg" target="_blank" rel="noopener"></a><a class="tg" id="ig" target="_blank" rel="noopener"></a><a class="tg" id="vk" target="_blank" rel="noopener"></a></div>
+</header>
+
+<section id="matSec">
+  <div>
+    <span class="label">Единый материал</span>
+    <h2 id="matH">🧱 Все объекты из одного материала</h2>
+  </div>
+  <div class="matbox">
+    <p class="why" id="matWhy"></p>
+    <p id="matText"></p>
+    <div id="kmWrap" hidden>
+      <span class="label">Выбранные материалы для кухни</span>
+      <dl class="mats" id="kmats" style="margin-top:8px"></dl>
+    </div>
+    <div class="matph" id="matph"></div>
+  </div>
+</section>
+
+<section>
+  <div>
+    <span class="label">Что входит в заказ</span>
+    <h2>✅ Ваши объекты</h2>
+    <p class="lead" id="objsLead">Если среди объектов есть отдельные позиции — снимите галочку у ненужной: итог пересчитается сразу.</p>
+  </div>
+  <div class="objs" id="objs"></div>
+</section>
+
+<section id="optSec">
+  <div>
+    <span class="label">Дополнительно</span>
+    <h2>➕ Можно добавить</h2>
+    <p class="lead">Цена пересчитывается сразу. Скидка за единый материал действует только на объекты.</p>
+  </div>
+  <div class="addons" id="opts"></div>
+</section>
+
+<section>
+  <div>
+    <span class="label">Итог</span>
+    <h2>💰 Стоимость</h2>
+  </div>
+  <div class="sumtab" id="sumtab"></div>
+  <p class="note" id="priceNote" hidden></p>
+</section>
+
+<section>
+  <div class="cols">
+    <div>
+      <span class="label">Во всех объектах</span>
+      <h2 style="margin:6px 0 14px">🧰 Уже в цене</h2>
+      <ul class="inc-list" id="included"></ul>
+    </div>
+    <div>
+      <span class="label">Срок и оплата</span>
+      <h2 style="margin:6px 0 14px" id="term"></h2>
+      <div class="pay" id="pay"></div>
+    </div>
+  </div>
+  <p class="note" id="notIncl"></p>
+</section>
+
+<footer id="foot"></footer>
+</div>
+
+<div class="total" role="region" aria-label="Итог">
+  <div class="in">
+    <div class="what" id="what"></div>
+    <div class="sum">
+      <span class="big num" id="big" aria-live="polite"></span>
+      <button class="copy" id="copy">📨 Отправить выбор</button>
+    </div>
+  </div>
+</div>
+
+<dialog class="send" id="send" aria-labelledby="sendTitle">
+  <button class="x" id="sendX" aria-label="Закрыть">×</button>
+  <div class="in" id="sendForm">
+    <h3 id="sendTitle">Отправить ваш выбор</h3>
+    <div class="sum" id="sendSum"></div>
+    <div id="autoBox">
+      <label>Вопрос или комментарий — необязательно <textarea id="sendNote"></textarea></label>
+      <button class="go" id="sendGo" style="width:100%;margin-top:12px"></button>
+      <p class="or" id="orTxt">или напишите сами в мессенджер:</p>
+    </div>
+    <div class="ms" id="msBox"></div>
+    <p class="hint" id="msHint">Текст выбора скопируется сам — в чате зажмите поле ввода → «Вставить» → отправьте.</p>
+  </div>
+  <div class="in" id="sendDone" hidden>
+    <div class="ok">✅ Отправлено!<br><span id="doneWho"></span> получил ваш выбор и скоро свяжется с вами.</div>
+  </div>
+</dialog>
+
+<script>
+/* НАСТРОЙКИ КП (комплекс объектов) подставляются сборщиком kp_complex.py */
+const KP = {"title": "Мебель для офиса Евро Берег", "date": "14.10.2026", "intro": "Мини-кухня и три шкафа из одного материала — одним комплексом по общей цене. Шкаф для кабинета руководителя считается отдельным чеком: цвет согласуем отдельно. Можно добавить подсветку, мойку и смеситель.", "master": "Александр Самосудов", "masterSub": "· кухни, шкафы и корпусная мебель, Новосибирск", "facts": [["16 лет", "делаю мебель"], ["Сам", "проект, сборка и монтаж"]], "material": {"title": "", "text": "", "photos": [{"img": "mat-1.png", "caption": ""}]}, "kitchenMats": [["Корпус", "ЛДСП Томлесдрев / Увадрев"], ["Столешница", "кедр"], ["Стеновая панель", "кедр"]], "objects": [{"id": "o1", "name": "Мини-кухня", "price": 0, "items": [], "views": [{"id": "f", "label": "С фасадами", "img": "obj1-f.png"}, {"id": "open", "label": "Двери открыты", "img": "obj1-open.png"}, {"id": "dim", "label": "С размерами", "img": "obj1-dim.png"}]}, {"id": "o2", "name": "Шкаф для пожарного узла", "price": 0, "items": [], "views": [{"id": "f", "label": "С фасадами", "img": "obj2-f.png"}, {"id": "open", "label": "Двери открыты", "img": "obj2-open.png"}, {"id": "dim", "label": "С размерами", "img": "obj2-dim.png"}]}, {"id": "o3", "name": "Узкий шкаф для санузла", "price": 0, "items": [], "views": [{"id": "f", "label": "С фасадами", "img": "obj3-f.png"}, {"id": "open", "label": "Двери открыты", "img": "obj3-open.png"}, {"id": "dim", "label": "С размерами", "img": "obj3-dim.png"}]}, {"id": "o4", "name": "Тумбы под принтер и бумагу", "price": 0, "items": [], "views": [{"id": "f", "label": "С фасадами", "img": "obj4-f.png"}, {"id": "open", "label": "Двери открыты", "img": "obj4-open.png"}, {"id": "dim", "label": "С размерами", "img": "obj4-dim.png"}]}, {"id": "o5", "name": "Шкаф в кабинет руководителя, встроенный под электрощиток", "price": 39590, "items": ["Двухдверный шкаф со штангой для одежды", "Встроен под электрощиток", "Цвет — венге, согласуем отдельно"], "views": [{"id": "f", "label": "С фасадами", "img": "obj5-f.png"}, {"id": "dim", "label": "С размерами", "img": "obj5-dim.png"}], "separate": true, "note": "Отдельный чек: цвет согласуем отдельно"}], "discount": null, "options": [{"id": "light", "name": "Подсветка", "price": 7597, "desc": "Светодиодная лента в профиле, датчик и трансформатор"}, {"id": "con-hood", "group": "con", "name": "Подключение вытяжки", "price": 4280, "desc": "К электросети и вентиляции, с материалами (пластиковые трубы)"}, {"id": "con-hob", "group": "con", "name": "Подключение: варочная панель", "price": 1070, "desc": "К электросети"}, {"id": "con-oven", "group": "con", "name": "Подключение: духовка", "price": 1605, "desc": "К электросети"}, {"id": "con-mw", "group": "con", "name": "Подключение: СВЧ", "price": 535, "desc": "К электросети"}, {"id": "con-sinkcon", "group": "con", "name": "Подключение: мойка и смеситель", "price": 2675, "desc": "К канализации и воде"}, {"id": "con-dw", "group": "con", "name": "Подключение: посудомойка", "price": 1605, "desc": "К воде, канализации и электросети"}, {"id": "con-filtercon", "group": "con", "name": "Подключение: фильтр для воды", "price": 1605, "desc": "Установка и подключение фильтра под мойкой"}, {"id": "c-sink", "name": "Мойка", "desc": "Цена как на сайте производителя — выберите модель", "choice": [{"id": "kardinal-450", "g": "Кардинал", "name": "Кардинал 450", "note": "1 чаша, без крыла · 450×500 мм · тумба от 450", "price": 6561, "img": "fl/s-kardinal-450.jpg"}, {"id": "kardinal-570", "g": "Кардинал", "name": "Кардинал 570", "note": "1 чаша, без крыла · 570×500 мм · тумба от 600", "price": 7357, "img": "fl/s-kardinal-570.jpg"}, {"id": "kardinal-640", "g": "Кардинал", "name": "Кардинал 640", "note": "1 чаша, с крылом · 640×500 мм · тумба от 500", "price": 7958, "img": "fl/s-kardinal-640.jpg"}, {"id": "kardinal-760", "g": "Кардинал", "name": "Кардинал 760", "note": "1 чаша, с крылом · 760×500 мм · тумба от 500", "price": 8549, "img": "fl/s-kardinal-760.jpg"}, {"id": "kardinal-840", "g": "Кардинал", "name": "Кардинал 840", "note": "1 чаша, с крылом · 840×500 мм · тумба от 600", "price": 9544, "img": "fl/s-kardinal-840.jpg"}, {"id": "konsul-450", "g": "Консул", "name": "Консул 450", "note": "1 чаша, без крыла · 450×500 мм · тумба от 450", "price": 9944, "img": "fl/s-konsul-450.jpg"}, {"id": "konsul-570", "g": "Консул", "name": "Консул 570", "note": "1 чаша, без крыла · 570×500 мм · тумба от 600", "price": 11734, "img": "fl/s-konsul-570.jpg"}, {"id": "konsul-640", "g": "Консул", "name": "Консул 640", "note": "1 чаша, с крылом · 640×500 мм · тумба от 500", "price": 12826, "img": "fl/s-konsul-640.jpg"}, {"id": "konsul-760", "g": "Консул", "name": "Консул 760", "note": "1 чаша, с крылом · 760×500 мм · тумба от 500", "price": 13324, "img": "fl/s-konsul-760.jpg"}, {"id": "konsul-840", "g": "Консул", "name": "Консул 840", "note": "1 чаша, с крылом · 840×500 мм · тумба от 600", "price": 14919, "img": "fl/s-konsul-840.jpg"}, {"id": "lipsi-460", "g": "Липси", "name": "Липси 460", "note": "1 чаша, без крыла · 460×510 мм · тумба от 450", "price": 9944, "img": "fl/s-lipsi-460.jpg"}, {"id": "lipsi-510", "g": "Липси", "name": "Липси 510", "note": "1 чаша, без крыла · 510×510 мм · тумба от 500", "price": 10540, "img": "fl/s-lipsi-510.jpg"}, {"id": "lipsi-600", "g": "Липси", "name": "Липси 600", "note": "1 чаша, без крыла · 600×510 мм · тумба от 600", "price": 11734, "img": "fl/s-lipsi-600.jpg"}, {"id": "lipsi-650", "g": "Липси", "name": "Липси 650", "note": "1 чаша, с крылом · 650×510 мм · тумба от 500", "price": 12826, "img": "fl/s-lipsi-650.jpg"}, {"id": "lipsi-780-xl", "g": "Липси", "name": "Липси 780 Xl", "note": "1 чаша, с крылом · 780×510 мм · тумба от 600", "price": 13314, "img": "fl/s-lipsi-780-xl.jpg"}, {"id": "lipsi-760", "g": "Липси", "name": "Липси 760", "note": "1 чаша, с крылом · 760×510 мм · тумба от 500", "price": 13324, "img": "fl/s-lipsi-760.jpg"}, {"id": "lipsi-780", "g": "Липси", "name": "Липси 780", "note": "1 чаша, с крылом · 780×510 мм · тумба от 500", "price": 13722, "img": "fl/s-lipsi-780.jpg"}, {"id": "lipsi-860", "g": "Липси", "name": "Липси 860", "note": "1 чаша, с крылом · 860×510 мм · тумба от 600", "price": 14919, "img": "fl/s-lipsi-860.jpg"}, {"id": "lipsi-770", "g": "Липси", "name": "Липси 770", "note": "1 чаша, без крыла · 770×510 мм · тумба от 800", "price": 15313, "img": "fl/s-lipsi-770.jpg"}, {"id": "lipsi-820", "g": "Липси", "name": "Липси 820", "note": "2 чаши, без крыла · 820×510 мм · тумба от 800", "price": 16904, "img": "fl/s-lipsi-820.jpg"}, {"id": "berta-620", "g": "Другие", "name": "Берта 620", "note": "1 чаша, с крылом · 620×490 мм · тумба от 450", "price": 6362, "img": "fl/s-berta-620.jpg"}, {"id": "astra-620k", "g": "Другие", "name": "Астра 620К", "note": "1,5 чаши, без крыла · 620×510 мм · тумба от 600", "price": 8251, "img": "fl/s-astra-620k.jpg"}, {"id": "adel-780", "g": "Другие", "name": "Адель 780", "note": "1 чаша, с крылом · 780×510 мм · тумба от 500", "price": 8586, "img": "fl/s-adel-780.jpg"}, {"id": "astra-760k", "g": "Другие", "name": "Астра 760К", "note": "1,5 чаши, с крылом · 760×510 мм · тумба от 600", "price": 9742, "img": "fl/s-astra-760k.jpg"}, {"id": "astra-780", "g": "Другие", "name": "Астра 780", "note": "2 чаши, без крыла · 780×510 мм · тумба от 800", "price": 10473, "img": "fl/s-astra-780.jpg"}, {"id": "onega-60", "g": "Нержавейка Hissen", "name": "Hissen Онега 60", "note": "1 чаша, без крыла · 600×450 мм · сталь SUS 304 · тумба от 600", "price": 8759, "img": "fl/h-onega-60.jpg"}, {"id": "ladoga-53", "g": "Нержавейка Hissen", "name": "Hissen Ладога 53", "note": "1 чаша, без крыла · 530×430 мм · в комплекте корзина и дозатор · тумба от 600", "price": 9142, "img": "fl/h-ladoga-53.jpg"}, {"id": "onega-50", "g": "Нержавейка Hissen", "name": "Hissen Онега 50", "note": "1 чаша, квадратная · 500×500 мм · сталь SUS 304 · тумба от 500", "price": 14043, "img": "fl/h-onega-50.jpg"}, {"id": "ilmen-65", "g": "Нержавейка Hissen", "name": "Hissen Ильмень 65", "note": "1 чаша, с крылом · 650×510 мм · в комплекте корзина и дозатор · тумба от 400", "price": 17848, "img": "fl/h-ilmen-65.jpg"}]}, {"id": "c-tap", "name": "Смеситель", "desc": "Цена как на сайте производителя — выберите модель", "choice": [{"id": "tara", "g": "Обычные", "name": "Тара", "note": "Классический излив, высота 123 мм · латунь", "price": 4771, "img": "fl/f-tara.jpg"}, {"id": "nota", "g": "Обычные", "name": "Нота", "note": "Классический излив, высота 123 мм · латунь", "price": 4871, "img": "fl/f-nota.jpg"}, {"id": "rondo", "g": "Обычные", "name": "Рондо", "note": "Классический излив, высота 198 мм · латунь", "price": 5737, "img": "fl/f-rondo.jpg"}, {"id": "mira", "g": "Обычные", "name": "Мира", "note": "Классический излив, высота 198 мм · латунь", "price": 5778, "img": "fl/f-mira.jpg"}, {"id": "solo", "g": "Обычные", "name": "Соло", "note": "J-образный излив, высота 257 мм · нержавейка", "price": 6173, "img": "fl/f-solo.jpg"}, {"id": "lira", "g": "Обычные", "name": "Лира", "note": "L-образный излив, высота 269 мм · нержавейка", "price": 6721, "img": "fl/f-lira.jpg"}, {"id": "fabio", "g": "Обычные", "name": "Фабио", "note": "L-образный излив, высота 269 мм · нержавейка", "price": 6794, "img": "fl/f-fabio.jpg"}, {"id": "juna", "g": "Обычные", "name": "Юна", "note": "J-образный излив, высота 257 мм · нержавейка", "price": 6972, "img": "fl/f-juna.jpg"}, {"id": "sonata", "g": "Обычные", "name": "Соната", "note": "Классический излив, высота 120 мм · латунь", "price": 6991, "img": "fl/f-sonata.jpg"}, {"id": "gamma", "g": "Обычные", "name": "Гамма", "note": "Классический излив, высота 147 мм · латунь", "price": 7105, "img": "fl/f-gamma.jpg"}, {"id": "omega", "g": "Обычные", "name": "Омега", "note": "Классический излив, высота 235 мм · латунь", "price": 7167, "img": "fl/f-omega.jpg"}, {"id": "sigma", "g": "Обычные", "name": "Сигма", "note": "Классический излив, высота 120 мм · латунь", "price": 7341, "img": "fl/f-sigma.jpg"}, {"id": "alfa", "g": "Обычные", "name": "Альфа", "note": "J-образный излив, высота 250 мм · латунь", "price": 7377, "img": "fl/f-alfa.jpg"}, {"id": "oda", "g": "Обычные", "name": "Ода", "note": "L-образный излив, высота 220 мм · латунь", "price": 8667, "img": "fl/f-oda.jpg"}, {"id": "delta", "g": "Обычные", "name": "Дельта", "note": "L-образный излив, высота 280 мм · нержавейка", "price": 8851, "img": "fl/f-delta.jpg"}, {"id": "fita", "g": "Обычные", "name": "Фита", "note": "Классический излив, высота 215 мм · латунь", "price": 11663, "img": "fl/f-fita.jpg"}, {"id": "klio-pro", "g": "Обычные", "name": "Клио Pro", "note": "J-образный излив, высота 250 мм · нержавейка", "price": 11784, "img": "fl/f-klio-pro.jpg"}, {"id": "vita-pro", "g": "Обычные", "name": "Вита Pro", "note": "J-образный излив, высота 212 мм · нержавейка", "price": 13406, "img": "fl/f-vita-pro.jpg"}, {"id": "palermo", "g": "Обычные", "name": "Палермо", "note": "L-образный излив, высота 290 мм · нержавейка", "price": 14338, "img": "fl/f-palermo.jpg"}, {"id": "shale", "g": "Под фильтр", "name": "Шале", "note": "J-образный излив, высота 290 мм · латунь", "price": 9611, "img": "fl/f-shale.jpg"}, {"id": "klio", "g": "Под фильтр", "name": "Клио", "note": "J-образный излив, высота 275 мм · нержавейка", "price": 9723, "img": "fl/f-klio.jpg"}, {"id": "aktsent", "g": "Под фильтр", "name": "Акцент", "note": "L-образный излив, высота 313 мм · нержавейка", "price": 10849, "img": "fl/f-aktsent.jpg"}, {"id": "aldo", "g": "Под фильтр", "name": "Альдо", "note": "L-образный излив, высота 313 мм · нержавейка", "price": 11021, "img": "fl/f-aldo.jpg"}, {"id": "ares", "g": "Под фильтр", "name": "Арес", "note": "L-образный излив, высота 300 мм · латунь", "price": 11784, "img": "fl/f-ares.jpg"}, {"id": "arija", "g": "Под фильтр", "name": "Ария", "note": "L-образный излив, высота 220 мм · латунь · два рычага", "price": 12840, "img": "fl/f-arija.jpg"}, {"id": "kristall", "g": "Под фильтр", "name": "Кристалл", "note": "L-образный излив, высота 295 мм · нержавейка", "price": 17301, "img": "fl/f-kristall.jpg"}, {"id": "maestro", "g": "Под фильтр", "name": "Маэстро", "note": "J-образный излив, высота 185 мм · нержавейка", "price": 17548, "img": "fl/f-maestro.jpg"}]}, {"id": "c-filter", "name": "Фильтр для воды", "desc": "В наличии в магазине на 14.10.2026 — выберите модель", "choice": [{"id": "lm-89438431", "g": "Базовая", "name": "Аквафор Кристал Protect Универсальный", "note": "для жесткой воды 3 ступени быстросъемный без крана", "price": 4423, "img": "fl/lm-89438431.jpg", "url": "https://novosibirsk.lemanapro.ru/product/filtr-pod-moyku-akvafor-kristal-protect-universalnyy-dlya-zhestkoy-vody-3-stupeni-bystrosemnyy-bez-krana-89438431/"}, {"id": "lm-12180299", "g": "Базовая", "name": "Аквафор Трио Универсал", "note": "для мягкой воды 3 ступени кран в комплекте", "price": 4768, "img": "fl/lm-12180299.jpg", "url": "https://novosibirsk.lemanapro.ru/product/filtr-pod-moyku-akvafor-trio-universal-dlya-myagkoy-vody-3-stupeni-kran-v-komplekte-12180299/"}, {"id": "lm-12180416", "g": "Базовая", "name": "Аквафор Трио Универсал", "note": "для жесткой воды 3 ступени кран в комплекте", "price": 4909, "img": "fl/lm-12180416.jpg", "url": "https://novosibirsk.lemanapro.ru/product/filtr-pod-moyku-akvafor-trio-universal-dlya-zhestkoy-vody-3-stupeni-kran-v-komplekte-12180416/"}, {"id": "lm-82014579", "g": "Базовая", "name": "Аквафор Кристалл Универсал", "note": "для мягкой воды 3 ступени быстросъемный кран в комплекте", "price": 5834, "img": "fl/lm-82014579.jpg", "url": "https://novosibirsk.lemanapro.ru/product/filtr-pod-moyku-akvafor-kristall-universal-dlya-myagkoy-vody-3-stupeni-bystrosemnyy-kran-v-komplekte-82014579/"}, {"id": "lm-12180694", "g": "Базовая", "name": "Аквафор Кристалл Универсал", "note": "для жесткой воды 3 ступени быстросъемный кран в комплекте", "price": 6417, "img": "fl/lm-12180694.jpg", "url": "https://novosibirsk.lemanapro.ru/product/filtr-pod-moyku-akvafor-kristall-universal-dlya-zhestkoy-vody-3-stupeni-bystrosemnyy-kran-v-komplekte-12180694/"}, {"id": "lm-15454401", "g": "Базовая", "name": "Аквафор Кристалл ЭКО-Н", "note": "для жесткой воды 3 ступени быстросъемный кран в комплекте", "price": 11186, "img": "fl/lm-15454401.jpg", "url": "https://novosibirsk.lemanapro.ru/product/filtr-pod-moyku-akvafor-kristall-eko-n-dlya-zhestkoy-vody-3-stupeni-bystrosemnyy-kran-v-komplekte-15454401/"}, {"id": "lm-89432911", "g": "Базовая", "name": "Барьер Эксперт Слим Базовый Био", "note": "для воды средней жесткости 3 ступени быстросъемный без крана", "price": 4353, "img": "fl/lm-89432911.jpg", "url": "https://novosibirsk.lemanapro.ru/product/filtr-pod-moyku-barer-ekspert-slim-bazovyy-bio-dlya-vody-sredney-zhestkosti-3-stupeni-bystrosemnyy-bez-krana-89432911/"}, {"id": "lm-86270308", "g": "Базовая", "name": "Барьер Эксперт Слим Хард", "note": "для жесткой воды 3 ступени быстросъемный кран в комплекте", "price": 4723, "img": "fl/lm-86270308.jpg", "url": "https://novosibirsk.lemanapro.ru/product/filtr-pod-moyku-barer-ekspert-slim-hard-dlya-zhestkoy-vody-3-stupeni-bystrosemnyy-kran-v-komplekte-86270308/"}, {"id": "lm-89428349", "g": "Базовая", "name": "Барьер Эксперт Слим Смягчение Плюс", "note": "для жесткой воды 3 ступени быстросъемный без крана", "price": 4833, "img": "fl/lm-89428349.jpg", "url": "https://novosibirsk.lemanapro.ru/product/filtr-pod-moyku-barer-ekspert-slim-smyagchenie-plyus-dlya-zhestkoy-vody-3-stupeni-bystrosemnyy-bez-krana-89428349/"}, {"id": "lm-89432909", "g": "Базовая", "name": "Барьер Эксперт Слим Базовый Био", "note": "для воды средней жесткости 3 ступени быстросъемный кран в комплекте", "price": 5398, "img": "fl/lm-89432909.jpg", "url": "https://novosibirsk.lemanapro.ru/product/filtr-pod-moyku-barer-ekspert-slim-bazovyy-bio-dlya-vody-sredney-zhestkosti-3-stupeni-bystrosemnyy-kran-v-komplekte-89432909/"}, {"id": "lm-86533747", "g": "Базовая", "name": "Барьер Профи Смягчение", "note": "для жесткой воды 3 ступени кран в комплекте", "price": 5554, "img": "fl/lm-86533747.jpg", "url": "https://novosibirsk.lemanapro.ru/product/filtr-pod-moyku-barer-profi-smyagchenie-dlya-zhestkoy-vody-3-stupeni-kran-v-komplekte-86533747/"}, {"id": "lm-89428346", "g": "Базовая", "name": "Барьер Эксперт Слим Смягчение Плюс", "note": "для жесткой воды 3 ступени быстросъемный кран в комплекте", "price": 5592, "img": "fl/lm-89428346.jpg", "url": "https://novosibirsk.lemanapro.ru/product/filtr-pod-moyku-barer-ekspert-slim-smyagchenie-plyus-dlya-zhestkoy-vody-3-stupeni-bystrosemnyy-kran-v-komplekte-89428346/"}, {"id": "lm-83402851", "g": "Базовая", "name": "Барьер Эксперт Слим", "note": "для мягкой воды 3 ступени быстросъемный кран в комплекте", "price": 5756, "img": "fl/lm-83402851.jpg", "url": "https://novosibirsk.lemanapro.ru/product/filtr-pod-moyku-barer-ekspert-slim-dlya-myagkoy-vody-3-stupeni-bystrosemnyy-kran-v-komplekte-83402851/"}, {"id": "lm-84804727", "g": "Базовая", "name": "Барьер Эксперт Смягчение Био", "note": "для жесткой воды 3 ступени быстросъемный кран в комплекте", "price": 7135, "img": "fl/lm-84804727.jpg", "url": "https://novosibirsk.lemanapro.ru/product/filtr-pod-moyku-barer-ekspert-smyagchenie-bio-dlya-zhestkoy-vody-3-stupeni-bystrosemnyy-kran-v-komplekte-84804727/"}, {"id": "lm-85606592", "g": "Базовая", "name": "Барьер Актив Оптима Сила Иммунитета", "note": "для жесткой воды 3 ступени быстросъемный кран в комплекте", "price": 8045, "img": "fl/lm-85606592.jpg", "url": "https://novosibirsk.lemanapro.ru/product/filtr-pod-moyku-barer-aktiv-optima-sila-immuniteta-dlya-zhestkoy-vody-3-stupeni-bystrosemnyy-kran-v-komplekte-85606592/"}, {"id": "lm-85607255", "g": "Базовая", "name": "Барьер Профи Жесткость х2", "note": "для жесткой воды 3 ступени кран в комплекте", "price": 8349, "img": "fl/lm-85607255.jpg", "url": "https://novosibirsk.lemanapro.ru/product/filtr-pod-moyku-barer-profi-zhestkost-h2-dlya-zhestkoy-vody-3-stupeni-kran-v-komplekte-85607255/"}, {"id": "lm-87008108", "g": "Базовая", "name": "Барьер Эксперт Жесткость х2", "note": "для жесткой воды 3 ступени быстросъемный кран в комплекте", "price": 8420, "img": "fl/lm-87008108.jpg", "url": "https://novosibirsk.lemanapro.ru/product/filtr-pod-moyku-barer-ekspert-zhestkost-h2-dlya-zhestkoy-vody-3-stupeni-bystrosemnyy-kran-v-komplekte-87008108/"}, {"id": "lm-89440444", "g": "Базовая", "name": "Барьер Эксперт Слим Комплекс Био", "note": "для жесткой воды 3 ступени быстросъемный кран в комплекте", "price": 8696, "img": "fl/lm-89440444.jpg", "url": "https://novosibirsk.lemanapro.ru/product/filtr-pod-moyku-barer-ekspert-slim-kompleks-bio-dlya-zhestkoy-vody-3-stupeni-bystrosemnyy-kran-v-komplekte-89440444/"}, {"id": "lm-87677601", "g": "Базовая", "name": "Гейзер Виннер", "note": "для жесткой воды 3 ступени быстросъемный без крана", "price": 3064, "img": "fl/lm-87677601.jpg", "url": "https://novosibirsk.lemanapro.ru/product/filtr-pod-moyku-geyzer-vinner-dlya-zhestkoy-vody-3-stupeni-bystrosemnyy-bez-krana-87677601/"}, {"id": "lm-87677603", "g": "Базовая", "name": "Гейзер Виннер", "note": "для мягкой воды 3 ступени быстросъемный без крана", "price": 3074, "img": "fl/lm-87677603.jpg", "url": "https://novosibirsk.lemanapro.ru/product/filtr-pod-moyku-geyzer-vinner-dlya-myagkoy-vody-3-stupeni-bystrosemnyy-bez-krana-87677603/"}, {"id": "lm-87677600", "g": "Базовая", "name": "Гейзер Виннер", "note": "для жесткой воды 3 ступени быстросъемный кран в комплекте", "price": 3689, "img": "fl/lm-87677600.jpg", "url": "https://novosibirsk.lemanapro.ru/product/filtr-pod-moyku-geyzer-vinner-dlya-zhestkoy-vody-3-stupeni-bystrosemnyy-kran-v-komplekte-87677600/"}, {"id": "lm-87677602", "g": "Базовая", "name": "Гейзер Виннер", "note": "для мягкой воды 3 ступени быстросъемный кран в комплекте", "price": 3689, "img": "fl/lm-87677602.jpg", "url": "https://novosibirsk.lemanapro.ru/product/filtr-pod-moyku-geyzer-vinner-dlya-myagkoy-vody-3-stupeni-bystrosemnyy-kran-v-komplekte-87677602/"}, {"id": "lm-83647731", "g": "Базовая", "name": "Гейзер Смарт", "note": "для жесткой воды 3 ступени быстросъемный кран в комплекте", "price": 5874, "img": "fl/lm-83647731.jpg", "url": "https://novosibirsk.lemanapro.ru/product/filtr-pod-moyku-geyzer-smart-dlya-zhestkoy-vody-3-stupeni-bystrosemnyy-kran-v-komplekte-83647731/"}, {"id": "lm-10292297", "g": "Базовая", "name": "Гейзер 3-ИВЖ Люкс", "note": "для жесткой воды 3 ступени кран в комплекте", "price": 5943, "img": "fl/lm-10292297.jpg", "url": "https://novosibirsk.lemanapro.ru/product/filtr-pod-moyku-geyzer-3-ivzh-lyuks-dlya-zhestkoy-vody-3-stupeni-kran-v-komplekte-10292297/"}, {"id": "lm-86809822", "g": "Базовая", "name": "Гейзер Смарт Макс Био", "note": "для жесткой воды 3 ступени быстросъемный кран в комплекте", "price": 7381, "img": "fl/lm-86809822.jpg", "url": "https://novosibirsk.lemanapro.ru/product/filtr-pod-moyku-geyzer-smart-maks-bio-dlya-zhestkoy-vody-3-stupeni-bystrosemnyy-kran-v-komplekte-86809822/"}, {"id": "lm-12809931", "g": "Базовая", "name": "Гейзер 3-БИО 331", "note": "для жесткой воды 3 ступени кран в комплекте", "price": 8082, "img": "fl/lm-12809931.jpg", "url": "https://novosibirsk.lemanapro.ru/product/filtr-pod-moyku-geyzer-3-bio-331-dlya-zhestkoy-vody-3-stupeni-kran-v-komplekte-12809931/"}, {"id": "lm-82391980", "g": "Базовая", "name": "Гейзер Смарт Макс", "note": "для жесткой воды 3 ступени быстросъемный кран в комплекте", "price": 8160, "img": "fl/lm-82391980.jpg", "url": "https://novosibirsk.lemanapro.ru/product/filtr-pod-moyku-geyzer-smart-maks-dlya-zhestkoy-vody-3-stupeni-bystrosemnyy-kran-v-komplekte-82391980/"}, {"id": "lm-89399362", "g": "Глубокая очистка", "name": "Аквафор Osmo Pro-50-3-А-М", "note": "3 ступени с минерализатором бак 10 л кран в комплекте", "price": 9831, "img": "fl/lm-89399362.jpg", "url": "https://novosibirsk.lemanapro.ru/product/sistema-obratnogo-osmosa-akvafor-osmo-pro-50-3-a-m-3-stupeni-s-mineralizatorom-bak-10-l-kran-v-komplekte-89399362/"}, {"id": "lm-15454507", "g": "Глубокая очистка", "name": "Аквафор DWM-70S", "note": "3 ступени с минерализатором бак 5 л кран в комплекте", "price": 11394, "img": "fl/lm-15454507.jpg", "url": "https://novosibirsk.lemanapro.ru/product/sistema-obratnogo-osmosa-akvafor-dwm-70s-3-stupeni-s-mineralizatorom-bak-5-l-kran-v-komplekte-15454507/"}, {"id": "lm-15785357", "g": "Глубокая очистка", "name": "Аквафор Осмо 50", "note": "5 ступени с минерализатором бак 10 л кран в комплекте", "price": 16353, "img": "fl/lm-15785357.jpg", "url": "https://novosibirsk.lemanapro.ru/product/sistema-obratnogo-osmosa-akvafor-osmo-50-5-stupeni-s-mineralizatorom-bak-10-l-kran-v-komplekte-15785357/"}, {"id": "lm-89307452", "g": "Глубокая очистка", "name": "Аквафор Осмо Универсал", "note": "3 ступени с минерализатором бак 10 л кран в комплекте", "price": 16429, "img": "fl/lm-89307452.jpg", "url": "https://novosibirsk.lemanapro.ru/product/sistema-obratnogo-osmosa-akvafor-osmo-universal-3-stupeni-s-mineralizatorom-bak-10-l-kran-v-komplekte-89307452/"}, {"id": "lm-86226611", "g": "Глубокая очистка", "name": "Барьер Ватерфорт Осмо L", "note": "5 ступени бак 12 л кран в комплекте", "price": 12274, "img": "fl/lm-86226611.jpg", "url": "https://novosibirsk.lemanapro.ru/product/sistema-obratnogo-osmosa-barer-vaterfort-osmo-l-5-stupeni-bak-12-l-kran-v-komplekte-86226611/"}, {"id": "lm-86226559", "g": "Глубокая очистка", "name": "Барьер Компакт Осмо 100", "note": "3 ступени бак 12 л кран в комплекте", "price": 14409, "img": "fl/lm-86226559.jpg", "url": "https://novosibirsk.lemanapro.ru/product/sistema-obratnogo-osmosa-barer-kompakt-osmo-100-3-stupeni-bak-12-l-kran-v-komplekte-86226559/"}, {"id": "lm-15048859", "g": "Глубокая очистка", "name": "Барьер Профи Осмо 100 Л", "note": "5 ступени бак 12 л кран в комплекте", "price": 14766, "img": "fl/lm-15048859.jpg", "url": "https://novosibirsk.lemanapro.ru/product/sistema-obratnogo-osmosa-barer-profi-osmo-100-l-5-stupeni-bak-12-l-kran-v-komplekte-15048859/"}, {"id": "lm-82222423", "g": "Глубокая очистка", "name": "Барьер Ватерфорт Осмо", "note": "5 ступени бак 12 л кран в комплекте", "price": 20281, "img": "fl/lm-82222423.jpg", "url": "https://novosibirsk.lemanapro.ru/product/sistema-obratnogo-osmosa-barer-vaterfort-osmo-5-stupeni-bak-12-l-kran-v-komplekte-82222423/"}, {"id": "lm-86226560", "g": "Глубокая очистка", "name": "Барьер Профи Осмо 600", "note": "4 ступени без бака кран в комплекте", "price": 26736, "img": "fl/lm-86226560.jpg", "url": "https://novosibirsk.lemanapro.ru/product/sistema-obratnogo-osmosa-barer-profi-osmo-600-4-stupeni-bez-baka-kran-v-komplekte-86226560/"}, {"id": "lm-82460700", "g": "Глубокая очистка", "name": "Гейзер Престиж Смарт", "note": "3 ступени с минерализатором бак 12 л кран в комплекте", "price": 10580, "img": "fl/lm-82460700.jpg", "url": "https://novosibirsk.lemanapro.ru/product/sistema-obratnogo-osmosa-geyzer-prestizh-smart-3-stupeni-s-mineralizatorom-bak-12-l-kran-v-komplekte-82460700/"}, {"id": "lm-89418972", "g": "Глубокая очистка", "name": "Гейзер Престиж Оптима", "note": "5 ступени бак 12 л кран в комплекте", "price": 11171, "img": "fl/lm-89418972.jpg", "url": "https://novosibirsk.lemanapro.ru/product/sistema-obratnogo-osmosa-geyzer-prestizh-optima-5-stupeni-bak-12-l-kran-v-komplekte-89418972/"}, {"id": "lm-10292852", "g": "Глубокая очистка", "name": "Гейзер Престиж", "note": "5 ступени бак 12 л кран в комплекте", "price": 13521, "img": "fl/lm-10292852.jpg", "url": "https://novosibirsk.lemanapro.ru/product/sistema-obratnogo-osmosa-geyzer-prestizh-5-stupeni-bak-12-l-kran-v-komplekte-10292852/"}]}], "package": {"name": "Мини-кухня и 3 шкафа", "price": 209634, "items": ["ЛДСП Томлесдрев / Увадрев ×6", "Столешница кедр", "Стеновая кедр", "Панели AGT", "МДФ в плёнке ×1,4", "Газлифты ×2", "Скрытые направляющие с доводчиком ×3", "Ручки Hexi ×8", "Длинные ручки ×0,7", "Сушка", "Петли Samet / GTV с доводчиком ×37"]}, "priceNote": "💳 Цены указаны для оплаты безналичным расчётом.", "included": ["📐 Проект по вашим размерам", "🚚 Доставка и подъём на этаж", "🔧 Сборка и монтаж", "📏 Контрольный замер после ремонта — запускаю в работу только по нему"], "term": "20–27 рабочих дней с момента оплаты", "tg": "https://t.me/kuhnya154", "ig": "https://www.instagram.com/kuhnya54/", "vk": "https://vk.com/kuhnya54", "pay": [["70 %", "💳 предоплата при запуске в работу — материалы и фурнитура"], ["30 %", "🤝 по завершении работ"]], "notIncluded": "", "footer": ["⏳ Цены рассчитаны по проекту и действуют 14 дней.", "💬 Выберите комплектацию и наполнение и нажмите «📨 Отправить выбор» — он сразу придёт мне."], "sendUrl": "https://script.google.com/macros/s/AKfycbwOGnPXF-z379yVIGv0gcdzanEsa-39LCR7GHuyEORSMRhwmpKyeRWP-UBR6Sw89QTouw/exec", "maxChat": "", "tgChat": "", "og": {"title": "Мебель для офиса Евро Берег: проект и расчёт", "image": "https://planetasofa2012-code.github.io/kp/evro-bereg-ofis/og.jpg", "desc": "5 объекта из одного материала  итого 249 224 ₽"}};
+
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? "").replace(/[<>&"]/g, c => ({"<":"&lt;",">":"&gt;","&":"&amp;",'"':"&quot;"}[c]));
+const rub = n => Math.round(n).toLocaleString("ru-RU") + " ₽";
+function plural(n,a,b,c){ const m=n%10, h=n%100; return m===1&&h!==11?a:(m>=2&&m<=4&&(h<12||h>14)?b:c); }
+
+/* шапка и статичные блоки */
+$("master").textContent = KP.master;
+$("masterSub").textContent = KP.masterSub;
+$("date").textContent = KP.date;
+$("title").textContent = KP.title;
+$("intro").textContent = KP.intro;
+$("facts").innerHTML = KP.facts.map(([b,s]) => `<div><b>${esc(b)}</b><span>${esc(s)}</span></div>`).join("");
+$("included").innerHTML = KP.included.map(x => `<li>${esc(x)}</li>`).join("");
+$("term").textContent = "📅 Срок: " + KP.term;
+if (KP.ig) { $("ig").href = KP.ig; $("ig").textContent = "📸 Instagram: kuhnya54"; } else $("ig").hidden = true;
+if (KP.vk) { $("vk").href = KP.vk; $("vk").textContent = "💬 ВК: «Разговоры на кухне»"; } else $("vk").hidden = true;
+if (KP.tg) { $("tg").href = KP.tg; $("tg").textContent = "✈️ Telegram: " + KP.tg.replace("https://",""); } else $("tg").hidden = true;
+$("pay").innerHTML = KP.pay.map(([p,t]) => `<div><b class="num">${esc(p)}</b><span>${esc(t)}</span></div>`).join("");
+$("notIncl").innerHTML = "<b>❗ Отдельно.</b> " + esc(KP.notIncluded);
+$("notIncl").hidden = !KP.notIncluded;
+$("foot").innerHTML = KP.footer.map(x => `<span>${esc(x)}</span>`).join("")
+  + `<span>${esc(KP.master)} ${esc(KP.masterSub)}</span>`
+  + `<span>📷 Мои работы: ${KP.tg ? `<a href="${esc(KP.tg)}" target="_blank" rel="noopener">Telegram</a>` : ""}${KP.tg && KP.ig ? " · " : ""}${KP.ig ? `<a href="${esc(KP.ig)}" target="_blank" rel="noopener">Instagram</a>` : ""}${KP.vk ? ` · <a href="${esc(KP.vk)}" target="_blank" rel="noopener">ВК «Разговоры на кухне»</a>` : ""}</span>`;
+
+/* единый материал */
+const M = KP.material;
+$("matSec").hidden = !M;
+if (M) {
+  $("matH").textContent = "🧱 " + (M.title || (KP.package ? "Материалы" : "Все объекты из одного материала"));
+  const km = KP.kitchenMats || [];
+  $("kmWrap").hidden = !km.length;
+  $("kmats").innerHTML = km.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join("");
+  $("matWhy").textContent = KP.discount ? "Поэтому цена ниже: материал закупается и раскраивается один раз на все объекты." : "";
+  $("matWhy").hidden = !KP.discount;
+  $("matText").textContent = M.text || "";
+  $("matText").hidden = !M.text;
+  $("matph").innerHTML = (M.photos || []).map(p => `<figure><img src="${esc(p.img)}" alt="${esc(p.caption || "Материал")}" loading="lazy"><figcaption>${esc(p.caption || "")}</figcaption></figure>`).join("");
+}
+
+/* состояние: какие объекты в заказе, какой вид открыт у каждого */
+const on = new Set(KP.objects.map((_, i) => i));
+const view = KP.objects.map(() => 0);
+const fullBase = KP.package ? KP.package.price : KP.objects.filter(o => !o.separate).reduce((s, o) => s + o.price, 0);
+
+function calc(){
+  // пакет: все объекты (кроме «отдельным чеком») продаются одной ценой; иначе — по отдельности
+  const alone = KP.objects.filter((o, i) => on.has(i) && (o.separate || !KP.package));
+  const main = alone.filter(o => !o.separate);                   // из единого материала — на них скидка
+  const sub = KP.package ? KP.package.price : main.reduce((s, o) => s + o.price, 0);
+  const seps = alone.filter(o => o.separate);
+  const sepSum = seps.reduce((s, o) => s + o.price, 0);          // отдельным чеком — без скидки
+  const lines = [...(KP.package ? [{name: KP.package.name, price: KP.package.price}] : main), ...seps];
+  let disc = 0;
+  const d = KP.discount;
+  if (d && sub > 0) {
+    if (d.kind === "percent") disc = sub * d.value / 100;
+    else if (d.kind === "sum" && fullBase > 0) disc = Math.min(sub, d.value * sub / fullBase);   // сумма скидки делится пропорционально выбранному
+  }
+  disc = Math.round(disc);
+  const opts = (KP.options || []).filter(o => optOn(o));
+  const osum = opts.reduce((s, o) => s + optPrice(o), 0);
+  return {sel: lines, sub, sepSum, disc, opts, osum, fin: sub - disc + sepSum + osum};
+}
+
+/* ---------- опции: подсветка, каталоги моек и смесителей ---------- */
+const optState = {on: new Set(), pick: {}, open: {}, grp: {}, conOpen: false};
+const optById = id => (KP.options || []).find(o => o.id === id);
+const optOn = o => optState.on.has(o.id);
+const pickOf = o => o.choice && o.choice.find(m => m.id === optState.pick[o.id]);
+const optPrice = o => o.choice ? (pickOf(o) ? pickOf(o).price : 0) : o.price;
+const groupsOf = o => [...new Set(o.choice.map(m => m.g).filter(Boolean))];
+const curGroup = o => optState.grp[o.id] || (pickOf(o) && pickOf(o).g) || groupsOf(o)[0];
+function drawOpts(){
+  const list = KP.options || [];
+  $("optSec").hidden = !list.length;
+  const html = o => {
+    const on = optOn(o);
+    if (!o.choice) return `<button class="addon" aria-pressed="${on}" data-a="${esc(o.id)}">
+      <span class="box"></span><span class="t">${esc(o.name)}</span>
+      <span class="p num">+ ${rub(o.price)}</span><span class="d">${esc(o.desc)}</span></button>`;
+    const p = pickOf(o), open = optState.open[o.id], min = Math.min(...o.choice.map(m => m.price));
+    return `<div class="addon choice" aria-pressed="${on}" data-c="${esc(o.id)}">
+      <span class="box"></span><span class="t">${esc(o.name)}</span>
+      <span class="p num">${on ? "+ " + rub(p.price) : "от " + rub(min)}</span><span class="d">${esc(o.desc)}</span>
+      <div class="pickbar">
+        ${p ? `<span class="mini"><img src="${esc(p.img)}" alt=""><span><b>${esc(p.name)}</b><br><small>${esc(p.note)}</small></span></span>` : ""}
+        <button class="pbtn" data-open="1" aria-expanded="${!!open}">${open ? "Свернуть ▴" : p ? "Изменить ▾" : `Выбрать модель · ${o.choice.length} шт. ▾`}</button>
+        ${p ? `<button class="pbtn ghost" data-clear="1">Убрать</button>` : ""}
+      </div>
+      ${!open ? "" : `${groupsOf(o).length > 1 ? `<div class="mtabs">${groupsOf(o).map(g => `<button data-g="${esc(g)}" aria-selected="${g === curGroup(o)}">${esc(g)} <span>${o.choice.filter(m => m.g === g).length}</span></button>`).join("")}</div>` : ""}
+      <div class="models">${o.choice.filter(m => !m.g || m.g === curGroup(o)).map(m => `
+        <button class="model" aria-pressed="${optState.pick[o.id] === m.id}" data-m="${esc(m.id)}">
+          <span class="ph"><img src="${esc(m.img)}" alt="${esc(m.name)}" loading="lazy"></span>
+          <span class="mn">${esc(m.name)}</span><span class="mt">${esc(m.note)}</span><span class="mp num">${rub(m.price)}</span>
+        </button>`).join("")}</div>`}
+    </div>`;
+  };
+  const con = list.filter(o => o.group === "con");
+  $("opts").innerHTML = list.filter(o => o.group !== "con").map(html).join("")
+    + (con.length ? `<details class="cmp con" id="conDet" style="grid-column:1 / -1" ${optState.conOpen ? "open" : ""}>
+        <summary>🔌 Подключение сантехники и электроприборов${con.some(optOn) ? " · выбрано " + con.filter(optOn).length : ""}</summary>
+        <div class="con-in">
+          <p class="lead" style="margin:0">Обычно подключение делает ваш электрик и сантехник. Если удобнее, чтобы это сделал я, отметьте нужное. К цене работы добавляется стоимость материалов по чеку из магазина.</p>
+          <div class="addons">${con.map(html).join("")}</div>
+        </div></details>` : "");
+}
+$("opts").addEventListener("toggle", e => { if (e.target.id === "conDet") optState.conOpen = e.target.open; }, true);
+$("opts").addEventListener("click", e => {
+  const t = e.target;
+  const simple = t.closest("button.addon[data-a]");
+  if (simple) { const id = simple.dataset.a; optState.on.has(id) ? optState.on.delete(id) : optState.on.add(id); return update(); }
+  const box = t.closest(".addon.choice[data-c]"); if (!box) return;
+  const o = optById(box.dataset.c);
+  if (t.closest("[data-open]")) { optState.open[o.id] = !optState.open[o.id]; return update(); }
+  if (t.closest("[data-clear]")) { delete optState.pick[o.id]; optState.on.delete(o.id); return update(); }
+  const g = t.closest("[data-g]"); if (g) { optState.grp[o.id] = g.dataset.g; return update(); }
+  const m = t.closest("[data-m]");
+  if (m) {
+    if (optState.pick[o.id] === m.dataset.m) { delete optState.pick[o.id]; optState.on.delete(o.id); }
+    else { optState.pick[o.id] = m.dataset.m; optState.on.add(o.id); }
+    update();
+  }
+});
+
+function viewsHTML(o, i){
+  const vs = o.views || [], v = vs[view[i]] || vs[0];
+  const tabs = vs.length > 1 ? `<div class="views" role="tablist">${vs.map((x, k) =>
+    `<button type="button" role="tab" data-o="${i}" data-v="${k}" aria-selected="${k === view[i]}">${esc(x.label)}</button>`).join("")}</div>` : "";
+  const pic = v ? `<div class="stage"><img src="${esc(v.img)}" alt="${esc(o.name)}: ${esc(v.label)}"></div>` : `<div class="nopic">Проект будет добавлен</div>`;
+  return tabs + pic;
+}
+const listHTML = items => (items || []).length ? `<ul>${items.map(t => `<li>${esc(t)}</li>`).join("")}</ul>` : "";
+function drawObjs(){
+  let h = "";
+  if (KP.package) {
+    const members = KP.objects.map((o, i) => [o, i]).filter(([o]) => !o.separate);
+    h += `<article class="pkg">
+      <div class="oh"><h2>📦 ${esc(KP.package.name)}</h2><span class="oprice num">${rub(KP.package.price)}</span></div>
+      ${(KP.package.items || []).length ? `<div class="what"><span class="label">Что входит в комплекс</span>${listHTML(KP.package.items)}</div>` : ""}
+      <div class="pkobjs">${members.map(([o, i]) => `<div class="pko"><h3>${esc(o.name)}</h3>${viewsHTML(o, i)}${listHTML(o.items)}</div>`).join("")}</div>
+    </article>`;
+  }
+  h += KP.objects.map((o, i) => (KP.package && !o.separate) ? "" : `<article class="obj${on.has(i) ? "" : " off"}">
+      <div class="oh">
+        <label class="pick"><input type="checkbox" data-o="${i}" ${on.has(i) ? "checked" : ""}><h2>${esc(o.name)}</h2></label>
+        <span class="oprice num">${rub(o.price)}</span>
+      </div>
+      ${o.separate ? `<p class="sepnote">🧾 ${esc(o.note || "Отдельный чек: цвет согласуем отдельно")}</p>` : ""}
+      <div class="oview">${viewsHTML(o, i)}</div>
+      <div class="what"><span class="label">Что входит</span>${listHTML(o.items)}</div>
+    </article>`).join("");
+  $("objs").innerHTML = h;
+}
+$("objs").addEventListener("change", e => {
+  const c = e.target.closest("input[type=checkbox][data-o]"); if (!c) return;
+  const i = +c.dataset.o; c.checked ? on.add(i) : on.delete(i);
+  update();
+});
+$("objs").addEventListener("click", e => {
+  const b = e.target.closest("button[data-v]"); if (!b) return;
+  view[+b.dataset.o] = +b.dataset.v;
+  drawObjs();
+});
+
+function drawSum(){
+  const c = calc(), d = KP.discount;
+  let h = "";
+  if (KP.package) h += `<div class="row"><span>📦 ${esc(KP.package.name)}</span><span class="num">${rub(KP.package.price)}</span></div>`;
+  h += KP.objects.map((o, i) => (KP.package && !o.separate) ? "" :
+    `<div class="row${on.has(i) ? "" : " off"}"><span>${esc(o.name)}${o.separate ? " <small>(отдельный чек)</small>" : ""}</span><span class="num">${on.has(i) ? rub(o.price) : "не включён"}</span></div>`).join("");
+  if (d && c.disc > 0) {
+    h += `<div class="row disc"><span>${esc(d.label || "Скидка за единый материал")}${c.sepSum > 0 ? " <small>(без отдельного чека)</small>" : ""}</span><span class="num">−${rub(c.disc)}</span></div>`;
+  }
+  h += c.opts.map(o => `<div class="row"><span>${esc(o.name)}${pickOf(o) ? ": " + esc(pickOf(o).name) : ""}</span><span class="num">+${rub(optPrice(o))}</span></div>`).join("");
+  h += `<div class="row fin"><span>Итого</span><span class="num">${rub(c.fin)}</span></div>`;
+  $("sumtab").innerHTML = h;
+  const n = c.sel.length;
+  $("what").innerHTML = n ? c.sel.map(o => `<b>${esc(o.name)}</b> ${rub(o.price)}`).join(" + ") + (c.disc > 0 ? ` · скидка −${rub(c.disc)}` : "")
+    + (c.opts.length ? ` · ${c.opts.length} ${plural(c.opts.length, "опция", "опции", "опций")} +${rub(c.osum)}` : "") : "Ничего не выбрано";
+  $("big").textContent = rub(c.fin);
+  $("copy").disabled = !n;
+}
+
+/* ---------- отправка выбора мастеру ---------- */
+function choiceText(){
+  const c = calc(), d = KP.discount;
+  return [
+    KP.title,
+    ...c.sel.map(o => `• ${o.name} — ${rub(o.price)}${o.separate ? " (отдельный чек)" : ""}`),
+    ...(c.disc > 0 ? [`${d.label || "Скидка за единый материал"}: −${rub(c.disc)}`] : []),
+    ...(c.opts.length ? ["Дополнительно:", ...c.opts.map(o => `• ${o.name}${pickOf(o) ? ": " + pickOf(o).name : ""} — ${rub(optPrice(o))}`)] : []),
+    `Итого: ${rub(c.fin)}`
+  ].join("\n");
+}
+async function copyText(text){
+  try { await navigator.clipboard.writeText(text); return true; }
+  catch(e){
+    const ta = document.createElement("textarea"); ta.value = text; ta.style.position = "fixed"; ta.style.opacity = "0";
+    document.body.appendChild(ta); ta.select(); let ok = false; try { ok = document.execCommand("copy"); } catch(_){}
+    ta.remove(); return ok;
+  }
+}
+const who = (KP.master || "мастер").split(/[ ,—-]/)[0] || "мастер";
+const dlg = $("send");
+$("sendGo").textContent = "Отправить " + (/[бвгджзклмнпрстфхцчшщ]$/i.test(who) ? who + "у" : "мастеру");
+$("doneWho").textContent = who === "мастер" ? "Мастер" : who;
+$("autoBox").hidden = !KP.sendUrl;
+const chats = [["MAX", KP.maxChat], ["Telegram", KP.tgChat]].filter(x => x[1]);
+$("msBox").innerHTML = chats.map(([n, u]) => `<a href="${esc(u)}" target="_blank" rel="noopener">${n}</a>`).join("");
+$("orTxt").hidden = !chats.length;
+$("msHint").hidden = !chats.length;
+$("msBox").querySelectorAll("a").forEach(a => a.addEventListener("click", () => { copyText(choiceText()); }));
+$("copy").addEventListener("click", () => {
+  $("sendSum").textContent = choiceText();
+  $("sendForm").hidden = false; $("sendDone").hidden = true;
+  if (!KP.sendUrl && !chats.length) {
+    copyText(choiceText()).then(ok => { $("copy").textContent = ok ? "Скопировано" : "Не получилось"; setTimeout(() => $("copy").textContent = "📨 Отправить выбор", 2200); });
+    return;
+  }
+  dlg.showModal ? dlg.showModal() : dlg.setAttribute("open", "");
+});
+$("sendX").addEventListener("click", () => dlg.close ? dlg.close() : dlg.removeAttribute("open"));
+dlg.addEventListener("click", e => { if (e.target === dlg) dlg.close(); });
+$("sendGo").addEventListener("click", async () => {
+  const b = $("sendGo"), label = b.textContent;
+  b.disabled = true; b.textContent = "Отправляю…";
+  try {
+    const r = await fetch(KP.sendUrl, {method: "POST", headers: {"Content-Type": "text/plain;charset=utf-8"},
+      body: JSON.stringify({page: location.href, title: KP.title, text: choiceText(),
+                            name: "", note: $("sendNote").value.trim()})});
+    const j = await r.json().catch(() => ({ok: false}));
+    if (!r.ok || !j.ok) throw new Error(r.status);
+    $("sendForm").hidden = true; $("sendDone").hidden = false;
+  } catch(e) {
+    b.textContent = "Не отправилось — напишите в мессенджер ниже";
+    setTimeout(() => { b.textContent = label; b.disabled = false; }, 4000);
+    return;
+  }
+  b.disabled = false; b.textContent = label;
+});
+
+$("priceNote").textContent = KP.priceNote || "";
+$("priceNote").hidden = !KP.priceNote;
+function update(){ drawObjs(); drawOpts(); drawSum(); }
+update();
+</script>
+
+</body>
+</html>
