@@ -1,4 +1,4 @@
-:HL["/kp/briz/demo/_next/static/chunks/1c-xxoueejvy-.css","style"]
+:HL["/kp/briz/demo/_next/static/chunks/43bd7wu-fl35-.css","style"]
 2:[["children",{"s":"__PAGE__","h":160}]]
 1:[["children",{"s":"/_not-found","h":96,"c":"$Q2"}]]
-0:{"b":"tOkZaj4zhTMm2C01Phkvg","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
+0:{"b":"foouoL2mmIqggA6jbzw_K","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
