@@ -1,4 +1,4 @@
 :HL["/kp/briz/reserve/_next/static/chunks/4363hdv9850aa.css","style"]
 2:[["children",{"s":"__PAGE__","h":160}]]
 1:[["children",{"s":"/_not-found","h":96,"c":"$Q2"}]]
-0:{"b":"I7vIbaq4G8tVZe3qcPwnx","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
+0:{"b":"GAJstiWSVTgeTSd-N-Q5d","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
