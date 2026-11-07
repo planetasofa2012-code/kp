@@ -3,4 +3,4 @@
 :HL["/kp/briz/reserve/_next/static/media/8800dfc60902df36-s.p.2sla2yow9-9p_.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 2:[["children",{"s":"__PAGE__","h":160}]]
 1:[["children",{"s":"parent","h":96,"c":"$Q2"}]]
-0:{"b":"1zltixRmMbnPAH2n_QZ8n","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
+0:{"b":"-jK_lX-_8n7kCF2JRmsyC","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
